@@ -11,3 +11,8 @@ No AI engineer? No problem! No matter if Image Recognition or Language Processin
 ## How to become a beta tester?
 
 Head down to [cargoship.sh](https://cargoship.sh) and join as a beta tester.
+
+-----
+This project is funded with the help of the state of Schleswig-Holstein (Germany)
+
+![image](https://user-images.githubusercontent.com/675065/216845145-1f40e073-2999-4e14-b5b7-e85793f25691.png)
