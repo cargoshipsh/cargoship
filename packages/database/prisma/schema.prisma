@@ -1,0 +1,97 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Project {
+  id        String    @id @default(cuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime?
+  label     String
+  team      Team      @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  teamId    String
+  running   Boolean   @default(false)
+  rFile     String?   @db.Text
+  logs      String?   @db.Text
+}
+
+model Team {
+  id       String       @id @default(cuid())
+  name     String
+  members  Membership[]
+  projects Project[]
+}
+
+enum MembershipRole {
+  MEMBER
+  ADMIN
+  OWNER
+}
+
+model Membership {
+  team     Team           @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  teamId   String
+  user     User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId   String
+  accepted Boolean        @default(false)
+  role     MembershipRole
+
+  @@id([userId, teamId])
+}
+
+enum IdentityProvider {
+  EMAIL
+  GITHUB
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  user              User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  access_token      String? @db.Text
+  refresh_token     String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  @@unique([provider, providerAccountId])
+}
+
+model ApiKey {
+  id         String    @id @unique @default(cuid())
+  createdAt  DateTime  @default(now())
+  lastUsedAt DateTime?
+  label      String?
+  hashedKey  String    @unique()
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String
+}
+
+model User {
+  id                        String           @id @default(cuid())
+  name                      String?
+  email                     String           @unique
+  emailVerified             DateTime?        @map(name: "email_verified")
+  password                  String?
+  createdAt                 DateTime         @default(now()) @map(name: "created_at")
+  updatedAt                 DateTime         @updatedAt @map(name: "updated_at")
+  identityProvider          IdentityProvider @default(EMAIL)
+  identityProviderAccountId String?
+  teams                     Membership[]
+  accounts                  Account[]
+  apiKeys                   ApiKey[]
+
+  @@map(name: "users")
+}
