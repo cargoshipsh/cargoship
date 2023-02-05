@@ -1,14 +1,10 @@
-import Link from "next/link";
-import clsx from "clsx";
 import { Logo } from "@cargoship/ui";
+import Link from "next/link";
+import Image from "next/image";
+import StaateskanzleiShLogo from "@/images/sh_mpstkl_logo-300x150.jpg";
 
 const navigation = {
-  other: [
-    { name: "Community", href: "/community", status: true },
-    { name: "Blog", href: "/blog", status: true },
-    { name: "GDPR FAQ", href: "/gdpr", status: true },
-    { name: "GDPR Guide", href: "/gdpr-guide", status: true },
-  ],
+  other: [{ name: "Blog", href: "/blog", status: true }],
   social: [
     {
       name: "Twitter",
@@ -42,26 +38,40 @@ export default function Footer() {
         Footer
       </h2>
       <div className="mx-auto flex max-w-7xl flex-col space-y-6 px-4 py-12 text-center sm:px-6 lg:py-16 lg:px-8">
-        <Link href="/">
-          <span className="sr-only">Cargoship</span>
-          <Logo className="mx-auto h-8 w-auto fill-white sm:h-10" />
-        </Link>
-        <p className="text-base text-slate-500 dark:text-slate-400">Integrate AI into your Application</p>
-        <div className="border-gray-500">
-          <p className="text-sm text-slate-400 dark:text-gray-500">
-            &copy; 2022. All rights reserved.
-            <br />
-            <Link href="/imprint">Imprint</Link> | <Link href="/privacy">Privacy Policy</Link> |{" "}
-            <Link href="/terms">Terms</Link>
-          </p>
-        </div>
-        <div className="flex justify-center space-x-6">
-          {navigation.social.map((item) => (
-            <Link key={item.name} href={item.href} className="text-slate-400 hover:text-gray-500">
-              <span className="sr-only">{item.name}</span>
-              <item.icon className="h-6 w-6" aria-hidden="true" />
+        <div className="grid grid-cols-2 items-center">
+          <div>
+            <Link href="/">
+              <span className="sr-only">Cargoship</span>
+              <Logo className="mx-auto h-8 w-auto fill-white sm:h-10" />
             </Link>
-          ))}
+            <p className="text-base text-slate-500 dark:text-slate-400">Integrate AI into your Application</p>
+          </div>
+          <div className="text-sm text-slate-400">
+            <Image
+              src={StaateskanzleiShLogo}
+              alt="State of Schleswig-Holstein"
+              width="200"
+              height="100"
+              className="mx-auto rounded"
+            />
+            <p className="mx-auto mt-3 text-sm">Funded by the state of Schleswig-Holstein</p>
+          </div>
+        </div>
+        <div>
+          <div className="border-gray-500">
+            <p className="text-sm text-slate-400">&copy; 2022. All rights reserved.</p>
+            <p className="mt-2 text-sm text-slate-400">
+              <Link href="/imprint">Imprint</Link> | <Link href="/privacy">Privacy Policy</Link>
+            </p>
+          </div>
+          <div className="mt-3 flex justify-center space-x-6">
+            {navigation.social.map((item) => (
+              <Link key={item.name} href={item.href} className="text-slate-400 hover:text-gray-500">
+                <span className="sr-only">{item.name}</span>
+                <item.icon className="h-6 w-6" aria-hidden="true" />
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
