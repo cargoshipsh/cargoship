@@ -9,7 +9,11 @@ export default function Hero() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            Integrate AI into your Application
+            Integrate{" "}
+            <span className="from-brand-light to-brand-dark bg-gradient-to-b bg-clip-text text-transparent xl:inline">
+              AI
+            </span>{" "}
+            into your Application
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-300">
             Choose a model from our collection and use it with zero machine learning knowledge to build
