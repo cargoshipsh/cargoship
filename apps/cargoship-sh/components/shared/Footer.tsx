@@ -38,7 +38,7 @@ export default function Footer() {
         Footer
       </h2>
       <div className="mx-auto flex max-w-7xl flex-col space-y-6 px-4 py-12 text-center sm:px-6 lg:py-16 lg:px-8">
-        <div className="grid grid-cols-2 items-center">
+        <div className="grid grid-cols-1 items-center gap-6 sm:grid-cols-2">
           <div>
             <Link href="/">
               <span className="sr-only">Cargoship</span>
