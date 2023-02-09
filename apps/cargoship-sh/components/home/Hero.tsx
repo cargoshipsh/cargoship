@@ -17,7 +17,7 @@ export default function Hero() {
             <span className="from-brand-light to-brand-dark bg-gradient-to-b bg-clip-text text-transparent xl:inline">
               AI
             </span>{" "}
-            into your application
+            into your SaaS
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-300">
             Choose a model from our open source collection and use it without any machine learning knowledge
