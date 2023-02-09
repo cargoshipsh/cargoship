@@ -9,15 +9,21 @@ export default function Hero() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            Integrate{" "}
+            The{" "}
+            <span className="from-brand-light to-brand-dark bg-gradient-to-b bg-clip-text text-transparent xl:inline">
+              easiest way
+            </span>{" "}
+            to integrate{" "}
             <span className="from-brand-light to-brand-dark bg-gradient-to-b bg-clip-text text-transparent xl:inline">
               AI
             </span>{" "}
-            into your Application
+            into your application
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-300">
-            Choose a model from our collection and use it with zero machine learning knowledge to build
-            amazing products
+            Choose a model from our open source collection and use it without any machine learning knowledge
+            to build amazing products.
+            <br />
+            Host it yourself or use our managed service.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link

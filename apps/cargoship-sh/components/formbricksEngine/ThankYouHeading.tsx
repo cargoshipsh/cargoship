@@ -1,6 +1,6 @@
 import { Confetti } from "@cargoship/ui";
 
-export default function ThankYouHeading({ element }: { element: any }) {
+export default function ThankYouHeading() {
   return (
     <div className="text-center">
       <Confetti />

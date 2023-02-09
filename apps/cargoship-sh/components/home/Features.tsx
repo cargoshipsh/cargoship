@@ -14,7 +14,8 @@ import BackgroundGradient from "./BackgroundGradient";
 const features = [
   {
     name: "Ever Growing",
-    description: "Choose from a large selection of models that is always growing.",
+    description:
+      "Choose from a large selection of models that is always growing. We curate and fine-tune the best models from HuggingFace and Github.",
     icon: RectangleStackIcon,
   },
   {
