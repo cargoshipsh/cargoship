@@ -109,7 +109,7 @@ const WaitlistPage = () => {
                           },
                           {
                             label: "I'm not a developer",
-                            value: "mobileDevelopment",
+                            value: "notDeveloper",
                             frontend: { icon: XMarkIcon },
                           },
                         ],
@@ -168,7 +168,7 @@ const WaitlistPage = () => {
                             value: "languageDetection",
                             frontend: {
                               icon: FlagIcon,
-                              description: "Automatically determine the language of a given text.",
+                              description: "Automatically determine the language of a given text.\n",
                             },
                           },
                           {

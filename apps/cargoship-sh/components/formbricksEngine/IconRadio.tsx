@@ -73,7 +73,7 @@ export default function IconRadio({
                       clsx(
                         checked ? "border-transparent" : "border-slate-700",
                         active ? "border-brand ring-brand ring-2" : "",
-                        "relative flex cursor-pointer rounded-lg border bg-slate-700 py-8 shadow-sm transition-all ease-in-out hover:scale-105 focus:outline-none"
+                        "relative flex cursor-pointer rounded-lg border-2 border-white/10 bg-white/5 py-8 shadow-sm backdrop-blur transition-all ease-in-out hover:scale-105 focus:outline-none"
                       )
                     }>
                     {({ checked, active }) => (
