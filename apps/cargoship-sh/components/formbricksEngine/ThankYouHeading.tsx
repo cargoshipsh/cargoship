@@ -1,4 +1,4 @@
-import { Confetti } from "@formbricks/ui";
+import { Confetti } from "@cargoship/ui";
 
 export default function ThankYouHeading({ element }: { element: any }) {
   return (

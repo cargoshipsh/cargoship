@@ -1,4 +1,4 @@
-import { Button } from "@formbricks/ui";
+import { Button } from "@cargoship/ui";
 
 interface EngineButtonsProps {
   allowSkip: boolean;
@@ -8,7 +8,7 @@ interface EngineButtonsProps {
 
 export function EngineButtons({ allowSkip, skipAction, autoSubmit }: EngineButtonsProps) {
   return (
-    <div className="mx-auto mt-8 flex w-full max-w-xl justify-end">
+    <div className="mx-auto mt-8 flex w-full justify-end">
       {allowSkip && (
         <Button
           variant="secondary"
