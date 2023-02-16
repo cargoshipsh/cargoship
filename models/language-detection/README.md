@@ -1,6 +1,6 @@
 # language-detection
 
-API for detecting language of an input text
+API for detecting language of an input text. Get more details on [cargoship.sh](https://cargoship.sh).
 
 ## How to setup
 
