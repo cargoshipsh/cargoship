@@ -1,0 +1,9 @@
+version: "3.3"
+services:
+  language-detection-api:
+    restart: unless-stopped
+    build: .
+    environment:
+      - API_KEY=CHANGE_ME
+    ports:
+      - 80:80
