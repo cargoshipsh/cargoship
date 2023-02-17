@@ -1,0 +1,64 @@
+import LayoutMdx from "@/components/layout/LayoutMdx";
+import ResponsiveEmbed from "react-responsive-embed";
+
+export const meta = {
+  title: "Language Detection",
+  description: "Automatically detect the language of an input text",
+};
+
+```
+docker pull cargoshipsh/language-detection
+```
+
+Automatically detect the language of an input text. This model is based on [FastText](https://fasttext.cc/docs/en/language-identification.html) and is trained on data from [Wikipedia](https://www.wikipedia.org/), [Tatoeba](https://tatoeba.org/eng/) and [SETimes](http://nlp.ffzg.hr/resources/corpora/setimes/). The model itself is only 917kB in size and doesn't require a GPU to run.
+
+## License
+
+The model itself is licensed under [Creative Commons Attribution-Share-Alike License 3.0](https://creativecommons.org/licenses/by-sa/3.0/)
+
+## System Requirements
+
+**Minimum**: 1GB RAM, 1 vCPU<br/>
+**Recommended**: 2GB RAM, 2 vCPU
+
+## Usage
+
+**Input [POST]**
+
+```json
+{
+  "text": "This is a text in English"
+}
+```
+
+**Output**
+
+```json
+{
+  "language": "en"
+}
+```
+
+You need to set an API Key via the environment variable `API_KEY` to run the image and set the `X-API-KEY` header in your request with the same KEY.
+
+### Example
+
+Make sure you have Docker installed then run the following command:
+
+```bash
+docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/language-detection:main
+```
+
+In a new terminal window, run the following command to call the API
+
+```bash
+curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"text":"Hello, World!"}' http://localhost:80
+```
+
+You see the output of the model in the terminal.
+
+```bash
+{"language":"en"}
+```
+
+export default ({ children }) => <LayoutMdx meta={meta}>{children}</LayoutMdx>;

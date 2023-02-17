@@ -5,11 +5,10 @@ import { useState } from "react";
 import BackgroundGradient from "../home/BackgroundGradient";
 import Link from "next/link";
 
-const navigation: { name: string; href: string }[] = [
-  /*  { name: "Product", href: "#" },
-  { name: "Features", href: "#" },
-  { name: "Marketplace", href: "#" },
-  { name: "Company", href: "#" }, */
+const navigation: { name: string; href: string; indicator?: string | number }[] = [
+  { name: "Models", href: "/collections" },
+  { name: "Docs", href: "/docs" },
+  { name: "Blog", href: "/blog", indicator: 1 },
 ];
 
 export default function Navbar() {
@@ -40,6 +39,9 @@ export default function Navbar() {
             {navigation.map((item) => (
               <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-white">
                 {item.name}
+                {item.indicator && (
+                  <span className="bg-brand ml-1 inline rounded-full px-1.5 text-xs text-white">1</span>
+                )}
               </a>
             ))}
           </div>
@@ -77,13 +79,6 @@ export default function Navbar() {
                       {item.name}
                     </a>
                   ))}
-                </div>
-                <div className="py-6">
-                  <a
-                    href="#"
-                    className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-6 text-white hover:bg-gray-400/10">
-                    Log in
-                  </a>
                 </div>
               </div>
             </div>

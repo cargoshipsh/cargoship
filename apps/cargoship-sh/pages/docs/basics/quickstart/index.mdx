@@ -1,0 +1,13 @@
+import { Layout } from "@/components/docs/Layout";
+import Image from "next/image";
+import { Callout } from "@/components/shared/Callout";
+
+export const meta = {
+  title: "Quickstart",
+};
+
+<Callout title="In progress" type="warning">
+  This docs article will be published soon.
+</Callout>
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

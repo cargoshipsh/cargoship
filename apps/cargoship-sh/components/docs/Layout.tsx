@@ -60,8 +60,9 @@ function Header({ navigation }: any) {
         <ThemeSelector className="relative z-10 mr-5" />
         <Button
           variant="secondary"
+          className="bg-slate-200"
           EndIcon={GitHubIcon}
-          endIconClassName="fill-slate-800 dark:fill-slate-200"
+          endIconClassName="fill-slate-800 dark:fill-slate-200 ml-2"
           onClick={() => router.push("https://github.com/cargoship/cargoship")}>
           View on Github
         </Button>
