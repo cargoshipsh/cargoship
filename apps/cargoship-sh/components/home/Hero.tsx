@@ -7,23 +7,21 @@ export default function Hero() {
   return (
     <div className="relative py-24 sm:py-32 lg:pb-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            The{" "}
-            <span className="from-brand-light to-brand-dark bg-gradient-to-b bg-clip-text text-transparent xl:inline">
-              easiest way
-            </span>{" "}
-            to integrate{" "}
+        <div className="mx-auto max-w-3xl text-center">
+          <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">
+            Add{" "}
             <span className="from-brand-light to-brand-dark bg-gradient-to-b bg-clip-text text-transparent xl:inline">
               AI
             </span>{" "}
-            into your software
+            to your software without any{" "}
+            <span className="from-brand-light to-brand-dark bg-gradient-to-b bg-clip-text text-transparent xl:inline">
+              machine learning
+            </span>{" "}
+            knowledge
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-300">
-            Choose a model from our open source collection and use it without any machine learning knowledge
-            to build amazing products.
-            <br />
-            Host it yourself or use our managed service.
+            Select a model from our open source collection, run the container and access the model API in your
+            product.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link
