@@ -1,0 +1,13 @@
+import { Layout } from "@/components/docs/Layout";
+import Image from "next/image";
+import { Callout } from "@/components/shared/Callout";
+
+export const meta = {
+  title: "Basics",
+};
+
+To make it easy for you to get started and use our machine learning without having to worry about the technical details & machine learning technology stacks, we have wrapped the models in an easy-to-use API wrapper. This allows you to communicate with the machine learning model regardless of the technology stack you are using.
+
+The API wrapper is a simple REST API that you can use to make predictions. We package each model in a Docker container that you can use on your local machine and deploy to your servers. We distribute the underlying code as well as the containers as open source under the permissive MIT license on [GitHub](https://github.com/cargoshipsh/cargoship).
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

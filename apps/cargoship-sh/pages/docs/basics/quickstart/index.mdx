@@ -6,8 +6,63 @@ export const meta = {
   title: "Quickstart",
 };
 
-<Callout title="In progress" type="warning">
-  This docs article will be published soon.
-</Callout>
+This guide explains the basic steps to get started with Cargoship's machine learning models. If you want to learn how to deploy the models on your server, please refer to the [Deployment](/docs/basics/deployment) guide.
+
+But for now, let's get started with your first prediction on your local machine. To get started, make sure you have [Docker](https://www.docker.com/get-started/) installed.
+
+## 1. Launch the container
+
+Cargoships prepacks all models into a Docker container. For this tutorial, we'll choose the very simple and lightweight [language-detection model](http://localhost:3001/collections/language-detection/language-detection). To first download the image to your local machine, run the following command inside your terminal:
+
+```bash
+docker pull cargoshipsh/language-detection:main
+```
+
+This command pulls the image from [DockerHub](https://hub.docker.com/r/cargoshipsh/language-detection), the official repository for docker images from the company behind docker. Now that the image is on your local machine, you can start the container using
+
+```bash
+docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/language-detection:main
+```
+
+You will notice that the name of the image at the end of this command is the same as the one you saw when you grabbed the images. The other two parameters are important as well:
+
+- `-p 80:80` exposes port 80 of the container to port 80 of your local machine - so you can access the container from outside the container.
+- `--env API_KEY=CHANGE_ME` sets the environment variable `API_KEY` to the value `CHANGE_ME`. This is important because the container will only accept requests with the correct API key to protect your API from being used by others without your permission. You can change this value to any string you like, but make sure you use the same value in the next step.
+
+## 2. Making a request
+
+Now that the container is running, you are ready to make a request to the API. For that please open a new tab or a new window inside your terminal. You can use any HTTP client you like, but for this tutorial we will use [curl](https://curl.se/), which is most likely already built into your terminal. To make a request, run the following command in your terminal
+
+```bash
+curl -X POST \
+  http://localhost:80/ \
+  -H 'Content-Type: application/json' \
+  -H 'X-API-KEY: CHANGE_ME' \
+  -d '{
+    "text": "This is a test"
+}'
+```
+
+This command sends a `POST` request to your container running on port 80. The request contains a JSON body with the key `text` and the value `This is a test`. The `X-API-KEY` header is also important, as it contains the API key you set in the previous step. After submitting this request, you should receive the following response
+
+```json
+{
+  "language": "en"
+}
+```
+
+This response tells you that the model detected the language of the text to be English. You can try out different texts by changing the value of the `text` key in the request body.
+
+## 3. Stop the container
+
+To stop the container, you can either close the terminal window or press `Ctrl+C` in the terminal. If you want to start the container again, you can run the same command as in step 1.
+
+## Additional Notes
+
+These steps showed you how to run the container locally. However, you can also run the container on a server. For that, please check out the part [Deployment](/docs/basics/deployment) of our docs.
+
+## Next steps
+
+Your next steps would be to call the API from your own application. The implementation of this depends on your programming language and framework. We will soon extend the docs with more tutorials on how to call the API from different programming languages and frameworks.
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

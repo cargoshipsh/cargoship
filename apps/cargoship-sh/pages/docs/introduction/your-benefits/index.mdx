@@ -1,0 +1,26 @@
+import { Layout } from "@/components/docs/Layout";
+import Image from "next/image";
+import { Callout } from "@/components/shared/Callout";
+
+export const meta = {
+  title: "Your benefits",
+};
+
+Incorporating machine learning and intelligent behavior into your app can be a daunting task. Problems include:
+
+- Which models to use, which are production-ready?
+- Mastering ML tooling and understanding machine learning tech stacks
+- Packaging the models into a production-ready API
+
+We have been through these processes and challenges many times and want to share our experiences with you. We want to help you get started with machine learning without the hassle.
+
+Here is what you get when you use the CargoShip machine learning models:
+
+- Curated and production-ready models for your use case
+- Models packaged in a production-ready API that you can easily deploy on your servers via Docker
+- Embed your models into your (webbased) apps without worrying about the backend and no matter your tech stack
+- A hosted offering to get you started even faster and scale with your needs (coming soon)
+
+You can use the models for free, with no strings attached. All we ask is that you share your use case with us so we can improve the models and make them even better.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
