@@ -50,7 +50,7 @@ function Header({ navigation }: any) {
       </div>
       <div className="relative flex flex-grow basis-0 items-center">
         <Link href="/" aria-label="Home page">
-          <Logo className="h-5 w-auto fill-gray-800 sm:h-7" />
+          <Logo className="h-5 w-auto fill-gray-800 dark:fill-white sm:h-7" />
         </Link>
       </div>
       <div className="-my-5 mr-6 sm:mr-8 md:mr-0">

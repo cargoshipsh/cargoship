@@ -4,7 +4,7 @@ const themeScript = `
   let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)')
 
   function updateTheme(theme) {
-    theme = theme ?? window.localStorage.theme ?? 'system'
+    theme = theme ?? window.localStorage.theme ?? 'dark'
 
     if (theme === 'dark' || (theme === 'system' && isDarkMode.matches)) {
       document.documentElement.classList.add('dark')
