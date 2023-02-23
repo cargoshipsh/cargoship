@@ -1,0 +1,73 @@
+import LayoutMdx from "@/components/layout/LayoutMdx";
+import ResponsiveEmbed from "react-responsive-embed";
+import { Callout } from "@/components/shared/Callout";
+import { DiscordCTA } from "@/components/shared/DiscordCTA";
+
+export const meta = {
+  title: "Sentiment Analysis",
+  description: "Automatically identify the expressed emotion of an input text",
+};
+
+```
+docker pull cargoshipsh/sentiment-en
+```
+
+Automatically detect the language of an input text. This is a roBERTa-base model trained on ~58M tweets and finetuned for sentiment analysis with the [TweetEval](https://github.com/cardiffnlp/tweeteval) benchmark. The model itself is 500MB and needs an aditional 1.5MB for the tokenizer.
+
+## License
+
+The code for the API wrapper is licensed under [MIT License](https://opensource.org/license/mit/).
+
+## System Requirements
+
+**Minimum**: 1GB RAM, 1 vCPU<br/>
+**Recommended**: 2GB RAM, 2 vCPU
+
+## Usage
+
+**Input [POST]**
+
+```json
+{
+  "text": "I like you."
+}
+```
+
+**Output**
+
+```json
+{
+  "sentiment": "positive"
+}
+```
+
+You need to set an API Key via the environment variable `API_KEY` to run the image and set the `X-API-KEY` header in your request with the same KEY.
+
+<Callout type="note" title="Need a more detailed setup guide?">
+  To get more detailed instructions how to get started please check out our [quick start
+  guide](/docs/basics/quickstart) in the docs.
+</Callout>
+
+### Example
+
+Make sure you have Docker installed then run the following command:
+
+```bash
+docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/sentiment-analysis-en:main
+```
+
+In a new terminal window, run the following command to call the API
+
+```bash
+curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"text":"I like you!"}' http://localhost:80
+```
+
+You see the output of the model in the terminal.
+
+```bash
+{"sentiment":"positive"}
+```
+
+<DiscordCTA />
+
+export default ({ children }) => <LayoutMdx meta={meta}>{children}</LayoutMdx>;
