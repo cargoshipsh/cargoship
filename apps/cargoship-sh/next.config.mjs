@@ -19,6 +19,16 @@ const nextConfig = {
         destination: "/privacy-policy",
         permanent: false,
       },
+      {
+        source: "/discord",
+        destination: "https://discord.gg/FJcdC8K6tf",
+        permanent: false,
+      },
+      {
+        source: "/github",
+        destination: "https://github.com/cargoshipsh/cargoship",
+        permanent: false,
+      },
     ];
   },
 };
