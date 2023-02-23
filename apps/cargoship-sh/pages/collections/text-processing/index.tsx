@@ -38,7 +38,7 @@ export default function CollectionsOverviewPage() {
               {models.map((model) => (
                 <Link
                   key={model.name}
-                  href={`/collections/language-detection/${model.id}`}
+                  href={`/collections/text-processing/${model.id}`}
                   className="rounded-2xl border-2 border-white/10 bg-white/5 py-10 px-8 backdrop-blur transition-all ease-in-out hover:scale-105">
                   <Image
                     className="mx-auto h-48 rounded-lg md:h-56"
