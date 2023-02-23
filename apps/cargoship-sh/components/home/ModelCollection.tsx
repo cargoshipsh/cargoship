@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Cog8ToothIcon,
   DocumentTextIcon,
@@ -6,6 +7,7 @@ import {
   PhotoIcon,
 } from "@heroicons/react/24/outline";
 import BackgroundGradient from "./BackgroundGradient";
+import { Icon } from "../shared/Icon";
 
 const models = [
   {
@@ -79,6 +81,13 @@ export default function ModelCollection() {
         <p className="mx-auto mt-3 max-w-md text-base text-slate-300 md:mt-5 md:max-w-3xl">
           Packaged as easy-to-use Docker containers, you get a well-documented API for every AI challenge.
         </p>
+        <div className="mt-10 flex items-center justify-center gap-x-6">
+            <Link
+              href="/collections"
+              className="rounded-md bg-sky-500 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm transition-all ease-in-out hover:scale-105 hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400">
+              Explore Models
+            </Link>
+        </div>
       </div>
       <div>
         <div className=" mx-auto grid max-w-5xl grid-cols-1 gap-6 px-2 sm:grid-cols-2">
