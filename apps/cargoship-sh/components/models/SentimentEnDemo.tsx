@@ -3,13 +3,13 @@ import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
 export function LanguageDetectionDemo() {
-  const [prediction, setPrediction] = useState("en");
+  const [prediction, setPrediction] = useState("positive");
   const [loading, setLoading] = useState(false);
 
   const makePrediction = async (e: any) => {
     setLoading(true);
     e.preventDefault();
-    const res = await fetch("https://language-detection.api.stackocean.com", {
+    const res = await fetch("https://sentiment-en.api.stackocean.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +41,7 @@ export function LanguageDetectionDemo() {
                 name="text"
                 id="text"
                 className="block w-full rounded-md border-white/10 bg-white/5 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm "
-                defaultValue={"Hello, what's up?"}
+                defaultValue={"I love Pizza!"}
               />
             </div>
           </div>
@@ -52,7 +52,7 @@ export function LanguageDetectionDemo() {
       </div>
       <div className="rounded-lg bg-white/5 p-5">
         <h3 className="m-0 inline-flex items-center text-xl">
-          <ArrowRightCircleIcon className="mr-1 h-6 w-6" /> Predicted Language
+          <ArrowRightCircleIcon className="mr-1 h-6 w-6" /> Predicted Sentiment
         </h3>
         <div className="mt-1">
           <p className="m-o text-white">{prediction}</p>
