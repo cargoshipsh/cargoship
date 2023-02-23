@@ -2,6 +2,7 @@ import LayoutMdx from "@/components/layout/LayoutMdx";
 import ResponsiveEmbed from "react-responsive-embed";
 import { Callout } from "@/components/shared/Callout";
 import { DiscordCTA } from "@/components/shared/DiscordCTA";
+import { SentimentEnDemo } from "@/components/models/SentimentEnDemo";
 
 export const meta = {
   title: "Sentiment Analysis",
@@ -13,6 +14,10 @@ docker pull cargoshipsh/sentiment-en
 ```
 
 Automatically detect the language of an input text. This is a roBERTa-base model trained on ~58M tweets and finetuned for sentiment analysis with the [TweetEval](https://github.com/cardiffnlp/tweeteval) benchmark. The model itself is 500MB and needs an aditional 1.5MB for the tokenizer.
+
+## Demo
+
+<SentimentEnDemo />
 
 ## License
 
@@ -53,7 +58,7 @@ You need to set an API Key via the environment variable `API_KEY` to run the ima
 Make sure you have Docker installed then run the following command:
 
 ```bash
-docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/sentiment-en:main
+docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/sentiment-en
 ```
 
 In a new terminal window, run the following command to call the API

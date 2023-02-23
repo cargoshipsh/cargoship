@@ -2,7 +2,7 @@ import { Button } from "@cargoship/ui";
 import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
-export function LanguageDetectionDemo() {
+export function SentimentEnDemo() {
   const [prediction, setPrediction] = useState("positive");
   const [loading, setLoading] = useState(false);
 
@@ -25,7 +25,7 @@ export function LanguageDetectionDemo() {
       return;
     }
     const data = await res.json();
-    setPrediction(data.language);
+    setPrediction(data.sentiment);
     setLoading(false);
   };
 
