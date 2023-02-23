@@ -53,9 +53,7 @@ function Header({ navigation }: any) {
           <Logo className="h-5 w-auto fill-gray-800 dark:fill-white sm:h-7" />
         </Link>
       </div>
-      <div className="-my-5 mr-6 sm:mr-8 md:mr-0">
-        <Search />
-      </div>
+      <div className="-my-5 mr-6 sm:mr-8 md:mr-0">{/*  <Search /> */}</div>
       <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
         <ThemeSelector className="relative z-10 mr-5" />
         <Button

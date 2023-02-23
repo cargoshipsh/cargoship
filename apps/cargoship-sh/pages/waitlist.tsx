@@ -31,9 +31,8 @@ const WaitlistPage = () => {
   const plausible = usePlausible();
   return (
     <div className="relative isolate flex min-h-screen flex-col justify-between bg-gray-900">
-      <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
-        <BackgroundGradient rotate={true} />
-      </div>
+      <BackgroundGradient rotate={true} />
+
       <div className="px-6 pt-6 lg:px-8">
         <nav className="flex items-center justify-between" aria-label="Global">
           <div className="flex lg:flex-1">

@@ -1,34 +1,41 @@
 import LayoutMdx from "@/components/layout/LayoutMdx";
 import ResponsiveEmbed from "react-responsive-embed";
 import Image from "next/image";
-import MyImage from "./cargoship-explained.png"
+import MyImage from "./cargoship-explained.png";
+import { TryItCTA } from "@/components/shared/TryItCTA";
 
 export const meta = {
   title: "Why we develop Cargoship",
-  description: "Our mission is to provide the easiest way to integrate AI to your software. Here is why there is a need for a new open source AI model store",
+  description:
+    "Our mission is to provide the easiest way to integrate AI to your software. Here is why there is a need for a new open source AI model store",
   date: "2023-02-03",
 };
 
 Cargoship - The easiest way to integrate AI to your software
 
-<Image src={MyImage} alt="A very nice image featuring cargoship functionality"/>
+<Image src={MyImage} alt="A very nice image featuring cargoship functionality" />
 
-The Problem <br/>
+## The Problem
+
 When it comes to machine learning, everyone says it's going to make our lives easier - and it's true! But that's not true for most developers out there. ML has the potential to automate and revolutionise the way we work and live. However, developing machine learning models can be time consuming and resource intensive, requiring a significant amount of domain knowledge, data processing skills and technical expertise. This often means that small and medium-sized businesses, as well as individual developers, are unable to take advantage of machine learning models. <br/>
 Developers need to adapt to these new techniques and learn how to implement them. This includes evaluating which model is good, which model do I need, how was it trained, what type of licence does it have, and how to implement it. For a non-ML expert, these steps are hard work and often lead to frustration or even a return to normal coding without AI.
 AI is a fast-growing field, so many platforms and players have created their space to find and use all kinds of models. Although there are a lot of options, none of them are suitable for absolute beginners. <br/>
 
-The solution <br/>
-With the Cargoship Model Store you get a collection for every ML use case. On the website you can try them out in demos and get detailed guidance from what the model does to how to implement it. Whatever your level of expertise, we will pick you up and give you detailed instructions. <br/>
+## The solution
+
+re you get a collection for every ML use case. On the website you can try them out in demos and get detailed guidance from what the model does to how to implement it. Whatever your level of expertise, we will pick you up and give you detailed instructions. <br/>
 Another advantage is that we pre-select the models available on our website to make sure you get the best model for your needs. Once you have found what you are looking for, you can either deploy them on your own servers using Docker for more control, or use the simplest way and connect to our API endpoint. And if you are wondering "what is Docker or an API", you can follow our step-by-step tutorials. <br/>
 
+## How we work
 
-How we work <br/>
 We have been working in the field of AI since 2015. Over the years, we've learned what really matters when it comes to choosing the right model. Things like model size, accuracy, hardware requirements, training process or licence used are just some of the benchmarks we evaluate before adding a model to our collection. In this way we can ensure that our users get the best possible models. <br/>
 We understand that not everyone has the time, resources or technical expertise to evaluate and select the right model for their application. That's why we've done the work for you, ensuring you have access to high-quality machine learning models that meet your needs.
 We challenge our mission to be "The easiest way to integrate AI into your software" by constantly asking for feedback and improving our guidance before we give it a go. In this way, we hope to get everyone on board, no matter how much prior knowledge they bring to the table. <br/>
 
-Conclusion <br/>
+## Conclusion
+
 In conclusion, our Model Store is the perfect solution for anyone who needs access to high quality machine learning models. With our easy-to-use platform, pre-selected models and comprehensive information, you can quickly find and deploy models that meet your specific needs. Whether you're a small business looking to enhance your services, or an individual developer exploring new technologies, our model store has something for you.
+
+<TryItCTA />
 
 export default ({ children }) => <LayoutMdx meta={meta}>{children}</LayoutMdx>;

@@ -10,7 +10,7 @@ interface LayoutProps {
 
 export default function Layout({ title, description, children }: LayoutProps) {
   return (
-    <div className="flex h-screen flex-col justify-between bg-gray-800">
+    <div className="isolate flex h-screen flex-col justify-between bg-gray-900">
       <MetaInformation title={title} description={description} />
       <Navbar />
       {

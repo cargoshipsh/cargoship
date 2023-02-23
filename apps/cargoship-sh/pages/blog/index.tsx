@@ -24,14 +24,14 @@ function Article({ article }: any) {
   );
 }
 
-export default function ArticlesIndex({ articles }: any) {
+export default function Blog({ articles }: any) {
   return (
     <>
       <Layout
         title="Blog"
         description="Articles around Cargoship, feature updates, the open source ecosystem and the future of form and survey software.">
         {/*  <HeroTitle headingPt1="What's" headingTeal="new?" /> */}
-        <div className="mx-auto mb-20 max-w-3xl px-4 md:border-l md:border-slate-800 md:pl-6">
+        <div className="mx-auto my-20 max-w-3xl px-4 md:border-l md:border-white/20 md:pl-6">
           <div className="flex flex-col space-y-16 px-4">
             {articles.map((article: any) => (
               <Article key={article.slug} article={article} />

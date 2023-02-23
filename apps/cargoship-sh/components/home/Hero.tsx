@@ -1,7 +1,6 @@
-import Link from "next/link";
-import BackgroundGradient from "./BackgroundGradient";
 import HeroExplainer from "@/images/hero-explainer.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
