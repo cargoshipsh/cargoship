@@ -2,6 +2,7 @@ import LayoutMdx from "@/components/layout/LayoutMdx";
 import ResponsiveEmbed from "react-responsive-embed";
 import { Callout } from "@/components/shared/Callout";
 import { DiscordCTA } from "@/components/shared/DiscordCTA";
+import { LanguageDetectionDemo } from "@/components/models/LanguageDetectionDemo";
 
 export const meta = {
   title: "Language Detection",
@@ -13,6 +14,10 @@ docker pull cargoshipsh/language-detection
 ```
 
 Automatically detect the language of an input text. This model is based on [FastText](https://fasttext.cc/docs/en/language-identification.html) and is trained on data from [Wikipedia](https://www.wikipedia.org/), [Tatoeba](https://tatoeba.org/eng/) and [SETimes](http://nlp.ffzg.hr/resources/corpora/setimes/). The model itself is only 917kB in size and doesn't require a GPU to run.
+
+## Demo
+
+<LanguageDetectionDemo />
 
 ## License
 
