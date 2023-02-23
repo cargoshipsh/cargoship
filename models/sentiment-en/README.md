@@ -1,6 +1,6 @@
-# language-detection
+# sentiment-api-en
 
-API for detecting language of an input text. Get more details on [cargoship.sh](https://cargoship.sh).
+API for detecting sentiment of an input tex in english language. Get more details on [cargoship.sh](https://cargoship.sh).
 
 ## How to setup
 
@@ -30,6 +30,12 @@ Install packages:
 pip install -r requirements.txt
 ```
 
+Download the model:
+
+```
+python -m app.save_model
+```
+
 ---
 
 ## Run the server
@@ -51,13 +57,13 @@ curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --dat
 ## How to build & run the Docker Image
 
 ```bash
-docker build -t language-detection-api .
+docker build -t sentiment-api-en .
 ```
 
 Run the Docker Image with:
 
 ```bash
-docker run -d --rm -p 8000:80 --env API_KEY=CHANGE_ME --name language-detection-api language-detection-api
+docker run -d --rm -p 8000:80 --env API_KEY=CHANGE_ME --name sentiment-api-en sentiment-api-en
 ```
 
 You can now access the api at [http://localhost:8000](http://127.0.0.1:8000/). Swagger documentation are available at [http://localhost:8000/docs](http://127.0.0.1:8000/docs).
@@ -67,13 +73,13 @@ You can now access the api at [http://localhost:8000](http://127.0.0.1:8000/). S
 To view the logs of the container run:
 
 ```bash
-docker logs language-detection-api
+docker logs sentiment-api-en
 ```
 
 To stop the container run:
 
 ```bash
-docker stop language-detection-api
+docker stop sentiment-api-en
 ```
 
 ---
