@@ -3,7 +3,7 @@ import { Button } from "@cargoship/ui";
 import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 
 export function LanguageDetectionDemo() {
-  const [prediction, setPrediction] = useState();
+  const [prediction, setPrediction] = useState("en");
   const [loading, setLoading] = useState(false);
 
   const makePrediction = async (e: any) => {
@@ -41,7 +41,7 @@ export function LanguageDetectionDemo() {
                 name="text"
                 id="text"
                 className="block w-full rounded-md border-white/10 bg-white/5 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm "
-                defaultValue={"Type any text you want to detect the language of"}
+                defaultValue={"Hello, what's up?"}
               />
             </div>
           </div>
