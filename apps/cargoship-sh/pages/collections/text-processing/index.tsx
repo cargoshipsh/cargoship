@@ -4,6 +4,8 @@ import MetaInformation from "@/components/shared/MetaInformation";
 import Image from "next/image";
 import Link from "next/link";
 import LanguageDetectionCollectionImage from "@/images/collection-language-detection.jpg";
+import SentimentAnalysisCollectionImage from "@/images/collection-sentiment-analysis.jpg";
+
 
 const models = [
   {
@@ -11,6 +13,12 @@ const models = [
     name: "Language Detection (fast)",
     description: "Automatically detect the language of an input text",
     image: LanguageDetectionCollectionImage,
+  },
+  {
+    id: "sentiment-analysis-en",
+    name: "Sentiment Analysis (en)",
+    description: "Automatically identify the expressed emotion of an input text",
+    image: SentimentAnalysisCollectionImage,
   },
 ];
 
