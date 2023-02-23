@@ -29,9 +29,9 @@ export default function CollectionsOverviewPage() {
               <span className="mb-2 inline-flex items-center rounded-md bg-sky-100 px-2.5 py-0.5 text-sm font-medium text-sky-800">
                 Collection
               </span>
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Language Detection</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Text Processing</h2>
               <p className="mt-4 text-lg leading-8 text-gray-400">
-                Automatically detect the language of an input text
+                Analyze text, find information, detect language and more
               </p>
             </div>
             <div className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">

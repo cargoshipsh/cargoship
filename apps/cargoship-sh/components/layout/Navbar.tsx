@@ -11,6 +11,21 @@ const navigation: { name: string; href: string; indicator?: string | number }[] 
   { name: "Blog", href: "/blog", indicator: 1 },
 ];
 
+export function NavbarItems() {
+  return (
+    <div className="hidden lg:flex lg:gap-x-12">
+      {navigation.map((item) => (
+        <Link key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-white">
+          {item.name}
+          {item.indicator && (
+            <span className="bg-brand ml-1 inline rounded-full px-1.5 text-xs text-white">1</span>
+          )}
+        </Link>
+      ))}
+    </div>
+  );
+}
+
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
@@ -34,15 +49,8 @@ export default function Navbar() {
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="hidden lg:flex lg:gap-x-12">
-            {navigation.map((item) => (
-              <Link key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-white">
-                {item.name}
-                {item.indicator && (
-                  <span className="bg-brand ml-1 inline rounded-full px-1.5 text-xs text-white">1</span>
-                )}
-              </Link>
-            ))}
+          <div className="hidden lg:flex">
+            <NavbarItems />
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Link

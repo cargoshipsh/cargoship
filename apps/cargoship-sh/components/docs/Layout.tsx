@@ -1,17 +1,16 @@
-import { useCallback, useEffect, useState } from "react";
+import clsx from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import clsx from "clsx";
+import { useEffect, useState } from "react";
 
-import Hero from "@/components/home/Hero";
-import { Logo } from "@cargoship/ui";
 import { MobileNavigation } from "@/components/docs/MobileNavigation";
+import Hero from "@/components/home/Hero";
 import { Navigation } from "@/components/shared/Navigation";
 import { Prose } from "@/components/shared/Prose";
-import { Search } from "@/components/shared/Search";
 import { ThemeSelector } from "@/components/shared/ThemeSelector";
 import navigation from "@/lib/docsNavigation";
-import { Button } from "@cargoship/ui";
+import { Button, Logo } from "@cargoship/ui";
+import { NavbarItems } from "../layout/Navbar";
 import MetaInformation from "../shared/MetaInformation";
 
 function GitHubIcon(props: any) {
@@ -53,7 +52,10 @@ function Header({ navigation }: any) {
           <Logo className="h-5 w-auto fill-gray-800 dark:fill-white sm:h-7" />
         </Link>
       </div>
-      <div className="-my-5 mr-6 sm:mr-8 md:mr-0">{/*  <Search /> */}</div>
+      <div className="-my-5 mr-6 sm:mr-8 md:mr-0">
+        {/*  <Search /> */}
+        <NavbarItems />
+      </div>
       <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
         <ThemeSelector className="relative z-10 mr-5" />
         <Button
