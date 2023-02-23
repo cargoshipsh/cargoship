@@ -22,13 +22,16 @@ export default function Hero() {
             Select a model from our open source collection, run the container and access the model API in your
             product.
           </p>
+          <p className="mt-6 text-lg leading-8 text-gray-300">
+            Cargoship is in early access. Join the beta to get informed when new models are added to the collection or to request specific models.
+          </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link
               href="/waitlist"
               className="rounded-md bg-sky-500 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm transition-all ease-in-out hover:scale-105 hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400">
               Join the beta
             </Link>
-            <Link href="#features" className="text-base font-semibold leading-7 text-white">
+            <Link href="/blog/why-we-developed-cargoship" className="text-base font-semibold leading-7 text-white">
               Learn more <span aria-hidden="true">→</span>
             </Link>
           </div>
