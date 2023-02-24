@@ -31,7 +31,7 @@ export default function HomePage() {
         {/* <CTA /> */}
         <UniversalCTA
           teaser="Check out the models"
-          headline="Join the AI revolution"
+          headline="Make your app smart today"
           subheadline="Our model collection is still growing. Check out our newest additions to the collections."
           cta="Check out models"
           href="collections"
