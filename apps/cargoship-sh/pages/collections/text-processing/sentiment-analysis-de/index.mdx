@@ -1,0 +1,73 @@
+import LayoutMdx from "@/components/layout/LayoutMdx";
+import ResponsiveEmbed from "react-responsive-embed";
+import { Callout } from "@/components/shared/Callout";
+import { DiscordCTA } from "@/components/shared/DiscordCTA";
+
+export const meta = {
+  title: "Sentiment Analysis",
+  description: "Automatically identify the expressed emotion of an input text",
+};
+
+```
+docker pull cargoshipsh/sentiment-de
+```
+
+Automatically detect the language of an input text. The model uses [Googles Bert](https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.html) architecture and was trained on 1.8 million German-language samples. The training data contains texts from various domains like Twitter, Facebook and movie, app and hotel reviews. The model itself is 440MB and needs an aditional 500kB for the tokenizer.
+
+## License
+
+The model is licensed under [MIT License](https://opensource.org/license/mit/). The code for the API wrapper is also licensed under [MIT License](https://opensource.org/license/mit/).
+
+## System Requirements
+
+**Minimum**: 1GB RAM, 1 vCPU<br/>
+**Recommended**: 2GB RAM, 2 vCPU
+
+## Usage
+
+**Input [POST]**
+
+```json
+{
+  "text": "Ich mag Dich."
+}
+```
+
+**Output**
+
+```json
+{
+  "sentiment": "positive"
+}
+```
+
+You need to set an API Key via the environment variable `API_KEY` to run the image and set the `X-API-KEY` header in your request with the same KEY.
+
+<Callout type="note" title="Need a more detailed setup guide?">
+  To get more detailed instructions how to get started please check out our [quick start
+  guide](/docs/basics/quickstart) in the docs.
+</Callout>
+
+### Example
+
+Make sure you have Docker installed then run the following command:
+
+```bash
+docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/sentiment-de:main
+```
+
+In a new terminal window, run the following command to call the API
+
+```bash
+curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"text":"Ich mag Dich!"}' http://localhost:80
+```
+
+You see the output of the model in the terminal.
+
+```bash
+{"sentiment":"positive"}
+```
+
+<DiscordCTA />
+
+export default ({ children }) => <LayoutMdx meta={meta}>{children}</LayoutMdx>;
