@@ -1,10 +1,10 @@
-import CTA from "@/components/home/CTA";
 import Features from "@/components/home/Features";
 import Hero from "@/components/home/Hero";
 import ModelCollection from "@/components/home/ModelCollection";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/shared/Footer";
 import MetaInformation from "@/components/shared/MetaInformation";
+import { UniversalCTA } from "@/components/shared/UniversalCTA";
 
 export default function HomePage() {
   return (
@@ -19,8 +19,25 @@ export default function HomePage() {
       <main>
         <Hero />
         <Features />
+        <UniversalCTA
+          teaser="Cargoship is still evolving"
+          headline="Join the discussion"
+          subheadline="Cargoship is in early access. Join our Discord to get updates and individual help to setup the models."
+          cta="Join Discord"
+          href="/discord"
+          inverted
+        />
         <ModelCollection />
-        <CTA />
+        {/* <CTA /> */}
+        <UniversalCTA
+          teaser="Check out the models"
+          headline="Join the AI revolution"
+          subheadline="Our model collection is still growing. Check out our newest additions to the collections."
+          cta="Check out models"
+          href="collections"
+          inverted
+        />
+        <div className="my-10"></div>
         <Footer />
       </main>
     </div>
