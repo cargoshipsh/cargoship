@@ -2,7 +2,7 @@ import { Button } from "@cargoship/ui";
 import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
-export function GenerationEnDemo() {
+export function TextGenerationEnDemo() {
   const [prediction, setPrediction] = useState(
     "Hello, I'm a language modeler. The data coming from the model is the value of the model's function. For example, the values stored in a table are the first row, the first column from the model, if any, and the"
   );
@@ -11,7 +11,7 @@ export function GenerationEnDemo() {
   const makePrediction = async (e: any) => {
     setLoading(true);
     e.preventDefault();
-    const res = await fetch("https://generation-en.api.stackocean.com", {
+    const res = await fetch("https://text-generation-en.api.stackocean.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,9 +44,7 @@ export function GenerationEnDemo() {
                   name="text"
                   id="text"
                   className="block w-full rounded-md border-white/10 bg-white/5 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm"
-                  defaultValue={
-                    "Hello, I'm a language model"
-                  }
+                  defaultValue={"Hello, I'm a language model"}
                 />
               </div>
             </div>
