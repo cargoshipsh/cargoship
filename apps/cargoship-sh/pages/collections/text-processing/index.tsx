@@ -50,8 +50,8 @@ export default function CollectionsOverviewPage() {
   return (
     <div className="isolate bg-gray-900">
       <MetaInformation
-        title={"Language Detection Model"}
-        description={"API for detecting language of an input text"}
+        title={"Text Processing Models"}
+        description={"Analyze text, find information, detect language and more"}
       />
       <Navbar />
       <main className="min-h-screen">

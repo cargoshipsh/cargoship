@@ -7,7 +7,7 @@ from starlette import status
 
 class Input(BaseModel):
     base64: str = None
-    imageUrl: str = None
+    url: str = None
 
 class Output(BaseModel):
     prediction: str
