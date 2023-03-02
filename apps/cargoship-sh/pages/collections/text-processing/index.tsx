@@ -6,6 +6,7 @@ import Link from "next/link";
 import LanguageDetectionCollectionImage from "@/images/collection-language-detection.jpg";
 import SentimentAnalysisCollectionImage from "@/images/collection-sentiment-analysis.jpg";
 import SummarizationCollectionImage from "@/images/collection-summarization.jpg";
+import GenerateCollectionImage from "@/images/collection-generation.jpg";
 
 const models = [
   {
@@ -43,6 +44,15 @@ const models = [
     speed: "moderate",
     computation: "cpu",
     size: "1.6 GB",
+  },
+  {
+    id: "generation-en",
+    name: "Generation [English]",
+    description: "Automatically generates natural language text by completing a given input text",
+    image: GenerateCollectionImage,
+    speed: "moderate",
+    computation: "cpu",
+    size: "510 MB",
   },
 ];
 

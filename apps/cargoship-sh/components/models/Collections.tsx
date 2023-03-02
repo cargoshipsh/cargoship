@@ -11,7 +11,7 @@ const collections = [
     name: "Text Processing",
     description: "Analyze text, find information, detect language and more",
     image: LanguageDetectionCollectionImage,
-    numModels: 4,
+    numModels: 5,
   },
   {
     id: "image-recognition",
