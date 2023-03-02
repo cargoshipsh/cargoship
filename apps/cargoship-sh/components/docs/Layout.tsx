@@ -63,7 +63,7 @@ function Header({ navigation }: any) {
           className="bg-slate-200"
           EndIcon={GitHubIcon}
           endIconClassName="fill-slate-800 dark:fill-slate-200 ml-2"
-          onClick={() => router.push("https://github.com/cargoship/cargoship")}>
+          onClick={() => router.push("https://github.com/cargoshipsh/cargoship")}>
           View on Github
         </Button>
         <Button variant="highlight" className="ml-2" onClick={() => router.push("/collections")}>
