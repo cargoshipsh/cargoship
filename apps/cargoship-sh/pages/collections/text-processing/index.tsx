@@ -20,6 +20,12 @@ const models = [
     description: "Automatically identify the expressed emotion of an input text",
     image: SentimentAnalysisCollectionImage,
   },
+  {
+    id: "sentiment-analysis-de",
+    name: "Sentiment Analysis (de)",
+    description: "Automatically identify the expressed emotion of an input text",
+    image: SentimentAnalysisCollectionImage,
+  },
 ];
 
 export default function CollectionsOverviewPage() {

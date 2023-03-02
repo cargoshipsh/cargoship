@@ -18,7 +18,7 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
-        <Features />
+        <ModelCollection />
         <UniversalCTA
           teaser="Cargoship is still evolving"
           headline="Join the discussion"
@@ -27,7 +27,7 @@ export default function HomePage() {
           href="/discord"
           inverted
         />
-        <ModelCollection />
+        <Features />
         {/* <CTA /> */}
         <UniversalCTA
           teaser="Check out the models"

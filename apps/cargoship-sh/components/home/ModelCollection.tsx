@@ -66,7 +66,7 @@ const models = [
 
 export default function ModelCollection() {
   return (
-    <div className="relative py-20">
+    <div className="relative py-10">
       <div className="absolute inset-x-0 top-[calc(100%-24rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-48rem)]">
         <BackgroundGradient rotate={true} />
       </div>
