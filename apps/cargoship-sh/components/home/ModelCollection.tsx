@@ -1,15 +1,7 @@
-import Link from "next/link";
-import {
-  Cog8ToothIcon,
-  DocumentTextIcon,
-  FlagIcon,
-  MicrophoneIcon,
-  PhotoIcon,
-} from "@heroicons/react/24/outline";
+import Collections from "../models/Collections";
 import BackgroundGradient from "./BackgroundGradient";
-import { Icon } from "../shared/Icon";
 
-const models = [
+/* const models = [
   {
     label: "Text Summarization",
     value: "textSummarization",
@@ -62,7 +54,7 @@ const models = [
         "Use the relationship of a given dataset to assign new input data to one of a predefined set of classes or categories.",
     },
   },
-];
+]; */
 
 export default function ModelCollection() {
   return (
@@ -81,27 +73,19 @@ export default function ModelCollection() {
         <p className="mx-auto mt-3 max-w-md text-base text-slate-300 md:mt-5 md:max-w-3xl">
           Packaged as easy-to-use Docker containers, you get a well-documented API for every AI challenge.
         </p>
-        <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Link
-              href="/collections"
-              className="rounded-md bg-sky-500 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm transition-all ease-in-out hover:scale-105 hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400">
-              Check out the models
-            </Link>
+        <div className="relative mx-auto mt-14 max-w-5xl">
+          <div className="absolute inset-0 flex items-center" aria-hidden="true">
+            <div className="w-full border-t border-slate-700" />
+          </div>
+          <div className="relative flex justify-center">
+            <span className="bg-slate-900 px-3 text-xl font-bold tracking-tight text-white">
+              Our collections
+            </span>
+          </div>
         </div>
-      </div>
-      <div>
-        <div className=" mx-auto grid max-w-5xl grid-cols-1 gap-6 px-2 sm:grid-cols-2">
-          {models.map((model) => (
-            <div
-              key={model.label}
-              className="drop-shadow-card duration-120 relative cursor-default rounded-lg border-2 border-white/10 bg-white/5 p-8 backdrop-blur transition-all ease-in-out hover:scale-105 hover:bg-white/10">
-              <div className="h-12 w-12">
-                <model.frontend.icon className="text-brand-light h-10 w-10" />
-              </div>
-              <h3 className="mt-3 mb-1 text-lg font-bold text-slate-100">{model.label}</h3>
-              <p className="text-sm text-slate-400">{model.frontend.description}</p>
-            </div>
-          ))}
+        <h2 className="my-14 text-xl font-bold tracking-tight text-white sm:text-2xl"></h2>
+        <div className="mx-auto max-w-5xl">
+          <Collections />
         </div>
       </div>
     </div>
