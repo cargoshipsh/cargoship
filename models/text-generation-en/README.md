@@ -1,6 +1,6 @@
 # text-generation
 
-Rest-API for text generation using GTP-2.
+Rest-API for text generation using GTP-2
 
 ## How to setup
 
