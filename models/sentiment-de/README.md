@@ -1,6 +1,6 @@
 # sentiment-api-de
 
-Rest-API for german sentiment analysis of an input text. 
+Rest-API for german sentiment analysis of an input text.
 
 ## How to setup
 
