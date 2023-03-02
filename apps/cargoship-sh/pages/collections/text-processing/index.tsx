@@ -46,7 +46,7 @@ const models = [
     size: "1.6 GB",
   },
   {
-    id: "text-generation-en",
+    id: "generation-en",
     name: "Generation [English]",
     description: "Automatically generates natural language text by completing a given input text",
     image: GenerateCollectionImage,
