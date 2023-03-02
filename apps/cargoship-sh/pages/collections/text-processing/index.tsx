@@ -5,26 +5,44 @@ import Image from "next/image";
 import Link from "next/link";
 import LanguageDetectionCollectionImage from "@/images/collection-language-detection.jpg";
 import SentimentAnalysisCollectionImage from "@/images/collection-sentiment-analysis.jpg";
-
+import SummarizationCollectionImage from "@/images/collection-summarization.jpg";
 
 const models = [
   {
     id: "language-detection",
-    name: "Language Detection (fast)",
+    name: "Language Detection",
     description: "Automatically detect the language of an input text",
     image: LanguageDetectionCollectionImage,
+    speed: "fast",
+    computation: "cpu",
+    size: "< 1 MB",
   },
   {
     id: "sentiment-analysis-en",
-    name: "Sentiment Analysis (en)",
+    name: "Sentiment Analysis [English]",
     description: "Automatically identify the expressed emotion of an input text",
     image: SentimentAnalysisCollectionImage,
+    speed: "fast",
+    computation: "cpu",
+    size: "500 MB",
   },
   {
     id: "sentiment-analysis-de",
-    name: "Sentiment Analysis (de)",
+    name: "Sentiment Analysis [German]",
     description: "Automatically identify the expressed emotion of an input text",
     image: SentimentAnalysisCollectionImage,
+    speed: "fast",
+    computation: "cpu",
+    size: "440 MB",
+  },
+  {
+    id: "summarization-en",
+    name: "Summarization [English]",
+    description: "Automatically summarize a text",
+    image: SummarizationCollectionImage,
+    speed: "moderate",
+    computation: "cpu",
+    size: "1.6 GB",
   },
 ];
 
@@ -64,12 +82,26 @@ export default function CollectionsOverviewPage() {
                   </h3>
                   <p className="text-sm leading-6 text-gray-400">{model.description}</p>
                   <div className="mt-2 space-x-2">
-                    <span className="inline-flex items-center rounded bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800">
-                      Fast
-                    </span>
-                    <span className="inline-flex items-center rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-800">
-                      CPU
-                    </span>
+                    {model.speed === "fast" && (
+                      <span className="inline-flex items-center rounded bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800">
+                        Fast
+                      </span>
+                    )}
+                    {model.speed === "moderate" && (
+                      <span className="inline-flex items-center rounded bg-yellow-100 px-2 py-0.5 text-xs font-medium text-yellow-800">
+                        Moderate
+                      </span>
+                    )}
+                    {model.computation === "cpu" && (
+                      <span className="inline-flex items-center rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-800">
+                        CPU
+                      </span>
+                    )}
+                    {model.size && (
+                      <span className="inline-flex items-center rounded bg-sky-100 px-2 py-0.5 text-xs font-medium text-gray-800">
+                        {model.size}
+                      </span>
+                    )}
                   </div>
                 </Link>
               ))}

@@ -1,0 +1,87 @@
+import LayoutMdx from "@/components/layout/LayoutMdx";
+import ResponsiveEmbed from "react-responsive-embed";
+import { Callout } from "@/components/shared/Callout";
+import { DiscordCTA } from "@/components/shared/DiscordCTA";
+import { SummarizationEnDemo } from "@/components/models/SummarizationEnDemo";
+
+export const meta = {
+  title: "Summarization [English]",
+  description: "Automatically summarize a text.",
+};
+
+```
+docker pull cargoshipsh/summarization-en
+```
+
+Automatically summarize a text. This is a Bart-based model provided by Philipp Schmid on [Huggingface](https://huggingface.co/philschmid/bart-large-cnn-samsum) and was trained on the [SAMSum dataset](https://huggingface.co/datasets/samsum) that contains about 16k messenger-like conversations with summaries. The model itself is 1.6 GB in size and needs an aditional 1.5MB for the tokenizer. On a moderate CPU it takes only a few seconds to summarize a text.
+
+## Demo
+
+<SummarizationEnDemo />
+
+## License
+
+The model as well as the code for the API wrapper is licensed under [MIT License](https://opensource.org/license/mit/).
+
+## System Requirements
+
+**Minimum**: 2GB RAM, 1 vCPU<br/>
+**Recommended**: 4GB RAM, 4 vCPU
+
+## Usage
+
+**Input [POST]**
+
+```json
+{
+  "text": "When it comes to machine learning, everyone says it's going to
+          make our lives easier - and it's true! But that's not true for
+          most developers out there. ML has the potential to automate and
+          revolutionise the way we work and live. However, developing machine
+          learning models can be time consuming and resource intensive,
+          requiring a significant amount of domain knowledge, data processing
+          skills and technical expertise."
+}
+```
+
+**Output**
+
+```json
+{
+  "text": "Developing machine learning models can be
+          time consuming and resource intensive.
+          It requires domain knowledge, data processing skills
+          and technical expertise for most developers."
+}
+```
+
+You need to set an API Key via the environment variable `API_KEY` to run the image and set the `X-API-KEY` header in your request with the same KEY.
+
+<Callout type="note" title="Need a more detailed setup guide?">
+  To get more detailed instructions how to get started please check out our [quick start
+  guide](/docs/basics/quickstart) in the docs.
+</Callout>
+
+### Example
+
+Make sure you have Docker installed then run the following command:
+
+```bash
+docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/summarization-en
+```
+
+In a new terminal window, run the following command to call the API
+
+```bash
+curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"text":"When it comes to machine learning, everyone says it's going to make our lives easier - and it's true! But that's not true for most developers out there. ML has the potential to automate and revolutionise the way we work and live. However, developing machine learning models can be time consuming and resource intensive, requiring a significant amount of domain knowledge, data processing skills and technical expertise."}' http://localhost:80
+```
+
+You see the output of the model in the terminal.
+
+```bash
+{"text":"Developing machine learning models can be time consuming and resource intensive. It requires domain knowledge, data processing skills and technical expertise for most developers."}
+```
+
+<DiscordCTA />
+
+export default ({ children }) => <LayoutMdx meta={meta}>{children}</LayoutMdx>;

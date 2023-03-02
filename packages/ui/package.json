@@ -8,6 +8,8 @@
     "./styles.css": "./dist/styles.css"
   },
   "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
   "scripts": {
     "build": "tsup src/index.tsx --format esm,cjs --dts --external react",
     "dev": "tsup src/index.tsx --format esm,cjs --dts --external react --watch",

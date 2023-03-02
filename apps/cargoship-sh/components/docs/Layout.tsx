@@ -66,7 +66,7 @@ function Header({ navigation }: any) {
           onClick={() => router.push("https://github.com/cargoship/cargoship")}>
           View on Github
         </Button>
-        <Button variant="highlight" className="ml-2" onClick={() => router.push("/waitlist")}>
+        <Button variant="highlight" className="ml-2" onClick={() => router.push("/collections")}>
           Get started
         </Button>
       </div>

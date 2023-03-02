@@ -53,11 +53,11 @@ export default function Navbar() {
             <NavbarItems />
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <Link
+            {/* <Link
               href="/waitlist"
               className="rounded-md bg-sky-500 px-2.5 py-1 text-sm font-semibold leading-7 text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400">
               Join the beta
-            </Link>
+            </Link> */}
           </div>
         </nav>
         <Dialog as="div" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
