@@ -42,6 +42,7 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0
       react-hook-form: ^7.43.0
+      react-images-uploading: ^3.1.7
       react-responsive-embed: ^2.1.0
       remark-gfm: ^3.0.1
       sharp: ^0.31.3
@@ -68,6 +69,7 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-hook-form: 7.43.0_react@18.2.0
+      react-images-uploading: 3.1.7_biqbaboplfbrettd7655fr4n2y
       react-responsive-embed: 2.1.0_sh5qlbywuemxd2y3xkrw2y2kr4
       remark-gfm: 3.0.1
       sharp: 0.31.3
@@ -5438,6 +5440,17 @@ packages:
       react: ^16.8.0 || ^17 || ^18
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /react-images-uploading/3.1.7_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-woET50eCezm645iIeP4gCoN7HjdR3T64UXC5l53yd+2vHFp+pwABH8Z/aAO5IXDeC1aP6doQ+K738L701zswAw==}
+    engines: {node: '>=8', npm: '>=5'}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-is/16.13.1:
