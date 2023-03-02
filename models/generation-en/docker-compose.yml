@@ -1,0 +1,9 @@
+version: "3.3"
+services:
+  text-generation:
+    restart: unless-stopped
+    build: .
+    environment:
+      - API_KEY=CHANGE_ME
+    ports:
+      - 80:80
