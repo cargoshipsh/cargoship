@@ -49,7 +49,7 @@ The server is running on [http://localhost:8000](http://127.0.0.1:8000/).You can
 To send a request via your terminal, paste & run the following command:
 
 ```bash
-curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"text":"Hello, World!"}' http://localhost:8000
+curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"text":"Hello, I am a language model"}' http://localhost:8000
 ```
 
 ---
