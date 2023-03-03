@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export function TextGenerationEnDemo() {
   const [prediction, setPrediction] = useState(
-    "Hello, I'm a language modeler. The data coming from the model is the value of the model's function. For example, the values stored in a table are the first row, the first column from the model, if any, and the"
+    "Person A: Hi, where are you from?\nPerson B: Gemany and you?\nPerson A: Well, my father and mother, and the lady that goes by Miss Rose. I'm glad I stayed to be more honest."
   );
   const [loading, setLoading] = useState(false);
 
@@ -44,7 +44,7 @@ export function TextGenerationEnDemo() {
                   name="text"
                   id="text"
                   className="block w-full rounded-md border-white/10 bg-white/5 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm"
-                  defaultValue={"Hello, I'm a language model"}
+                  defaultValue={"Person A: Hi, where are you from?\nPerson B: Gemany and you?\nPerson A:"}
                 />
               </div>
             </div>
@@ -58,7 +58,7 @@ export function TextGenerationEnDemo() {
             <ArrowRightCircleIcon className="mr-1 h-6 w-6" /> Predicted Text
           </h3>
           <div className="mt-1">
-            <p className="m-o text-white">{prediction}</p>
+            <p className="m-o whitespace-pre-wrap text-white">{prediction}</p>
           </div>
         </div>
         {loading && (
