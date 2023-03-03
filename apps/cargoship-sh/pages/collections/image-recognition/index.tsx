@@ -7,6 +7,15 @@ import Link from "next/link";
 
 const models = [
   {
+    id: "image-captioning",
+    name: "Image Captioning",
+    description: "Automatically generates a caption for an image",
+    image: ImageRecognitionCollectionImage,
+    speed: "moderate",
+    computation: "cpu",
+    size: "980 MB",
+  },
+  {
     id: "image-classification",
     name: "Image Classification",
     description: "Automatically classifies an image into one of the 1,000 ImageNet classes",

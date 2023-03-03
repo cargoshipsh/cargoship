@@ -18,7 +18,7 @@ const collections = [
     name: "Image Recognition",
     description: "Find objects in images, classify them or find subtitles",
     image: ImageRecognitionCollectionImage,
-    numModels: 1,
+    numModels: 2,
   },
   {
     id: "image-generation",

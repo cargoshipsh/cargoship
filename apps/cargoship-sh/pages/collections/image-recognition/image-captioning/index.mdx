@@ -2,22 +2,22 @@ import LayoutMdx from "@/components/layout/LayoutMdx";
 import ResponsiveEmbed from "react-responsive-embed";
 import { Callout } from "@/components/shared/Callout";
 import { DiscordCTA } from "@/components/shared/DiscordCTA";
-import { ImageClassificationDemo } from "@/components/models/ImageClassificationDemo";
+import { ImageCaptioningDemo } from "@/components/models/ImageCaptioningDemo";
 
 export const meta = {
-  title: "Image Classification",
-  description: "Automatically classifies an image into one of the 1,000 ImageNet classes",
+  title: "Image Captioning",
+  description: "Automatically generate captions for images",
 };
 
 ```
-docker pull cargoshipsh/image-classification
+docker pull cargoshipsh/image-captioning
 ```
 
-Automatically classifies an image into one of the 1,000 ImageNet categories. This [Vision Transformer (ViT) model](https://huggingface.co/google/vit-base-patch16-224) by Google was pre-trained on the ImageNet dataset with 1,000 different image classes. On a moderate CPU it takes only a few seconds to classify an image.
+Automatically generates a caption describing a given input image. This [Image Captioning Transformer model](https://huggingface.co/nlpconnect/vit-gpt2-image-captioning) was provided by by Yih-Dar Shieh & NLP Connect. On a moderate CPU it takes only a few seconds to generate a caption.
 
 ## Demo
 
-<ImageClassificationDemo />
+<ImageCaptioningDemo />
 
 ## License
 
@@ -56,7 +56,7 @@ The output is one of the 1,000 ImageNet classes
 
 ```json
 {
-  "prediction": "seashore, coast, seacoast, sea-coast"
+  "caption": "a person riding a surfboard on top of a wave in the ocean"
 }
 ```
 
@@ -72,7 +72,7 @@ You need to set an API Key via the environment variable `API_KEY` to run the ima
 Make sure you have Docker installed then run the following command:
 
 ```bash
-docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/image-classification
+docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/image-captioning
 ```
 
 In a new terminal window, run the following command to call the API
@@ -84,7 +84,7 @@ curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --dat
 You see the output of the model in the terminal.
 
 ```bash
-{"prediction": "seashore, coast, seacoast, sea-coast"}
+{"caption": "a person riding a surfboard on top of a wave in the ocean"}
 ```
 
 <DiscordCTA />
