@@ -56,7 +56,7 @@ export default function Collections() {
           </h3>
           <p className="text-sm leading-6 text-gray-400">{collection.description}</p>
           <span className="mt-4 inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium text-slate-300">
-            {collection.numModels} {collection.numModels === 1 ? "models" : "model"}
+            {collection.numModels} {collection.numModels === 1 ? "model" : "models"}
           </span>
           {collection.comingSoon && (
             <div className="absolute -top-2 -left-1 flex w-full justify-center">
