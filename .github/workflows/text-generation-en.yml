@@ -10,15 +10,15 @@ on:
     branches:
       - main
     paths:
-      - models/text-generation-en/**
+      - models/text-generation-en-sm/**
   pull_request:
     branches:
       - main
     paths:
-      - models/text-generation-en/**
+      - models/text-generation-en-sm/**
 
 env:
-  IMAGE_NAME: text-generation-en
+  IMAGE_NAME: text-generation-en-sm
 
 jobs:
   build:
