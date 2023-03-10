@@ -1,6 +1,6 @@
 # text-generation
 
-Rest-API for text generation using GTP-2
+Rest-API for text generation using GTP-J
 
 ## How to setup
 
@@ -57,13 +57,13 @@ curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --dat
 ## How to build & run the Docker Image
 
 ```bash
-docker build -t text-generation .
+docker build -t text-generation-en-lg .
 ```
 
 Run the Docker Image with:
 
 ```bash
-docker run -d --rm -p 8000:80 --env API_KEY=CHANGE_ME --name text-generation text-generation
+docker run -d --rm -p 8000:80 --env API_KEY=CHANGE_ME --name text-generation-en-lg text-generation-en-lg
 ```
 
 You can now access the api at [http://localhost:8000](http://127.0.0.1:8000/). Swagger documentation are available at [http://localhost:8000/docs](http://127.0.0.1:8000/docs).
@@ -73,13 +73,13 @@ You can now access the api at [http://localhost:8000](http://127.0.0.1:8000/). S
 To view the logs of the container run:
 
 ```bash
-docker logs text-generation
+docker logs text-generation-en-lg
 ```
 
 To stop the container run:
 
 ```bash
-docker stop text-generation
+docker stop text-generation-en-lg
 ```
 
 ---
