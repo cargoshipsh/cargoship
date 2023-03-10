@@ -10,7 +10,7 @@ export const meta = {
 };
 
 ```
-docker pull cargoshipsh/generation-en-lg
+docker pull cargoshipsh/text-generation-en-lg
 ```
 
 Automatically generates text by completing a given input text. This is a GPT-J model provided by EleutherAI on [Huggingface](EleutherAI/gpt-j-6B) and was trained on the [Pile](https://pile.eleuther.ai/), a large-scale curated dataset created by [EleutherAI](https://www.eleuther.ai/). The model itself is 24 GB in size and needs an aditional 1.5MB for the tokenizer.
@@ -60,7 +60,7 @@ You need to set an API Key via the environment variable `API_KEY` to run the ima
 Make sure you have Docker installed then run the following command:
 
 ```bash
-docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/generation-en-lg
+docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/text-generation-en-lg
 ```
 
 In a new terminal window, run the following command to call the API
