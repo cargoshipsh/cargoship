@@ -10,7 +10,7 @@ export const meta = {
 };
 
 ```
-docker pull cargoshipsh/generation-en
+docker pull cargoshipsh/generation-en-sm
 ```
 
 Automatically generates text by completing a given input text. This is a GPT-2 model provided by HF Canonical Model Maintainers on [Huggingface](https://huggingface.co/gpt2) and was trained on dataset (called WebText) weighting 40 GB of texts but has not been publicly released. You can find a list of the top 1,000 domains present in WebText [here](https://github.com/openai/gpt-2/blob/master/domains.txt). The model itself is 510 MB in size and needs an aditional 1.5MB for the tokenizer. On a moderate CPU it takes only a few seconds to generate a text.
@@ -27,6 +27,10 @@ The model as well as the code for the API wrapper is licensed under [MIT License
 
 **Minimum**: 2GB RAM, 1 vCPU<br/>
 **Recommended**: 4GB RAM, 4 vCPU
+
+## Limitations
+
+The training dataset contains unfiltered internet content which may be profane, lewd or otherwise offensive. Depending on the application, GPT-2 may produce text that is socially unacceptable. When using GPT-2, it is important to remember that the statistically most likely next token is often not the token that produces the most "accurate" text. The output will often not match the input in terms of content, and the sentence structure will often be incorrect.
 
 ## Usage
 
@@ -59,7 +63,7 @@ You need to set an API Key via the environment variable `API_KEY` to run the ima
 Make sure you have Docker installed then run the following command:
 
 ```bash
-docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/generation-en
+docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/generation-en-sm
 ```
 
 In a new terminal window, run the following command to call the API

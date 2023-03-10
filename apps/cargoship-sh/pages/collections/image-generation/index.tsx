@@ -7,8 +7,8 @@ export default function CollectionsOverviewPage() {
   return (
     <div className="isolate bg-gray-900">
       <MetaInformation
-        title={"Language Detection Model"}
-        description={"API for detecting language of an input text"}
+        title={"Image Generation Model"}
+        description={"API for generating new images from text"}
       />
       <Navbar />
       <main className="min-h-screen">

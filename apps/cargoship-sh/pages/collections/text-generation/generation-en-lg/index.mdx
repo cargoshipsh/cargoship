@@ -1,0 +1,81 @@
+import LayoutMdx from "@/components/layout/LayoutMdx";
+import ResponsiveEmbed from "react-responsive-embed";
+import { Callout } from "@/components/shared/Callout";
+import { DiscordCTA } from "@/components/shared/DiscordCTA";
+import { TextGenerationEnDemo } from "@/components/models/TextGenerationEnDemo";
+
+export const meta = {
+  title: "Generation [English]",
+  description: "Automatically generates natural language text by completing a given input text.",
+};
+
+```
+docker pull cargoshipsh/generation-en-lg
+```
+
+Automatically generates text by completing a given input text. This is a GPT-J model provided by EleutherAI on [Huggingface](EleutherAI/gpt-j-6B) and was trained on the [Pile](https://pile.eleuther.ai/), a large-scale curated dataset created by [EleutherAI](https://www.eleuther.ai/). The model itself is 24 GB in size and needs an aditional 1.5MB for the tokenizer.
+
+## License
+
+The model is licensed under [Apache-2.0 License](https://www.apache.org/licenses/LICENSE-2.0). The code for the API wrapper is licensed under [MIT License](https://opensource.org/license/mit/).
+
+## System Requirements
+
+**Minimum**: 2GB RAM, 1 vCPU<br/>
+**Recommended**: 4GB RAM, 4 vCPU
+
+## Limitations
+
+GPT-J has been trained on the [Pile](https://pile.eleuther.ai/), a dataset known to contain profane, lewd and otherwise offensive language. Depending on the application, GPT-J may produce text that is socially unacceptable.
+Although the model operates on a token-by-token basis, it appears to respond meaningfully to the input text.
+
+## Usage
+
+**Input [POST]**
+
+```json
+{
+  "text": "Hello, I'm a language model"
+}
+```
+
+**Output**
+
+```json
+{
+  "text": "Hello, I'm a language modeler. The data coming from the model is the value of the model's function. For example, the values
+stored in a table are the first row, the first column from the model, if any, and the"
+}
+```
+
+You need to set an API Key via the environment variable `API_KEY` to run the image and set the `X-API-KEY` header in your request with the same KEY.
+
+<Callout type="note" title="Need a more detailed setup guide?">
+  To get more detailed instructions how to get started please check out our [quick start
+  guide](/docs/basics/quickstart) in the docs.
+</Callout>
+
+### Example
+
+Make sure you have Docker installed then run the following command:
+
+```bash
+docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/generation-en-lg
+```
+
+In a new terminal window, run the following command to call the API
+
+```bash
+curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"text": "Hello, I'm a language model"}' http://localhost:80
+```
+
+You see the output of the model in the terminal.
+
+```bash
+{"text": "Hello, I'm a language modeler. The data coming from the model is the value of the model's function. For example, the values
+stored in a table are the first row, the first column from the model, if any, and the"}
+```
+
+<DiscordCTA />
+
+export default ({ children }) => <LayoutMdx meta={meta}>{children}</LayoutMdx>;

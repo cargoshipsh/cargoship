@@ -3,6 +3,7 @@ import Link from "next/link";
 import LanguageDetectionCollectionImage from "@/images/collection-language-detection.jpg";
 import ImageRecognitionCollectionImage from "@/images/collection-image-recognition.jpg";
 import ImageGenerationCollectionImage from "@/images/collection-image-generation.jpg";
+import TextGenerationCollectionImage from "@/images/collection-text-generation.jpg";
 import DataProcessingCollectionImage from "@/images/collection-data-processing.jpg";
 
 const collections = [
@@ -11,7 +12,14 @@ const collections = [
     name: "Text Processing",
     description: "Analyze text, find information, detect language and more",
     image: LanguageDetectionCollectionImage,
-    numModels: 5,
+    numModels: 4,
+  },
+  {
+    id: "text-generation",
+    name: "Text Generation",
+    description: "Generate new text from a given input",
+    image: TextGenerationCollectionImage,
+    numModels: 2,
   },
   {
     id: "image-recognition",
