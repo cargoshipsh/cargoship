@@ -3,6 +3,7 @@ import Hero from "@/components/home/Hero";
 import ModelCollection from "@/components/home/ModelCollection";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/shared/Footer";
+import GithubInfo from "@/components/shared/GithubInfo";
 import MetaInformation from "@/components/shared/MetaInformation";
 import { UniversalCTA } from "@/components/shared/UniversalCTA";
 
@@ -15,6 +16,7 @@ export default function HomePage() {
           "Choose a model from our collection and use it with zero machine learning knowledge to build amazing products."
         }
       />
+      <GithubInfo />
       <Navbar />
       <main>
         <Hero />
