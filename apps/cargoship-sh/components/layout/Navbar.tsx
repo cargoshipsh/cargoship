@@ -8,7 +8,7 @@ import BackgroundGradient from "../home/BackgroundGradient";
 const navigation: { name: string; href: string; indicator?: string | number }[] = [
   { name: "Models", href: "/collections" },
   { name: "Docs", href: "/docs" },
-  { name: "Blog", href: "/blog", indicator: 2 },
+  { name: "Blog", href: "/blog", indicator: 1 },
 ];
 
 function GitHubIcon(props: any) {
