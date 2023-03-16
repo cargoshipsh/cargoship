@@ -4,14 +4,14 @@ import { Icon } from "@/components/shared/Icon";
 
 const styles = {
   note: {
-    container: "bg-slate-50 dark:bg-slate-800/60 dark:ring-1 dark:ring-slate-300/10",
-    title: "text-slate-900 dark:text-slate-400",
-    body: "text-slate-800 [--tw-prose-background:theme(colors.slate.50)] prose-a:text-slate-900 prose-code:text-slate-900 dark:text-slate-300 dark:prose-code:text-slate-300",
+    container: "bg-slate-800/60 ring-1 ring-slate-300/10",
+    title: "text-slate-400",
+    body: "text-slate-300 [--tw-prose-background:theme(colors.slate.50)] prose-a:text-slate-300 prose-code:text-slate-300 [--tw-prose-underline:theme(colors.slate.400)]",
   },
   warning: {
-    container: "bg-amber-50 dark:bg-slate-800/60 dark:ring-1 dark:ring-slate-300/10",
-    title: "text-amber-900 dark:text-amber-500",
-    body: "text-amber-800 [--tw-prose-underline:theme(colors.amber.400)] [--tw-prose-background:theme(colors.amber.50)] prose-a:text-amber-900 prose-code:text-amber-900 dark:text-slate-300 dark:[--tw-prose-underline:theme(colors.slate.700)] dark:prose-code:text-slate-300",
+    container: "bg-slate-800/60 ring-1 ring-slate-300/10",
+    title: "text-amber-500",
+    body: "text-slate-300 [--tw-prose-background:theme(colors.amber.50)] prose-a:text-amber-300 [--tw-prose-underline:theme(colors.slate.400)] prose-code:text-slate-300",
   },
 };
 
