@@ -26,7 +26,9 @@ export function NavbarItems() {
         <Link key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-white">
           {item.name}
           {item.indicator && (
-            <span className="bg-brand ml-1 inline rounded-full px-1.5 text-xs text-white">2</span>
+            <span className="bg-brand ml-1 inline rounded-full px-1.5 text-xs text-white">
+              {item.indicator}
+            </span>
           )}
         </Link>
       ))}
