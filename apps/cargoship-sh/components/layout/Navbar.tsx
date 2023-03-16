@@ -8,7 +8,7 @@ import BackgroundGradient from "../home/BackgroundGradient";
 const navigation: { name: string; href: string; indicator?: string | number }[] = [
   { name: "Models", href: "/collections" },
   { name: "Docs", href: "/docs" },
-  { name: "Blog", href: "/blog", indicator: 1 },
+  { name: "Blog", href: "/blog", indicator: 2 },
 ];
 
 function GitHubIcon(props: any) {
@@ -26,7 +26,7 @@ export function NavbarItems() {
         <Link key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-white">
           {item.name}
           {item.indicator && (
-            <span className="bg-brand ml-1 inline rounded-full px-1.5 text-xs text-white">1</span>
+            <span className="bg-brand ml-1 inline rounded-full px-1.5 text-xs text-white">2</span>
           )}
         </Link>
       ))}

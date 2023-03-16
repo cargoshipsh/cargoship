@@ -1,0 +1,43 @@
+import LayoutMdx from "@/components/layout/LayoutMdx";
+import ResponsiveEmbed from "react-responsive-embed";
+import Image from "next/image";
+import MyImage from "./model-bias.png";
+import { TryItCTA } from "@/components/shared/TryItCTA";
+
+export const meta = {
+  title: "Model Bias",
+  description:
+    "Language models are not immune to biases. Here is why it's important to know how different types of biases influence your language model outcomes.",
+  date: "2023-03-16",
+};
+
+The biases of language models trained with data from different sources on the internet.
+
+
+<Image src={MyImage} alt="A very nice image featuring cargoship functionality" />
+Language models are powerful tools for understanding language and generating text. They are widely used in various applications, including chatbots, sentiment analyses or content generation. However, language models are not immune to biases that can arise from the training data. In this blog post, we will discuss the biases of language models trained with data from different sources, including Twitter and Wikipedia.
+
+## General Biases of Language Models
+
+Language models trained with data from any source can have general biases. The biases arise due to the nature of the training data, which can be skewed towards certain demographics or topics. For example, a language model trained with data from a news website may be biased towards political topics, while a model trained with data from a blog site may be biased towards personal narratives.
+
+These biases can manifest in several ways, including over-representation of specific language features or topics, under-representation of others, and inaccuracies in language use. To mitigate these biases, it is essential to use a diverse range of training data sources and preprocessing techniques that ensure that the language model reflects the full range of language use.
+
+## Biases from Twitter Data
+
+Language models trained with data from Twitter are prone to specific biases due to the nature of the platform. The language used on Twitter is often informal, conversational, and can be filled with jargon, slang, and colloquialisms.
+
+One of the most significant biases of Twitter-trained language models is the over-representation of certain demographics. Twitter users tend to be younger and more tech-savvy than the general population, which means that language models trained on Twitter data may not accurately reflect the language used by older or less tech-savvy individuals.
+
+Another bias of Twitter-trained language models is the presence of specific topics or themes. Twitter is often used as a platform for political discourse, and language models trained on Twitter data may be biased towards certain political ideologies or viewpoints.
+
+## Biases from Wikipedia Data
+
+Language models trained with data from Wikipedia can also be biased. Despite Wikipedia covering a wide range of topics, certain topics may be over-represented, while others may be under-represented. Hence, models can be biased towards topics that are well-represented on the platform. Articles on Western history and culture, for example, are often well-developed, while articles on topics related to other regions or cultures may be less detailed.
+
+## Conclusion
+
+Language models are powerful tools for understanding and generating text. However, they are prone to biases that can arise from the training data. Biases can manifest in several ways, including over-representation of specific language features or topics, under-representation of others, and inaccuracies in language use. When using models trained on Twitter and Wikipedia data, it is important to keep in mind that there can occur specific biases in the model outputs.
+<TryItCTA />
+
+export default ({ children }) => <LayoutMdx meta={meta}>{children}</LayoutMdx>;
