@@ -41,7 +41,7 @@ export function ImageClassificationDemo() {
         <div className="p-5">
           <h3 className="m-0 text-xl">Image</h3>
           {/* @ts-ignore */}
-          <ImageUploading value={image} onChange={onChange} dataURLKey="data_url" maxFileSize={2000000}>
+          <ImageUploading value={image} onChange={onChange} dataURLKey="data_url" maxFileSize={3000000}>
             {({ imageList, onImageUpload, dragProps, errors }) => (
               // write your building UI
               <div className="upload__image-wrapper">

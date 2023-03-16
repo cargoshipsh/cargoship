@@ -11,7 +11,7 @@ const models = [
     name: "Image Captioning",
     description: "Automatically generates a caption for an image",
     image: ImageRecognitionCollectionImage,
-    speed: "moderate",
+    sizeTag: "moderate",
     computation: "cpu",
     size: "980 MB",
   },
@@ -20,7 +20,7 @@ const models = [
     name: "Image Classification",
     description: "Automatically classifies an image into one of the 1,000 ImageNet classes",
     image: ImageRecognitionCollectionImage,
-    speed: "moderate",
+    sizeTag: "moderate",
     computation: "cpu",
     size: "350 MB",
   },
@@ -62,12 +62,12 @@ export default function CollectionsOverviewPage() {
                   </h3>
                   <p className="text-sm leading-6 text-gray-400">{model.description}</p>
                   <div className="mt-2 space-x-2">
-                    {model.speed === "fast" && (
+                    {model.sizeTag === "small" && (
                       <span className="inline-flex items-center rounded bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800">
-                        Fast
+                        Small
                       </span>
                     )}
-                    {model.speed === "moderate" && (
+                    {model.sizeTag === "moderate" && (
                       <span className="inline-flex items-center rounded bg-yellow-100 px-2 py-0.5 text-xs font-medium text-yellow-800">
                         Moderate
                       </span>

@@ -13,7 +13,7 @@ const models = [
     name: "Language Detection",
     description: "Automatically detect the language of an input text",
     image: LanguageDetectionCollectionImage,
-    speed: "fast",
+    sizeTag: "small",
     computation: "cpu",
     size: "< 1 MB",
   },
@@ -22,7 +22,7 @@ const models = [
     name: "Sentiment Analysis [English]",
     description: "Automatically identify the expressed emotion of an input text",
     image: SentimentAnalysisCollectionImage,
-    speed: "fast",
+    sizeTag: "small",
     computation: "cpu",
     size: "500 MB",
   },
@@ -31,7 +31,7 @@ const models = [
     name: "Sentiment Analysis [German]",
     description: "Automatically identify the expressed emotion of an input text",
     image: SentimentAnalysisCollectionImage,
-    speed: "fast",
+    sizeTag: "small",
     computation: "cpu",
     size: "440 MB",
   },
@@ -40,7 +40,7 @@ const models = [
     name: "Summarization [English]",
     description: "Automatically summarize a text",
     image: SummarizationCollectionImage,
-    speed: "moderate",
+    sizeTag: "moderate",
     computation: "cpu",
     size: "1.6 GB",
   },
@@ -82,12 +82,12 @@ export default function CollectionsOverviewPage() {
                   </h3>
                   <p className="text-sm leading-6 text-gray-400">{model.description}</p>
                   <div className="mt-2 space-x-2">
-                    {model.speed === "fast" && (
+                    {model.sizeTag === "small" && (
                       <span className="inline-flex items-center rounded bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800">
-                        Fast
+                        Small
                       </span>
                     )}
-                    {model.speed === "moderate" && (
+                    {model.sizeTag === "moderate" && (
                       <span className="inline-flex items-center rounded bg-yellow-100 px-2 py-0.5 text-xs font-medium text-yellow-800">
                         Moderate
                       </span>

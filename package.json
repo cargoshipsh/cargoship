@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "prettier": "latest",
-    "tsx": "^3.7.1",
+    "tsx": "^3.12.5",
     "turbo": "latest"
   },
   "engines": {

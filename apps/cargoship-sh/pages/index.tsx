@@ -28,15 +28,6 @@ export default function HomePage() {
           inverted
         />
         <ModelCollection />
-        {/* <CTA /> */}
-        {/* <UniversalCTA
-          teaser="Check out the models"
-          headline="Make your app smart today"
-          subheadline="Our model collection is still growing. Check out our newest additions to the collections."
-          cta="Check out models"
-          href="collections"
-          inverted
-        /> */}
         <div className="my-10"></div>
         <Footer />
       </main>
