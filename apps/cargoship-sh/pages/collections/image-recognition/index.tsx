@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/shared/Footer";
 import MetaInformation from "@/components/shared/MetaInformation";
 import ImageRecognitionCollectionImage from "@/images/collection-image-recognition.jpg";
+import ImageCaptioningCollectionImage from "@/images/collection-image-captioning.jpg";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,7 +11,7 @@ const models = [
     id: "image-captioning",
     name: "Image Captioning",
     description: "Automatically generates a caption for an image",
-    image: ImageRecognitionCollectionImage,
+    image: ImageCaptioningCollectionImage,
     sizeTag: "moderate",
     computation: "cpu",
     size: "980 MB",
