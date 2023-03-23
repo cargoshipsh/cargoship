@@ -6,8 +6,53 @@ export const meta = {
   title: "Deployment",
 };
 
-<Callout title="In progress" type="warning">
-  This docs article will be published soon.
-</Callout>
+The easiest way to deploy the Cargoship models on your own server is using Docker and Traefik. Traefik is a reverse proxy that can be used to route traffic to your models. It can also be used to automatically generate SSL certificates using Let's Encrypt.
+You can also use your own domain name and configure Traefik to use it.
+
+## Install Docker
+
+We are starting with a clean Ubuntu 22.04 server. First, we need to install Docker. You can find the official installation instructions here: https://docs.docker.com/engine/install/ubuntu/
+
+First make sure you have no other Docker installation on your system and remove it:
+
+```bash
+$ sudo apt-get remove docker docker-engine docker.io containerd runc
+```
+
+Then install Docker. First update your package index:
+
+```bash
+sudo apt-get update
+```
+
+Then install the required packages:
+
+```bash
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+```
+
+Add Docker's official GPG key:
+
+```bash
+sudo mkdir -m 0755 -p /etc/apt/keyrings
+```
+
+```bash
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+```
+
+Use then use the following command to set up the repository:
+
+````bash
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
+
+````
