@@ -291,10 +291,16 @@ docker-compose logs -f
 Your model should now be available under your domain. You can test it with:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"text": "This is a test"}' https://api.example.com
+curl -X POST \
+  https://api.example.com \
+  -H 'Content-Type: application/json' \
+  -H 'X-API-KEY: CHANGE_ME' \
+  -d '{
+    "text": "This is a test"
+}'
 ```
 
-Make sure to replace the address with the domain you chose. You should get a response like this:
+Make sure to replace the API key and also address with the domain you chose. You should get a response like this:
 
 ```json
 {
