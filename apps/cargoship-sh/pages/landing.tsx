@@ -135,9 +135,9 @@ const Home = () => {
         <div className="mt-20">
           <h2 className="text-2xl font-bold text-gray-900">Open Source</h2>
           <p className="mt-4 text-gray-600">
-            Alternatively, if you don't want to use the API, our models are conveniently packaged in Docker
-            containers so they can be easily downloaded and integrated into your development process - for
-            free.
+            Alternatively, if you don&apos;t want to use the API, our models are conveniently packaged in
+            Docker containers so they can be easily downloaded and integrated into your development process -
+            for free.
           </p>
         </div>
       </main>
