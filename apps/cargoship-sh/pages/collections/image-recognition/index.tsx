@@ -54,7 +54,7 @@ export default function CollectionsOverviewPage() {
               </span>
               <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Image Recognition</h2>
               <p className="mt-4 text-lg leading-8 text-gray-400">
-                Find objects in images, classify them or find subtitles
+                Find objects and text in images, classify them or find subtitles
               </p>
             </div>
             <div className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
