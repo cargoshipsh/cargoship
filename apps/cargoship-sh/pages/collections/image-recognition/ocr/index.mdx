@@ -1,0 +1,90 @@
+import LayoutMdx from "@/components/layout/LayoutMdx";
+import ResponsiveEmbed from "react-responsive-embed";
+import { Callout } from "@/components/shared/Callout";
+import { DiscordCTA } from "@/components/shared/DiscordCTA";
+import { ImageCaptioningDemo } from "@/components/models/ImageCaptioningDemo";
+
+export const meta = {
+  title: "Optical Character Recognition (OCR)",
+  description: "Recognize text in scanned documents and images",
+};
+
+```
+docker pull cargoshipsh/ocr
+```
+
+The TrOCR model was proposed in [TrOCR: Transformer-based Optical Character Recognition with Pre-trained Models](https://arxiv.org/abs/2109.10282) by Minghao Li, Tengchao Lv, Lei Cui, Yijuan Lu, Dinei Florencio, Cha Zhang, Zhoujun Li, Furu Wei. TrOCR consists of an image Transformer encoder and an autoregressive text Transformer decoder to perform [optical character recognition (OCR)](https://en.wikipedia.org/wiki/Optical_character_recognition). On a moderate CPU it takes only a few seconds to generate a caption.
+This model was contributed by [nielsr](https://huggingface.co/nielsr).
+
+
+## License
+
+The model and the code for the API wrapper is licensed under [MIT License](https://opensource.org/license/mit/).
+
+## System Requirements
+
+**Minimum**: 2GB RAM, 2 vCPU<br/>
+**Recommended**: 4GB RAM, 4 vCPU
+
+## Usage
+
+**Input [POST]**
+
+The input expects and image. This can be a URL or a base64 encoded image.
+
+Option 1: URL
+
+```json
+{
+  "url": "https://images.unsplash.com/photo-1677496891133-f81cc7a4e56e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+}
+```
+
+Option 2: Base64
+
+```json
+{
+  "base64": "/9j/4AAQSkZJRgABAQEASABIAAD/2wBD..."
+}
+```
+
+**Output**
+
+The output is one of the 1,000 ImageNet classes
+
+```json
+{
+  "caption": "a person riding a surfboard on top of a wave in the ocean"
+}
+```
+
+You need to set an API Key via the environment variable `API_KEY` to run the image and set the `X-API-KEY` header in your request with the same KEY.
+
+<Callout type="note" title="Need a more detailed setup guide?">
+  To get more detailed instructions how to get started please check out our [quick start
+  guide](/docs/basics/quickstart) in the docs.
+</Callout>
+
+### Example
+
+Make sure you have Docker installed then run the following command:
+
+```bash
+docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/image-captioning
+```
+
+In a new terminal window, run the following command to call the API
+
+```bash
+curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"url": "https://images.unsplash.com/photo-1677496891133-f81cc7a4e56e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"}' http://localhost:80
+```
+
+You see the output of the model in the terminal.
+
+```bash
+{"caption": "a person riding a surfboard on top of a wave in the ocean"}
+```
+
+<DiscordCTA />
+
+export default ({ children }) => <LayoutMdx meta={meta}>{children}</LayoutMdx>;

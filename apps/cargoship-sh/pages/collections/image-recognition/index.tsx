@@ -3,6 +3,7 @@ import Footer from "@/components/shared/Footer";
 import MetaInformation from "@/components/shared/MetaInformation";
 import ImageRecognitionCollectionImage from "@/images/collection-image-recognition.jpg";
 import ImageCaptioningCollectionImage from "@/images/collection-image-captioning.jpg";
+import OCRImage from "@/images/collection-ocr.jpg";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -21,6 +22,15 @@ const models = [
     name: "Image Classification",
     description: "Automatically classifies an image into one of the 1,000 ImageNet classes",
     image: ImageRecognitionCollectionImage,
+    sizeTag: "moderate",
+    computation: "cpu",
+    size: "350 MB",
+  },
+  {
+    id: "ocr",
+    name: "Optical Character Recognition",
+    description: "Recognize text in scanned documents and images",
+    image: OCRImage,
     sizeTag: "moderate",
     computation: "cpu",
     size: "350 MB",
