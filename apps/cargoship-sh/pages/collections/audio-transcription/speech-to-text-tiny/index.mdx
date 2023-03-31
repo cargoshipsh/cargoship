@@ -5,8 +5,8 @@ import { DiscordCTA } from "@/components/shared/DiscordCTA";
 import { ImageCaptioningDemo } from "@/components/models/ImageCaptioningDemo";
 
 export const meta = {
-  title: "Speech to Text (STT)",
-  description: "Automatically converts speech in audio files to text",
+  title: "Audio Transcription",
+  description: "Convert spoken words within an audio recording into written text.",
 };
 
 ```
@@ -29,27 +29,21 @@ The model is licensed under the [Apache 2.0 License](https://www.apache.org/lice
 
 **Input [POST]**
 
-The input expects and image. This can be a URL or a base64 encoded image.
+The input expects and audio file.
 
 Option 1: URL
 
 ```json
 {
-  "url": "https://images.unsplash.com/photo-1677496891133-f81cc7a4e56e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+  "url": ""
 }
 ```
 
-Option 2: Base64
-
-```json
-{
-  "base64": "/9j/4AAQSkZJRgABAQEASABIAAD/2wBD..."
-}
 ```
 
 **Output**
 
-The output is one of the 1,000 ImageNet classes
+The output is the converted text as a string
 
 ```json
 {
@@ -69,13 +63,13 @@ You need to set an API Key via the environment variable `API_KEY` to run the ima
 Make sure you have Docker installed then run the following command:
 
 ```bash
-docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/image-captioning
+docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/whisper-tiny-en
 ```
 
 In a new terminal window, run the following command to call the API
 
 ```bash
-curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"url": "https://images.unsplash.com/photo-1677496891133-f81cc7a4e56e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"}' http://localhost:80
+curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"url": ""}' http://localhost:80
 ```
 
 You see the output of the model in the terminal.

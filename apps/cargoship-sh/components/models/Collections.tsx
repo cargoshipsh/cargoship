@@ -5,6 +5,7 @@ import ImageRecognitionCollectionImage from "@/images/collection-image-recogniti
 import ImageGenerationCollectionImage from "@/images/collection-image-generation.jpg";
 import TextGenerationCollectionImage from "@/images/collection-text-generation.jpg";
 import DataProcessingCollectionImage from "@/images/collection-data-processing.jpg";
+import AudioTranscriptionCollectionImage from "@/images/collection-audio-transcription.jpg";
 
 const collections = [
   {
@@ -35,6 +36,13 @@ const collections = [
     image: ImageGenerationCollectionImage,
     comingSoon: true,
     numModels: 0,
+  },
+  {
+    id: "audio-transcription",
+    name: "Audio Transcription",
+    description: "Convert spoken words within an audio recording into written text",
+    image: AudioTranscriptionCollectionImage,
+    numModels: 1,
   },
   {
     id: "data-processing",
