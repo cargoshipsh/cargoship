@@ -1,39 +1,19 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/shared/Footer";
 import MetaInformation from "@/components/shared/MetaInformation";
-import ImageRecognitionCollectionImage from "@/images/collection-image-recognition.jpg";
-import ImageCaptioningCollectionImage from "@/images/collection-image-captioning.jpg";
-import OCRImage from "@/images/collection-ocr.jpg";
+import SpeechToTextCollectionImage from "@/images/collection-speech-recognition.jpg";
 import Image from "next/image";
 import Link from "next/link";
 
 const models = [
   {
-    id: "image-captioning",
-    name: "Image Captioning",
-    description: "Automatically generates a caption for an image",
-    image: ImageCaptioningCollectionImage,
-    sizeTag: "moderate",
+    id: "speech-to-text",
+    name: "Speech to text (en)",
+    description: "Automatically converts speech in audio files to text",
+    image: SpeechToTextCollectionImage,
+    sizeTag: "small",
     computation: "cpu",
-    size: "980 MB",
-  },
-  {
-    id: "image-classification",
-    name: "Image Classification",
-    description: "Automatically classifies an image into one of the 1,000 ImageNet classes",
-    image: ImageRecognitionCollectionImage,
-    sizeTag: "moderate",
-    computation: "cpu",
-    size: "350 MB",
-  },
-  {
-    id: "ocr-handwritten",
-    name: "Optical Character Recognition",
-    description: "Recognize handwritten text in scanned documents and images",
-    image: OCRImage,
-    sizeTag: "moderate",
-    computation: "cpu",
-    size: "1.4 GB",
+    size: "150 MB",
   },
 ];
 
@@ -52,9 +32,9 @@ export default function CollectionsOverviewPage() {
               <span className="mb-2 inline-flex items-center rounded-md bg-sky-100 px-2.5 py-0.5 text-sm font-medium text-sky-800">
                 Collection
               </span>
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Image Recognition</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Speech Recognition</h2>
               <p className="mt-4 text-lg leading-8 text-gray-400">
-                Find objects and text in images, classify them or find subtitles
+                Find speech in audio files and converts them into text.
               </p>
             </div>
             <div className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">

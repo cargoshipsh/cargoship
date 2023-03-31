@@ -5,21 +5,20 @@ import { DiscordCTA } from "@/components/shared/DiscordCTA";
 import { ImageCaptioningDemo } from "@/components/models/ImageCaptioningDemo";
 
 export const meta = {
-  title: "Optical Character Recognition (OCR)",
-  description: "Recognize text in scanned documents and images",
+  title: "Speech to Text (STT)",
+  description: "Automatically converts speech in audio files to text",
 };
 
 ```
-docker pull cargoshipsh/ocr
+docker pull cargoshipsh/whisper-tiny-en
 ```
 
-The TrOCR model was proposed in [TrOCR: Transformer-based Optical Character Recognition with Pre-trained Models](https://arxiv.org/abs/2109.10282) by Minghao Li, Tengchao Lv, Lei Cui, Yijuan Lu, Dinei Florencio, Cha Zhang, Zhoujun Li, Furu Wei. TrOCR consists of an image Transformer encoder and an autoregressive text Transformer decoder to perform [optical character recognition (OCR)](https://en.wikipedia.org/wiki/Optical_character_recognition). On a moderate CPU it takes only a few seconds to generate a caption.
-This model was contributed by [nielsr](https://huggingface.co/nielsr).
+Whisper is a Transformer based encoder-decoder model, also referred to as a sequence-to-sequence model. It was trained on 680k hours of labelled speech data annotated using large-scale weak supervision. This model was contributed by [openai](https://huggingface.co/openai).
 
 
 ## License
 
-The model and the code for the API wrapper is licensed under [MIT License](https://opensource.org/license/mit/).
+The model is licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) and the code for the API wrapper is licensed under [MIT License](https://opensource.org/license/mit/).
 
 ## System Requirements
 
