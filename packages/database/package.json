@@ -14,6 +14,7 @@
     "db:migrate:deploy": "prisma migrate deploy",
     "db:migrate:dev": "prisma migrate dev",
     "db:push": "prisma db push",
+    "db:seed": "tsx src/seed.ts",
     "dev": "tsup --watch",
     "format": "prisma format",
     "generate": "prisma generate",
@@ -23,16 +24,16 @@
     "studio": "prisma studio"
   },
   "dependencies": {
-    "@prisma/client": "^4.6.1"
+    "@prisma/client": "^4.12.0"
   },
   "devDependencies": {
     "eslint-config-cargoship": "workspace:*",
-    "eslint": "^8.27.0",
-    "prisma": "^4.6.1",
-    "rimraf": "^3.0.2",
+    "eslint": "^8.37.0",
+    "prisma": "^4.12.0",
+    "rimraf": "^4.4.1",
     "@cargoship/tsconfig": "workspace:*",
-    "tsup": "^6.4.0",
-    "tsx": "^3.12.0",
-    "typescript": "^4.8.4"
+    "tsup": "^6.7.0",
+    "tsx": "^3.12.6",
+    "typescript": "^5.0.3"
   }
 }

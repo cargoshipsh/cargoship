@@ -1,0 +1,49 @@
+{
+  "private": true,
+  "name": "@cargoship/web",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@cargoship/ui": "workspace:*",
+    "@headlessui/react": "^1.7.13",
+    "@heroicons/react": "^2.0.17",
+    "@radix-ui/react-navigation-menu": "^1.1.2",
+    "@radix-ui/react-tabs": "^1.0.3",
+    "bcryptjs": "^2.4.3",
+    "boring-avatars": "^1.7.0",
+    "class-variance-authority": "^0.4.0",
+    "clsx": "^1.2.1",
+    "execa": "^7.1.1",
+    "jsonwebtoken": "^9.0.0",
+    "lucide-react": "^0.129.0",
+    "next": "^13.2.4",
+    "next-auth": "^4.20.1",
+    "nodemailer": "^6.9.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.0",
+    "react-icons": "^4.8.0",
+    "react-loader-spinner": "^5.3.4",
+    "react-toastify": "^9.1.2",
+    "swr": "^2.1.1",
+    "tailwind-merge": "^1.11.0"
+  },
+  "devDependencies": {
+    "@cargoship/database": "workspace:*",
+    "@cargoship/tailwind-config": "workspace:*",
+    "@cargoship/tsconfig": "workspace:*",
+    "@types/node": "^18.15.11",
+    "@types/react": "^18.0.31",
+    "@types/react-dom": "^18.0.11",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.37.0",
+    "eslint-config-cargoship": "workspace:*",
+    "postcss": "^8.4.21",
+    "typescript": "^5.0.3"
+  }
+}

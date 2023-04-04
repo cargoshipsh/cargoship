@@ -5,9 +5,12 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"],
       "env": [
+        "CARGOSHIP_URL",
+        "CARGOSHIP_PROXY_API_KEY",
         "GITHUB_ID",
         "GITHUB_SECRET",
         "MAIL_FROM",
+        "NEXT_PUBLIC_CARGOSHIP_URL",
         "NEXT_PUBLIC_DOCSEARCH_APP_ID",
         "NEXT_PUBLIC_DOCSEARCH_API_KEY",
         "NEXT_PUBLIC_DOCSEARCH_INDEX_NAME",
