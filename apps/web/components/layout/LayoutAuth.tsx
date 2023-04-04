@@ -13,7 +13,7 @@ export default function LayoutAuth({ title = "Cargoship HQ", children }: Props) 
   const router = useRouter();
 
   if (session) {
-    router.push("/app");
+    router.push("/");
   }
   return (
     <>
