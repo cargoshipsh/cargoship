@@ -31,3 +31,6 @@ yarn-error.log*
 
 # nixos stuff
 .direnv
+
+# models
+models/

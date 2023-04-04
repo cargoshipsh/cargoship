@@ -148,7 +148,7 @@ importers:
         version: 1.7.0
       class-variance-authority:
         specifier: ^0.4.0
-        version: 0.4.0(typescript@5.0.3)
+        version: 0.4.0(typescript@4.9.5)
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -226,8 +226,8 @@ importers:
         specifier: ^8.4.21
         version: 8.4.21
       typescript:
-        specifier: ^5.0.3
-        version: 5.0.3
+        specifier: ^4.9.5
+        version: 4.9.5
 
   packages/database:
     dependencies:
@@ -2425,7 +2425,7 @@ packages:
     resolution: {integrity: sha512-5tK7EtrZ0N+OLFMthtqOj4fI2Jeb88C4CAZPu25LDVUgXJ0A3Js4PMGqrn0JU1W0Mh1/Z8wZzYPxqUrXeBboCQ==}
     dev: false
 
-  /class-variance-authority@0.4.0(typescript@5.0.3):
+  /class-variance-authority@0.4.0(typescript@4.9.5):
     resolution: {integrity: sha512-74enNN8O9ZNieycac/y8FxqgyzZhZbxmCitAtAeUrLPlxjSd5zA7LfpprmxEcOmQBnaGs5hYhiSGnJ0mqrtBLQ==}
     peerDependencies:
       typescript: '>= 4.5.5 < 5'
@@ -2433,7 +2433,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      typescript: 5.0.3
+      typescript: 4.9.5
     dev: false
 
   /cli-boxes@1.0.0:
@@ -7694,12 +7694,12 @@ packages:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: true
 
   /typescript@5.0.3:
     resolution: {integrity: sha512-xv8mOEDnigb/tN9PSMTwSEqAnUvkoXMQlicOb0IUVDBSQCgBSaAAROUZYy2IcUy5qU6XajK5jjjO7TMWqBTKZA==}
     engines: {node: '>=12.20'}
     hasBin: true
+    dev: true
 
   /unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
