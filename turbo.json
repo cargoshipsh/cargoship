@@ -5,6 +5,8 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"],
       "env": [
+        "CARGOSHIP_API_HOST",
+        "CARGOSHIP_API_KEY",
         "CARGOSHIP_URL",
         "CARGOSHIP_PROXY_API_KEY",
         "GITHUB_ID",

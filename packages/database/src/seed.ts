@@ -9,6 +9,13 @@ const apis = [
     endpointUrl: "https://language-detection.api.stackocean.com",
     cost: 1,
   },
+  {
+    id: "sentiment",
+    name: "Sentiment Detection",
+    description: "Automatically detect the sentiment of an input text.",
+    endpointUrl: "https://sentiment-en.api.stackocean.com",
+    cost: 1,
+  },
 ];
 async function main() {
   for (const api of apis) {
