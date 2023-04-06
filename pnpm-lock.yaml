@@ -137,6 +137,12 @@ importers:
       '@types/react-dom':
         specifier: 18.0.11
         version: 18.0.11
+      boring-avatars:
+        specifier: ^1.7.0
+        version: 1.7.0
+      clsx:
+        specifier: ^1.2.1
+        version: 1.2.1
       eslint:
         specifier: 8.37.0
         version: 8.37.0
