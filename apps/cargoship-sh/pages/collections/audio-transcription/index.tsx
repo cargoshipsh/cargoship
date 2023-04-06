@@ -8,7 +8,7 @@ import Link from "next/link";
 const models = [
   {
     id: "speech-to-text-tiny",
-    name: "Audio Transcription (en)",
+    name: "Audio Transcription [English]",
     description: "Convert spoken words within an audio recording into written text.",
     image: AudioTranscriptionCollectionImage,
     sizeTag: "small",
