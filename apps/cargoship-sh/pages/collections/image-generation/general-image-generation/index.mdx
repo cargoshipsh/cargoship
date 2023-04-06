@@ -1,0 +1,78 @@
+import LayoutMdx from "@/components/layout/LayoutMdx";
+import ResponsiveEmbed from "react-responsive-embed";
+import { Callout } from "@/components/shared/Callout";
+import { DiscordCTA } from "@/components/shared/DiscordCTA";
+
+export const meta = {
+  title: "General Image Generation",
+  description: "Generate any kind of image",
+};
+
+```
+docker pull cargoshipsh/image-generation
+```
+
+Automatically generates a caption describing a given input image. This [Image Captioning Transformer model](https://huggingface.co/nlpconnect/vit-gpt2-image-captioning) was provided by by Yih-Dar Shieh & NLP Connect. On a moderate CPU it takes only a few seconds to generate a caption.
+
+## Demo
+
+Coming Soon
+
+## License
+
+The model is licensed under the [CreativeML Open RAIL++-M License](https://huggingface.co/stabilityai/stable-diffusion-2/blob/main/LICENSE-MODEL) and the code for the API wrapper is licensed under [MIT License](https://opensource.org/license/mit/).
+
+## System Requirements
+
+**Minimum**: 8GB RAM, Nvidia GPU with 6GB VRAM, 10GB disk space<br/>
+**Recommended**: 16GB RAM, Nvidia GPU with 16GB VRAM ,100GB disk space
+
+## Usage
+
+**Input [POST]**
+
+The input expects a prompt and an optional neg_prompt as strings. The prompt should be what you want to create. The neg_prompt or negative prompt should contain things you don't want to appear in the picture.
+
+```json
+{
+  "prompt": "",
+  "neg_prompt": ""
+}
+```
+
+**Output**
+
+The output is a 512x512 pixel png-image as bytearray
+
+```json
+{
+  "caption": "a person riding a surfboard on top of a wave in the ocean"
+}
+```
+
+You need to set an API Key via the environment variable `API_KEY` to run the image and set the `X-API-KEY` header in your request with the same KEY.
+
+<Callout type="note" title="Need a more detailed setup guide?">
+  To get more detailed instructions how to get started please check out our [quick start
+  guide](/docs/basics/quickstart) in the docs.
+</Callout>
+
+### Example
+
+Make sure you have Docker installed then run the following command:
+
+```bash
+docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/image-generation
+```
+
+In a new terminal window, run the following command to call the API
+
+```bash
+curl -X POST -H "X-Api-Key: CHANGE_ME" -H "content-type: application/json" -d '{"prompt": "a black cat drinking coffee, photorealistic, 8k, detailed, illustration, artstation, realistic, mdjrny-v4 style", "neg_prompt": "cartoon, comic, 3d, bright, (deformed), (extra limbs), blurry, boring, sketch, lackluster, watermark, low res , horrific , mutated , artifacts , bad art , poor quality , low quality"}' localhost:8000 > cat.png
+```
+
+The image is saved in your current directory.
+
+<DiscordCTA />
+
+export default ({ children }) => <LayoutMdx meta={meta}>{children}</LayoutMdx>;
