@@ -5,14 +5,13 @@ import type { NextApiRequest, NextApiResponse } from "next";
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
   // Check Authentication
   const session = await getSessionOrUser(req, res);
-  if (!session) {
+  if (!session || !session.email) {
     return res.status(401).json({ message: "Not authenticated" });
   }
 
   // GET /api/teams
   // Get all of my teams
   if (req.method === "GET") {
-    console.log(session.email);
     const memberships = await prisma.membership.findMany({
       where: {
         user: { email: session.email },
@@ -21,7 +20,6 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
         team: true,
       },
     });
-    console.log(memberships);
     return res.json(memberships);
   }
 

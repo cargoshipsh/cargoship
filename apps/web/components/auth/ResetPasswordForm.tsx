@@ -1,18 +1,21 @@
 "use client";
 
 import { resetPassword } from "@/lib/users";
-import { Button } from "@cargoship/ui";
-import { XCircleIcon } from "@heroicons/react/20/solid";
-import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/Button";
+import { XCircleIcon } from "@heroicons/react/24/solid";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
-export const ResetPasswordForm = ({ token }) => {
+export const ResetPasswordForm = () => {
+  const searchParams = useSearchParams();
   const router = useRouter();
   const [error, setError] = useState<string>("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = searchParams?.get("token");
     try {
+      if (!token) throw new Error("No token provided");
       await resetPassword(token, e.target.elements.password.value);
 
       router.push("/auth/forgot-password/reset/success");
@@ -49,7 +52,7 @@ export const ResetPasswordForm = ({ token }) => {
               name="password"
               type="password"
               required
-              className="focus:border-brand focus:ring-brand block w-full rounded-md border-gray-300 shadow-sm sm:text-sm"
+              className="focus:border-brand focus:ring-brand block w-full rounded-md border-slate-300 shadow-sm sm:text-sm"
             />
           </div>
         </div>

@@ -42,7 +42,7 @@ export const convertDateString = (dateString: string) => {
   );
 };
 
-export const convertDateTimeString = (dateString: string) => {
+export const convertDateTimeString = (dateString?: string) => {
   if (!dateString) {
     return dateString;
   }

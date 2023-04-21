@@ -1,13 +1,17 @@
-import useSWR from "swr";
-import { fetcher } from "./utils";
+import { WEBAPP_URL } from "@cargoship/lib/constants";
+import { headers } from "next/headers";
 
-export const useMemberships = () => {
-  const { data, error, mutate } = useSWR(`/api/memberships`, fetcher);
+export async function getMemberships() {
+  const cookie = headers().get("cookie") || "";
+  const res = await fetch(`${WEBAPP_URL}/api/memberships`, {
+    headers: {
+      cookie,
+    },
+  });
 
-  return {
-    memberships: data,
-    isLoadingMemberships: !error && !data,
-    isErrorMemberships: error,
-    mutateMemberships: mutate,
-  };
-};
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}

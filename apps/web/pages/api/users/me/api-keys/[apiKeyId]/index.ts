@@ -1,18 +1,17 @@
-import type { NextApiResponse, NextApiRequest } from "next";
-import { getSession } from "next-auth/react";
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 import { hasOwnership } from "@/lib/apiHelper";
 import { prisma } from "@cargoship/database";
-import { unstable_getServerSession } from "next-auth";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import type { NextApiRequest, NextApiResponse } from "next";
+import { getServerSession } from "next-auth";
 
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
   // Check Authentication
-  const session = await unstable_getServerSession(req, res, authOptions);
+  const session = await getServerSession(req, res, authOptions);
   if (!session) {
     return res.status(401).json({ message: "Not authenticated" });
   }
 
-  const apiKeyId = req.query.apiKeyId.toString();
+  const apiKeyId = req.query.apiKeyId as string;
 
   const ownership = await hasOwnership("apiKey", session, apiKeyId);
   if (!ownership) {

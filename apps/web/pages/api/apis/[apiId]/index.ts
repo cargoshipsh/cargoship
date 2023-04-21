@@ -9,7 +9,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     return res.status(401).json({ message: "Not authenticated" });
   }
 
-  const apiId = req.query.apiId.toString();
+  const apiId = req.query.apiId as string;
 
   // GET
   if (req.method === "GET") {

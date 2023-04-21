@@ -1,6 +1,4 @@
-"use client";
-
-import { Button } from "@cargoship/ui";
+import { Button } from "@/components/ui/Button";
 import React from "react";
 
 interface Props {

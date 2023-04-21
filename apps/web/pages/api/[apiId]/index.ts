@@ -9,7 +9,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     return res.status(401).json({ message: "Not authenticated" });
   }
 
-  const apiId = req.query.apiId.toString();
+  const apiId = req.query.apiId as string;
 
   // POST
   if (req.method === "POST") {
@@ -28,7 +28,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-API-Key": process.env.CARGOSHIP_PROXY_API_KEY,
+        "X-API-Key": process.env.PROXY_API_KEY || "",
       },
       body: JSON.stringify(req.body),
     });

@@ -1,62 +1,17 @@
-import useSWR from "swr";
-import { fetcher } from "@/lib/utils";
+import { WEBAPP_URL } from "@cargoship/lib/constants";
+import { headers } from "next/headers";
 
-export const useApiKeys = () => {
-  const { data, error, mutate } = useSWR(`/api/users/me/api-keys/`, fetcher);
+export async function getApiKeys() {
+  const cookie = headers().get("cookie") || "";
+  const res = await fetch(`${WEBAPP_URL}/api/users/me/api-keys`, {
+    headers: {
+      cookie,
+    },
+  });
 
-  return {
-    apiKeys: data,
-    isLoadingApiKeys: !error && !data,
-    isErrorApiKeys: error,
-    mutateApiKeys: mutate,
-  };
-};
-
-export const useApiKey = (id: string) => {
-  const { data, error, mutate } = useSWR(`/api/users/me/api-keys/${id}/`, fetcher);
-
-  return {
-    apiKey: data,
-    isLoadingApiKey: !error && !data,
-    isErrorApiKey: error,
-    mutateApiKey: mutate,
-  };
-};
-
-export const persistApiKey = async (apiKey) => {
-  try {
-    await fetch(`/api/users/me/api-keys/${apiKey.id}/`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(apiKey),
-    });
-  } catch (error) {
-    console.error(error);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
   }
-};
 
-export const createApiKey = async (apiKey = {}) => {
-  try {
-    const res = await fetch(`/api/users/me/api-keys`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(apiKey),
-    });
-    return await res.json();
-  } catch (error) {
-    console.error(error);
-    throw Error(`createApiKey: unable to create api-key: ${error.message}`);
-  }
-};
-
-export const deleteApiKey = async (apiKey) => {
-  try {
-    const res = await fetch(`/api/users/me/api-keys/${apiKey.id}`, {
-      method: "DELETE",
-    });
-    return await res.json();
-  } catch (error) {
-    console.error(error);
-    throw Error(`deleteApiKey: unable to delete api-key: ${error.message}`);
-  }
-};
+  return res.json();
+}

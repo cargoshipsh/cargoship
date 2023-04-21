@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@cargoship/ui";
+import { Button } from "@/components/ui/Button";
 import { signIn } from "next-auth/react";
 import { FaGithub } from "react-icons/fa";
 

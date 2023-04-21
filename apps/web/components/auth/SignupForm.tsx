@@ -1,7 +1,7 @@
 "use client";
 
 import { createUser } from "@/lib/users";
-import { Button } from "@cargoship/ui";
+import { Button } from "@/components/ui/Button";
 import { XCircleIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -101,7 +101,7 @@ export const SignupForm = () => {
 
           <div className="mt-3 text-center text-xs text-gray-600">
             Already have an account?{" "}
-            <Link href="/auth/signin" className="text-sky hover:text-sky-600">
+            <Link href="/auth/login" className="text-sky hover:text-sky-600">
               Log in.
             </Link>
           </div>

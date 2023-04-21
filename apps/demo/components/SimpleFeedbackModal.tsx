@@ -36,9 +36,7 @@ export default function SimpleFeedbackModal({ show, setShow, setShowConfetti }: 
         sentiment,
         createdAt: new Date().toISOString(),
       };
-      console.log("Feedback", feedback);
       addFeedbackToLocalStorage(feedback);
-      console.log("Sentiment", sentiment);
     } else {
       setShowLanguageError(true);
     }

@@ -9,7 +9,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     return res.status(401).json({ message: "Not authenticated" });
   }
 
-  const teamId = req.query.teamId.toString();
+  const teamId = req.query.teamId as string;
 
   // GET /api/teams[teamId]
   // Get a specific team

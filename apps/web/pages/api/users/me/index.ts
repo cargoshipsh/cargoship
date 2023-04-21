@@ -1,13 +1,11 @@
-import { getSessionOrUser, hashApiKey } from "@/lib/apiHelper";
+import { getSessionOrUser } from "@/lib/apiHelper";
 import { prisma } from "@cargoship/database";
-import { randomBytes } from "crypto";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { unstable_getServerSession } from "next-auth";
 
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
   // Check Authentication
   const session = await getSessionOrUser(req, res);
-  if (!session) {
+  if (!session || !session.email) {
     return res.status(401).json({ message: "Not authenticated" });
   }
 

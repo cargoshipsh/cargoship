@@ -1,7 +1,7 @@
 "use client";
 
 import { forgotPassword } from "@/lib/users";
-import { Button } from "@cargoship/ui";
+import { Button } from "@/components/ui/Button";
 import { XCircleIcon } from "@heroicons/react/20/solid";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -59,7 +59,7 @@ export const PasswordResetForm = ({}) => {
             Send password reset email
           </Button>
           <div className="mt-3 text-center">
-            <Button variant="secondary" href="/auth/signin" className="w-full justify-center">
+            <Button variant="secondary" href="/auth/login" className="w-full justify-center">
               Back to login
             </Button>
           </div>

@@ -1,8 +1,8 @@
-import { createHash } from "crypto";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 import { prisma } from "@cargoship/database";
+import { createHash } from "crypto";
 import { NextApiRequest, NextApiResponse } from "next";
-import { Session, User, getServerSession } from "next-auth";
+import { User, getServerSession } from "next-auth";
 
 export const hashApiKey = (key: string): string => createHash("sha256").update(key).digest("hex");
 
@@ -27,7 +27,10 @@ export const hasOwnership = async (model, session, id) => {
   }
 };
 
-export const getSessionOrUser = async (req: NextApiRequest, res: NextApiResponse): Promise<User> => {
+export const getSessionOrUser = async (
+  req: NextApiRequest,
+  res: NextApiResponse
+): Promise<User | undefined> => {
   // check for session (browser usage)
   let session = await getServerSession(req, res, authOptions);
   if (session && "user" in session) return session.user;

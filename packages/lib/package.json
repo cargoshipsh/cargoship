@@ -1,0 +1,21 @@
+{
+  "name": "@cargoship/lib",
+  "private": true,
+  "sideEffects": false,
+  "version": "0.0.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint . --ext .ts,.js,.tsx,.jsx",
+    "lint:fix": "eslint . --ext .ts,.js,.tsx,.jsx --fix",
+    "lint:report": "eslint . --format json --output-file ../../lint-results/app-store.json"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@cargoship/tsconfig": "*",
+    "eslint": "^8.27.0",
+    "eslint-config-cargoship": "workspace:*",
+    "typescript": "^4.9.4"
+  }
+}

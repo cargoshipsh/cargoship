@@ -1,31 +1,29 @@
 /**
  * @type {import('next').NextConfig}
  */
+require("dotenv").config({ path: "../../.env" });
 
-var path = require("path");
+if (!process.env.NEXTAUTH_SECRET) throw new Error("Please set NEXTAUTH_SECRET");
 
 module.exports = {
-  reactStrictMode: true,
-  output: "standalone",
   experimental: {
-    outputFileTracingRoot: path.join(__dirname, "../../"),
-    serverComponentsExternalPackages: ["@prisma/client"],
+    appDir: true,
   },
-  transpile: ["@cargoship/database"],
+  output: "standalone",
+  transpilePackages: ["@cargoship/database", "@cargoship/ee", "@cargoship/ui", "@cargoship/lib"],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+      },
+    ],
+  },
   webpack: (config) => {
     config.externals = [...(config.externals || []), "@prisma/client"];
     // Important: return the modified config
     return config;
   },
-  /* async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/app/",
-        permanent: false,
-      },
-    ];
-  }, */
   env: {
     NEXT_PUBLIC_CARGOSHIP_URL: process.env.CARGOSHIP_URL,
     NEXTAUTH_URL: process.env.CARGOSHIP_URL,

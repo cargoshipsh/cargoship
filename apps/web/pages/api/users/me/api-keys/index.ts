@@ -1,13 +1,13 @@
 import { hashApiKey } from "@/lib/apiHelper";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 import { prisma } from "@cargoship/database";
 import { randomBytes } from "crypto";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { unstable_getServerSession } from "next-auth";
+import { getServerSession } from "next-auth";
 
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
   // Check Authentication
-  const session = await unstable_getServerSession(req, res, authOptions);
+  const session = await getServerSession(req, res, authOptions);
   if (!session) {
     return res.status(401).json({ message: "Not authenticated" });
   }
