@@ -1,7 +1,21 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/shared/Footer";
 import MetaInformation from "@/components/shared/MetaInformation";
-import { UnderConstructionCTA } from "@/components/shared/UnderConstructionCTA";
+import ImageGenerationCollectionImage from "@/images/collection-image-generation-sd.jpg";
+import Image from "next/image";
+import Link from "next/link";
+
+const models = [
+  {
+    id: "general-image-generation",
+    name: "Image Generation",
+    description: "Generate new images from text",
+    image: ImageGenerationCollectionImage,
+    sizeTag: "moderate",
+    computation: "gpu",
+    size: "980 MB",
+  },
+];
 
 export default function CollectionsOverviewPage() {
   return (
@@ -19,10 +33,54 @@ export default function CollectionsOverviewPage() {
                 Collection
               </span>
               <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Image Generation</h2>
-              <p className="mt-4 text-lg leading-8 text-gray-400">Generate new images from text</p>
+              <p className="mt-4 text-lg leading-8 text-gray-400">
+                Generate new images from text
+              </p>
             </div>
-            <div className="mx-auto mt-20">
-              <UnderConstructionCTA />
+            <div className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
+              {models.map((model) => (
+                <Link
+                  key={model.name}
+                  href={`/collections/image-generation/${model.id}`}
+                  className="rounded-2xl border-2 border-white/10 bg-white/5 py-10 px-8 backdrop-blur transition-all ease-in-out hover:scale-105">
+                  <Image
+                    className="mx-auto h-48 rounded-lg md:h-56"
+                    src={model.image}
+                    alt="Language Detection Hero Image"
+                  />
+                  <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-white">
+                    {model.name}
+                  </h3>
+                  <p className="text-sm leading-6 text-gray-400">{model.description}</p>
+                  <div className="mt-2 space-x-2">
+                    {model.sizeTag === "small" && (
+                      <span className="inline-flex items-center rounded bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800">
+                        Small
+                      </span>
+                    )}
+                    {model.sizeTag === "moderate" && (
+                      <span className="inline-flex items-center rounded bg-yellow-100 px-2 py-0.5 text-xs font-medium text-yellow-800">
+                        Moderate
+                      </span>
+                    )}
+                    {model.computation === "cpu" && (
+                      <span className="inline-flex items-center rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-800">
+                        CPU
+                      </span>
+                    )}
+                    {model.computation === "gpu" && (
+                      <span className="inline-flex items-center rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-800">
+                        GPU
+                      </span>
+                    )}
+                    {model.size && (
+                      <span className="inline-flex items-center rounded bg-sky-100 px-2 py-0.5 text-xs font-medium text-gray-800">
+                        {model.size}
+                      </span>
+                    )}
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </div>

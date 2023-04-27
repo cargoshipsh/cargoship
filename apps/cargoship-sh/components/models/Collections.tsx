@@ -33,8 +33,7 @@ const collections = [
     name: "Image Generation",
     description: "Generate new images from a given input",
     image: ImageGenerationCollectionImage,
-    comingSoon: true,
-    numModels: 0,
+    numModels: 1,
   },
   {
     id: "data-processing",
