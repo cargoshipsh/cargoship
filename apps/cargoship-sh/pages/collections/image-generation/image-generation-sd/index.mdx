@@ -1,0 +1,76 @@
+import LayoutMdx from "@/components/layout/LayoutMdx";
+import ResponsiveEmbed from "react-responsive-embed";
+import { Callout } from "@/components/shared/Callout";
+import { DiscordCTA } from "@/components/shared/DiscordCTA";
+
+export const meta = {
+  title: "General Image Generation",
+  description: "Generate any kind of image",
+};
+
+```
+docker pull cargoshipsh/image-generation-sd
+```
+
+Automatically generates any kind of image. This Stable Diffusion model was created by the researchers and engineers from [CompVis](https://github.com/CompVis), [Stability AI](https://stability.ai/), [runway](https://github.com/runwayml) and [LAION](https://laion.ai/). The StableDiffusionPipeline is capable of generating photo-realistic images given any text input using [Stable Diffusion](https://github.com/Stability-AI/stablediffusion). On a 2060s GPU it takes only a few seconds to generate an image.
+
+## Demo
+
+Coming Soon
+
+## License
+
+The model is licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) and the code for the API wrapper is licensed under [MIT License](https://opensource.org/license/mit/).
+
+## System Requirements
+
+**Minimum**: 8GB RAM, Nvidia GPU with 6GB VRAM, 10GB disk space<br/>
+**Recommended**: 16GB RAM, Nvidia GPU with 16GB VRAM ,100GB disk space
+
+## Usage
+
+**Input [POST]**
+
+The input expects a prompt and an optional neg_prompt as strings. The prompt should be what you want to create. The neg_prompt or negative prompt should contain things you don't want to appear in the picture.
+
+```json
+{
+  "prompt": "a black cat drinking coffee, photorealistic, realistic",
+  "neg_prompt": "cartoon, comic, bright, artifacts, bad art, poor quality"
+}
+```
+
+**Output**
+
+```
+The output is a 512x512 pixel png-image as bytearray
+```
+
+You need to set an API Key via the environment variable `API_KEY` to run the image and set the `X-API-KEY` header in your request with the same KEY.
+
+<Callout type="note" title="Need a more detailed setup guide?">
+  To get more detailed instructions how to get started please check out our [quick start
+  guide](/docs/basics/quickstart) in the docs.
+</Callout>
+
+### Example
+
+Before you run the container, make sure you have Docker and the Nvidia Docker toolkit installed. Visit [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker) for more detailed information.
+
+Then run the following command:
+
+```bash
+docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/image-generation-sd
+```
+
+In a new terminal window, run the following command to call the API
+
+```bash
+curl -X POST -H "X-Api-Key: CHANGE_ME" -H "content-type: application/json" -d '{"prompt": "a black cat drinking coffee, photorealistic, realistic", neg_prompt": "cartoon, comic, bright, artifacts, bad art, poor quality"}' localhost:8000 > cat.png
+```
+
+The image is saved in your current directory.
+
+<DiscordCTA />
+
+export default ({ children }) => <LayoutMdx meta={meta}>{children}</LayoutMdx>;
