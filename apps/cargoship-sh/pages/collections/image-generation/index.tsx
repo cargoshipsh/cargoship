@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const models = [
   {
-    id: "general-image-generation",
+    id: "image-generation-sd",
     name: "Image Generation",
     description: "Generate new images from text",
     image: ImageGenerationCollectionImage,
