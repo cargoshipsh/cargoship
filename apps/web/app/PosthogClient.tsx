@@ -23,7 +23,7 @@ if (
   });
 }
 
-export function PosthogClient({}) {
+export function PosthogClientWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -40,8 +40,8 @@ export function PosthogClient({}) {
   }, [pathname, searchParams]);
 
   if (posthogEnabled) {
-    return <PostHogProvider client={posthog} />;
+    return <PostHogProvider client={posthog}>{children}</PostHogProvider>;
   } else {
-    return null;
+    return <>{children}</>;
   }
 }

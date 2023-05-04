@@ -1,6 +1,7 @@
 import { getSessionOrUser } from "@/lib/apiHelper";
 import { prisma } from "@cargoship/database";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { capturePosthogEvent } from "@cargoship/lib/posthogServer";
 
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
   // Check Authentication
@@ -32,6 +33,27 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
       },
       body: JSON.stringify(req.body),
     });
+
+    // get teamId from environment
+    const enhancedUser = await prisma.user.findUnique({
+      where: {
+        id: user.id,
+      },
+      select: {
+        teams: {
+          select: {
+            teamId: true,
+          },
+        },
+      },
+    });
+
+    const teamId = enhancedUser?.teams[0].teamId;
+
+    await capturePosthogEvent(user.id, "response created", teamId, {
+      apiId,
+    });
+
     const responseData = await response.json();
     return res.json(responseData);
   }

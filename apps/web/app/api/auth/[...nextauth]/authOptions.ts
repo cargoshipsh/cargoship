@@ -129,6 +129,11 @@ export const authOptions: NextAuthOptions = {
         where: { email: token.email! },
         select: {
           id: true,
+          teams: {
+            select: {
+              teamId: true,
+            },
+          },
         },
       });
 
@@ -136,9 +141,14 @@ export const authOptions: NextAuthOptions = {
         return token;
       }
 
+      const additionalAttributs = {
+        id: existingUser.id,
+        teamId: existingUser.teams.length > 0 ? existingUser.teams[0].teamId : undefined,
+      };
+
       return {
-        ...existingUser,
         ...token,
+        ...additionalAttributs,
       };
     },
     async session({ session, token, user }) {

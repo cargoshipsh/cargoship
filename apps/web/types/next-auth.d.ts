@@ -10,6 +10,7 @@ declare module "next-auth" {
       email: string;
       name: string;
       image?: StaticImageData;
+      teamId?: string;
     };
   }
 }

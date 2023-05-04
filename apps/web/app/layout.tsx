@@ -1,4 +1,4 @@
-import { PosthogClient } from "./PosthogClient";
+import { PosthogClientWrapper } from "./PosthogClient";
 import "./globals.css";
 
 export const metadata = {
@@ -10,8 +10,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="flex h-screen flex-col bg-slate-50">
-        <PosthogClient />
-        {children}
+        <PosthogClientWrapper>{children}</PosthogClientWrapper>
       </body>
     </html>
   );
