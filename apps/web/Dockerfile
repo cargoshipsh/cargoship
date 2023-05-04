@@ -32,6 +32,5 @@ COPY --from=installer --chown=nextjs:nodejs /app/apps/web/.next/standalone ./
 COPY --from=installer --chown=nextjs:nodejs /app/apps/web/.next/static ./apps/web/.next/static
 COPY --from=installer --chown=nextjs:nodejs /app/apps/web/public ./apps/web/public
 COPY --from=installer --chown=nextjs:nodejs /app/packages/database/prisma ./packages/database/prisma
-COPY --from=installer --chown=nextjs:nodejs /app/packages/database/dist ./packages/database/dist
 
-CMD pnpm dlx prisma migrate deploy && node ./packages/database/dist/seed.js && node apps/web/server.js
+CMD pnpm dlx prisma migrate deploy --schema packages/database/prisma/schema.prisma && node ./packages/database/dist/seed.js && node apps/web/server.js

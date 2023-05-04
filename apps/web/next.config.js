@@ -24,8 +24,4 @@ module.exports = {
     // Important: return the modified config
     return config;
   },
-  env: {
-    NEXT_PUBLIC_CARGOSHIP_URL: process.env.CARGOSHIP_URL,
-    NEXTAUTH_URL: process.env.CARGOSHIP_URL,
-  },
 };
