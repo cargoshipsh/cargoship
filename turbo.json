@@ -46,6 +46,9 @@
     "dev": {
       "cache": false
     },
+    "start": {
+      "outputs": []
+    },
     "generate": {
       "dependsOn": ["^generate"]
     },
