@@ -50,7 +50,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 
     const teamId = enhancedUser?.teams[0].teamId;
 
-    await capturePosthogEvent(user.id, "response created", teamId, {
+    await capturePosthogEvent(user.id, "api called", teamId, {
       apiId,
     });
 
