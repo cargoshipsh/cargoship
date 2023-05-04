@@ -2,7 +2,7 @@ import { PosthogClientWrapper } from "./PosthogClient";
 import "./globals.css";
 
 export const metadata = {
-  title: "Formbricks",
+  title: "Cargoship",
   description: "In-Product Survey Platform",
 };
 
