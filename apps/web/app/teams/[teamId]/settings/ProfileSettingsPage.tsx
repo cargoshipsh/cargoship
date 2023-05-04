@@ -6,7 +6,7 @@ import { convertDateTimeString } from "@/lib/utils";
 import type { ApiKey } from "@prisma/client";
 import Modal from "components/Modal";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type ApiKeyReturn = ApiKey & {
   apiKey: string;
@@ -18,7 +18,12 @@ interface ProfileSettingsPageProps {
 
 export default function ProfileSettingsPage({ apiKeys }: ProfileSettingsPageProps) {
   const router = useRouter();
+  const [apiKeysLocal, setApiKeysLocal] = useState(apiKeys);
   const [openNewApiKeyModal, setOpenNewApiKeyModal] = useState(false);
+
+  useEffect(() => {
+    setApiKeysLocal(apiKeys);
+  }, [apiKeys]);
 
   return (
     <div className="mx-auto mt-8 max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -39,13 +44,13 @@ export default function ProfileSettingsPage({ apiKeys }: ProfileSettingsPageProp
                     these may be compromised, delete it and use a new one.
                   </p>
                 </div>
-                <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+                <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                   <Button onClick={() => setOpenNewApiKeyModal(true)}>Add API Key</Button>
                 </div>
               </div>
 
               <div className="mt-8 flex flex-col">
-                <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                   <div className="inline-block min-w-full py-2 align-middle">
                     <div className="overflow-hidden shadow-sm ring-1 ring-black ring-opacity-5">
                       <table className="min-w-full divide-y divide-gray-300">
@@ -77,14 +82,14 @@ export default function ProfileSettingsPage({ apiKeys }: ProfileSettingsPageProp
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-200 bg-white">
-                          {apiKeys.length === 0 ? (
+                          {apiKeysLocal.length === 0 ? (
                             <tr>
                               <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">
                                 You don&apos;t have any API Keys yet
                               </td>
                             </tr>
                           ) : (
-                            apiKeys.map((apiKey) => (
+                            apiKeysLocal.map((apiKey) => (
                               <tr key={apiKey.hashedKey}>
                                 <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">
                                   {apiKey.label}
@@ -136,8 +141,8 @@ export default function ProfileSettingsPage({ apiKeys }: ProfileSettingsPageProp
           <form
             onSubmit={async (e: any) => {
               e.preventDefault();
-              await createApiKey({ label: e.target.label.value });
-              router.refresh();
+              const apiKey = await createApiKey({ label: e.target.label.value });
+              setApiKeysLocal([...apiKeys, apiKey]);
               setOpenNewApiKeyModal(false);
             }}>
             <div>
