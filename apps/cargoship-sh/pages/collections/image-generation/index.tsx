@@ -13,7 +13,7 @@ const models = [
     image: ImageGenerationCollectionImage,
     sizeTag: "moderate",
     computation: "gpu",
-    size: "980 MB",
+    size: "2,5 GB",
   },
 ];
 

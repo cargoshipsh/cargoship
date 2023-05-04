@@ -9,10 +9,10 @@ export const meta = {
 };
 
 ```
-docker pull cargoshipsh/image-generation
+docker pull cargoshipsh/image-generation-sd
 ```
 
-Automatically generates a caption describing a given input image. This [Image Captioning Transformer model](https://huggingface.co/nlpconnect/vit-gpt2-image-captioning) was provided by by Yih-Dar Shieh & NLP Connect. On a moderate CPU it takes only a few seconds to generate a caption.
+Automatically generates any kind of image. This Stable Diffusion model was created by the researchers and engineers from [CompVis](https://github.com/CompVis), [Stability AI](https://stability.ai/), [runway](https://github.com/runwayml) and [LAION](https://laion.ai/). The StableDiffusionPipeline is capable of generating photo-realistic images given any text input using [Stable Diffusion](https://github.com/Stability-AI/stablediffusion). On a 2060s GPU it takes only a few seconds to generate an image.
 
 ## Demo
 
@@ -20,7 +20,7 @@ Coming Soon
 
 ## License
 
-The model is licensed under the [CreativeML Open RAIL++-M License](https://huggingface.co/stabilityai/stable-diffusion-2/blob/main/LICENSE-MODEL) and the code for the API wrapper is licensed under [MIT License](https://opensource.org/license/mit/).
+The model is licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) and the code for the API wrapper is licensed under [MIT License](https://opensource.org/license/mit/).
 
 ## System Requirements
 
@@ -35,8 +35,7 @@ The input expects a prompt and an optional neg_prompt as strings. The prompt sho
 
 ```json
 {
-  "prompt": "",
-  "neg_prompt": ""
+  "prompt": "a photo of a cowboy in a formula one car"
 }
 ```
 
@@ -46,7 +45,7 @@ The output is a 512x512 pixel png-image as bytearray
 
 ```json
 {
-  "caption": "a person riding a surfboard on top of a wave in the ocean"
+  "img": "a person riding a surfboard on top of a wave in the ocean"
 }
 ```
 
@@ -62,7 +61,7 @@ You need to set an API Key via the environment variable `API_KEY` to run the ima
 Make sure you have Docker installed then run the following command:
 
 ```bash
-docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/image-generation
+docker run -p 80:80 --env API_KEY=CHANGE_ME cargoshipsh/image-generation-sd
 ```
 
 In a new terminal window, run the following command to call the API
