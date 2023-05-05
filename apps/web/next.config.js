@@ -3,7 +3,7 @@
  */
 require("dotenv").config({ path: "../../.env" });
 
-if (!process.env.NEXTAUTH_SECRET) throw new Error("Please set NEXTAUTH_SECRET");
+/* if (!process.env.NEXTAUTH_SECRET) throw new Error("Please set NEXTAUTH_SECRET"); */
 
 module.exports = {
   experimental: {
