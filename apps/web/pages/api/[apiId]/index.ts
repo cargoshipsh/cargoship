@@ -31,9 +31,11 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 
     let endpointUrl;
 
+    const models = JSON.parse(JSON.stringify(api.models));
+
     if ("model" in req.query) {
       const modelId = req.query.model as string;
-      for (const model of api.models) {
+      for (const model of models) {
         if (model.id === modelId) {
           endpointUrl = model.endpointUrl;
           break;
@@ -44,7 +46,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
       }
     } else {
       // find default model
-      for (const model of api.models) {
+      for (const model of models) {
         if (model.default) {
           endpointUrl = model.endpointUrl;
           break;
