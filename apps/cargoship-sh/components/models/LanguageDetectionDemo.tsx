@@ -13,7 +13,7 @@ export function LanguageDetectionDemo() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-API-Key": process.env.NEXT_PUBLIC_DEMO_API_KEY.toString(),
+        "X-API-Key": process.env.NEXT_PUBLIC_DEMO_API_KEY || "",
       },
       body: JSON.stringify({
         text: e.target.text.value,
