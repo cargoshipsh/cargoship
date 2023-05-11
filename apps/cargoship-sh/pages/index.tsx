@@ -1,6 +1,7 @@
 import Features from "@/components/home/Features";
 import Hero from "@/components/home/Hero";
 import ModelCollection from "@/components/home/ModelCollection";
+import Pricing from "@/components/home/Pricing";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/shared/Footer";
 import GithubInfo from "@/components/shared/GithubInfo";
