@@ -15,11 +15,11 @@ export function ImageClassificationDemo() {
   const makePrediction = async () => {
     setLoading(true);
     const base64Image = Array.isArray(image) ? image[0].data_url.split(",")[1] : image.data_url.split(",")[1];
-    const res = await fetch("https://image-classification.api.stackocean.com", {
+    const res = await fetch("https://image-classification.models.cargoship.sh", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-API-Key": "stackocean4",
+        "X-API-Key": process.env.NEXT_PUBLIC_DEMO_API_KEY.toString(),
       },
       body: JSON.stringify({
         base64: base64Image,
@@ -80,7 +80,7 @@ export function ImageClassificationDemo() {
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center bg-slate-900/20">
             <div className="flex flex-col items-center space-y-2">
-              <div className="h-10 w-10 animate-spin rounded-full border-t-2 border-b-2 border-white"></div>
+              <div className="h-10 w-10 animate-spin rounded-full border-b-2 border-t-2 border-white"></div>
             </div>
           </div>
         )}

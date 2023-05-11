@@ -15,11 +15,11 @@ export function ImageCaptioningDemo() {
   const makePrediction = async () => {
     setLoading(true);
     const base64Image = Array.isArray(image) ? image[0].data_url.split(",")[1] : image.data_url.split(",")[1];
-    const res = await fetch("https://image-captioning.api.stackocean.com", {
+    const res = await fetch("https://image-captioning.models.cargoship.sh", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-API-Key": "stackocean4",
+        "X-API-Key": process.env.NEXT_PUBLIC_DEMO_API_KEY.toString(),
       },
       body: JSON.stringify({
         base64: base64Image,

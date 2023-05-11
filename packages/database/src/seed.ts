@@ -6,7 +6,7 @@ const apis = [
     id: "language-detection",
     name: "Language Detection",
     description: "Automatically detect the language of an input text.",
-    endpointUrl: "https://language-detection.api.stackocean.com",
+    endpointUrl: "https://language-detection.models.cargoship.sh",
     cost: 1,
     instructions: {
       request: `{
@@ -23,7 +23,7 @@ const apis = [
     id: "sentiment",
     name: "Sentiment Detection",
     description: "Automatically detect the sentiment of an input text.",
-    endpointUrl: "https://sentiment-en.api.stackocean.com",
+    endpointUrl: "https://sentiment-en.models.cargoship.sh",
     cost: 1,
     instructions: {
       request: `{
@@ -40,7 +40,7 @@ const apis = [
     id: "summarization",
     name: "Summarization",
     description: "Automatically summarize a text.",
-    endpointUrl: "https://summarization-en.api.stackocean.com",
+    endpointUrl: "https://summarization-en.models.cargoship.sh",
     cost: 1,
     instructions: {
       request: `{
@@ -57,7 +57,7 @@ const apis = [
     id: "image-captioning",
     name: "Image Captioning",
     description: "Automatically generates a caption describing a given input image.",
-    endpointUrl: "https://image-captioning.api.stackocean.com",
+    endpointUrl: "https://image-captioning.models.cargoship.sh",
     cost: 1,
     instructions: {
       request: `{
@@ -74,7 +74,7 @@ const apis = [
     id: "image-classification",
     name: "Image Classification",
     description: "Automatically generates a caption describing a given input image.",
-    endpointUrl: "https://image-classification.api.stackocean.com",
+    endpointUrl: "https://image-classification.models.cargoship.sh",
     cost: 1,
     instructions: {
       request: `{
