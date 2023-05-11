@@ -149,7 +149,7 @@ const Home = () => {
               <Link href="#" className="text-gray-600 hover:text-gray-900">
                 Privacy Policy
               </Link>
-
+            
               <Link href="#" className="text-gray-600 hover:text-gray-900">
                 Terms of Service
               </Link>
