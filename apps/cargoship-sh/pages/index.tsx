@@ -32,6 +32,7 @@ export default function HomePage() {
         />
         <ModelCollection />
         <div className="my-10"></div>
+        <Pricing />
         <Footer />
       </main>
     </div>
