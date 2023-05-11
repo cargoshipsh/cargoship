@@ -6,6 +6,7 @@ import { convertDateString } from "@/lib/utils";
 import { CalendarIcon, CurrencyDollarIcon } from "@heroicons/react/20/solid";
 import { WEBAPP_URL } from "@cargoship/lib/constants";
 import Button from "@/components/ui/Button";
+import clsx from "clsx";
 
 export default async function SingleApiPage({ params }) {
   const api = await getApi(params.apiId);
@@ -36,6 +37,37 @@ export default async function SingleApiPage({ params }) {
           API Endpoint
         </h3>
         <Code code={publicApiEndpoint} />
+        <hr className="my-5 text-slate-200" />
+        <h3 className="text-lg font-bold leading-7 text-gray-900 sm:truncate sm:text-xl sm:tracking-tight">
+          Models
+        </h3>
+        <div>
+          <ul role="list" className="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+            {api.models.map((model) => (
+              <li key={model.name} className="col-span-1 flex rounded-md shadow-sm">
+                <div
+                  className={clsx(
+                    "flex w-16 flex-shrink-0 items-center justify-center rounded-l-md bg-slate-800 text-sm font-medium text-white"
+                  )}>
+                  {model.id}
+                </div>
+                <div className="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
+                  <div className="flex-1 truncate px-4 py-2 text-sm">
+                    <p className="font-medium text-gray-900 hover:text-gray-600">{model.name}</p>
+                    <p className="text-gray-500">{model.description}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p className="mt-4 text-sm text-slate-500">
+          You can more about how to switch between different models in our{" "}
+          <a href="https://cargoship.sh/docs" target="_blank" className="underline" rel="noreferrer">
+            docs
+          </a>
+          .
+        </p>
         <hr className="my-5 text-slate-200" />
         <h3 className="text-lg font-bold leading-7 text-gray-900 sm:truncate sm:text-xl sm:tracking-tight">
           Usage

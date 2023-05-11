@@ -6,8 +6,16 @@ const apis = [
     id: "language-detection",
     name: "Language Detection",
     description: "Automatically detect the language of an input text.",
-    endpointUrl: "https://language-detection.models.cargoship.sh",
     cost: 1,
+    models: [
+      {
+        id: "fast",
+        name: "Fast",
+        description: "Fast Language Detection Model",
+        endpointUrl: "https://language-detection.models.cargoship.sh",
+        default: true,
+      },
+    ],
     instructions: {
       request: `{
   "text": "Hello World!"
@@ -23,8 +31,22 @@ const apis = [
     id: "sentiment",
     name: "Sentiment Detection",
     description: "Automatically detect the sentiment of an input text.",
-    endpointUrl: "https://sentiment-en.models.cargoship.sh",
     cost: 1,
+    models: [
+      {
+        id: "en",
+        name: "English",
+        description: "Sentiment Detection Model for English",
+        endpointUrl: "https://sentiment-en.models.cargoship.sh",
+        default: true,
+      },
+      {
+        id: "de",
+        name: "German",
+        description: "Sentiment Detection Model for German",
+        endpointUrl: "https://sentiment-de.models.cargoship.sh",
+      },
+    ],
     instructions: {
       request: `{
   "text": "I like you"
@@ -40,8 +62,16 @@ const apis = [
     id: "summarization",
     name: "Summarization",
     description: "Automatically summarize a text.",
-    endpointUrl: "https://summarization-en.models.cargoship.sh",
     cost: 1,
+    models: [
+      {
+        id: "en",
+        name: "English",
+        description: "Summarization Model for English",
+        endpointUrl: "https://summarization-en.models.cargoship.sh",
+        default: true,
+      },
+    ],
     instructions: {
       request: `{
   "text": "When it comes to machine learning, everyone says it's going to make our lives easier - and it's true! But that's not true for most developers out there. ML has the potential to automate and revolutionise the way we work and live. However, developing machine learning models can be time consuming and resource intensive, requiring a significant amount of domain knowledge, data processing skills and technical expertise."
@@ -57,8 +87,16 @@ const apis = [
     id: "image-captioning",
     name: "Image Captioning",
     description: "Automatically generates a caption describing a given input image.",
-    endpointUrl: "https://image-captioning.models.cargoship.sh",
     cost: 1,
+    models: [
+      {
+        id: "en",
+        name: "English",
+        description: "Image Captioning Model for English",
+        endpointUrl: "https://image-captioning-en.models.cargoship.sh",
+        default: true,
+      },
+    ],
     instructions: {
       request: `{
   "imageUrl": "https://images.unsplash.com/photo-1677496891133-f81cc7a4e56e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
@@ -74,8 +112,16 @@ const apis = [
     id: "image-classification",
     name: "Image Classification",
     description: "Automatically generates a caption describing a given input image.",
-    endpointUrl: "https://image-classification.models.cargoship.sh",
     cost: 1,
+    models: [
+      {
+        id: "en",
+        name: "English",
+        description: "Image Classification Model for English",
+        endpointUrl: "https://image-classification.models.cargoship.sh",
+        default: true,
+      },
+    ],
     instructions: {
       request: `{
   "imageUrl": "https://images.unsplash.com/photo-1677496891133-f81cc7a4e56e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
@@ -91,8 +137,16 @@ const apis = [
     id: "text-generation",
     name: "Text Generation",
     description: "Automatically generates text by completing a given input text (GTP-2).",
-    endpointUrl: "https://text-generation-en.models.cargoship.sh",
     cost: 1,
+    models: [
+      {
+        id: "en",
+        name: "English",
+        description: "Text Generation Model for English",
+        endpointUrl: "https://text-generation-en.models.cargoship.sh",
+        default: true,
+      },
+    ],
     instructions: {
       request: `{
   Person A: Hi, where are you from?

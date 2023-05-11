@@ -28,5 +28,12 @@ export async function getApi(apiId: string) {
     throw new Error("Failed to fetch data");
   }
 
-  return res.json();
+  const api = await res.json();
+
+  // delete endpoint url from models from every api
+  api.models.forEach((model) => {
+    delete model.endpointUrl;
+  });
+
+  return api;
 }

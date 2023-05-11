@@ -4,12 +4,6 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { capturePosthogEvent } from "@cargoship/lib/posthogServer";
 
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
-  // Check Authentication
-  const user: any = await getSessionOrUser(req, res);
-  if (!user) {
-    return res.status(401).json({ message: "Not authenticated" });
-  }
-
   const apiId = req.query.apiId as string;
 
   // CORS
@@ -19,6 +13,12 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 
   // POST
   else if (req.method === "POST") {
+    // Check Authentication
+    const user: any = await getSessionOrUser(req, res);
+    if (!user) {
+      return res.status(401).json({ message: "Not authenticated" });
+    }
+
     const api = await prisma.api.findUnique({
       where: {
         id: apiId,
@@ -29,8 +29,35 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
       return res.status(404).json({ message: "API not found" });
     }
 
+    let endpointUrl;
+
+    if ("model" in req.query) {
+      const modelId = req.query.model as string;
+      for (const model of api.models) {
+        if (model.id === modelId) {
+          endpointUrl = model.endpointUrl;
+          break;
+        }
+      }
+      if (!endpointUrl) {
+        return res.status(404).json({ message: "Model not found" });
+      }
+    } else {
+      // find default model
+      for (const model of api.models) {
+        if (model.default) {
+          endpointUrl = model.endpointUrl;
+          break;
+        }
+      }
+
+      if (!endpointUrl) {
+        return res.status(404).json({ message: "Default model not found" });
+      }
+    }
+
     // forward request
-    const response = await fetch(api.endpointUrl, {
+    const response = await fetch(endpointUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,9 +69,6 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     if (!response.ok) {
       return res.status(response.status).json({ message: response.statusText });
     }
-
-    const text = await response.text();
-    console.log(text);
 
     // get teamId from environment
     const enhancedUser = await prisma.user.findUnique({
