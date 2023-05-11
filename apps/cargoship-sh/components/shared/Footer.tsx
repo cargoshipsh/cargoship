@@ -61,7 +61,7 @@ export default function Footer() {
           <div className="border-gray-500">
             <p className="text-sm text-slate-400">&copy; 2022. All rights reserved.</p>
             <p className="mt-2 text-sm text-slate-400">
-              <Link href="/imprint">Imprint</Link> | <Link href="/privacy">Privacy Policy</Link>
+              <Link href="/imprint">Imprint</Link> | <Link href="/privacy">Privacy Policy</Link> | <Link href="/terms">Terms of Service</Link>
             </p>
           </div>
           <div className="mt-3 flex justify-center space-x-6">
