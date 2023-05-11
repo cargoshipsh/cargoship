@@ -1,4 +1,4 @@
-from fastapi import Depends, FastAPI
+from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api import Input, Output, get_api_key
@@ -22,7 +22,10 @@ model.to(device)
 
 @app.post("/")
 async def make_prediction(input: Input) -> Output:
-    image = getImage(input)
+    try:
+       image = getImage(input)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
     if image.mode != "RGB":
       image = image.convert(mode="RGB")
     return predict(image, tokenizer, model, feature_extractor, device)

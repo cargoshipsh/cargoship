@@ -32,7 +32,7 @@ pip install -r requirements.txt
 
 Download the model:
 
-```
+```bash
 python -m app.save_model
 ```
 

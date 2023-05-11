@@ -34,6 +34,13 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
       body: JSON.stringify(req.body),
     });
 
+    if (!response.ok) {
+      return res.status(response.status).json({ message: response.statusText });
+    }
+
+    const text = await response.text();
+    console.log(text);
+
     // get teamId from environment
     const enhancedUser = await prisma.user.findUnique({
       where: {
