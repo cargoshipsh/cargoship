@@ -15,7 +15,7 @@ export function ImageClassificationDemo() {
   const makePrediction = async () => {
     setLoading(true);
     const base64Image = Array.isArray(image) ? image[0].data_url.split(",")[1] : image.data_url.split(",")[1];
-    const res = await fetch("https://image-classification.models.cargoship.sh", {
+    const res = await fetch("https://app.cargoship.sh/api/image-classification", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

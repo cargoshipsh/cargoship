@@ -11,7 +11,7 @@ export function SummarizationEnDemo() {
   const makePrediction = async (e: any) => {
     setLoading(true);
     e.preventDefault();
-    const res = await fetch("https://summarization-en.models.cargoship.sh", {
+    const res = await fetch("https://app.cargoship.sh/api/summarization", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

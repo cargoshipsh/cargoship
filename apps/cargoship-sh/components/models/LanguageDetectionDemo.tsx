@@ -9,7 +9,7 @@ export function LanguageDetectionDemo() {
   const makePrediction = async (e: any) => {
     setLoading(true);
     e.preventDefault();
-    const res = await fetch("https://language-detection.models.cargoship.sh", {
+    const res = await fetch("https://app.cargoship.sh/api/language-detection", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

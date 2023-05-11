@@ -11,7 +11,7 @@ export function TextGenerationEnDemo() {
   const makePrediction = async (e: any) => {
     setLoading(true);
     e.preventDefault();
-    const res = await fetch("https://text-generation-en-sm.models.cargoship.sh", {
+    const res = await fetch("https://app.cargoship.sh/api/text-generation", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

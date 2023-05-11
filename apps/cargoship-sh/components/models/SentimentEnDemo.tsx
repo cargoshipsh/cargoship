@@ -9,7 +9,7 @@ export function SentimentEnDemo() {
   const makePrediction = async (e: any) => {
     setLoading(true);
     e.preventDefault();
-    const res = await fetch("https://sentiment-en.models.cargoship.sh", {
+    const res = await fetch("https://app.cargoship.sh/api/sentiment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -61,10 +61,10 @@ const apis = [
     cost: 1,
     instructions: {
       request: `{
-        "imageUrl": "https://images.unsplash.com/photo-1677496891133-f81cc7a4e56e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+  "imageUrl": "https://images.unsplash.com/photo-1677496891133-f81cc7a4e56e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
 }`,
       response: `{
-        "caption": "a person riding a surfboard on top of a wave in the ocean"
+  "caption": "a person riding a surfboard on top of a wave in the ocean"
 }`,
       curl: `curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"url":"bit.ly/3BeQtgL"}'`,
       docsUrl: "https://cargoship.sh/collections/image-recognition/image-captioning",
@@ -78,10 +78,29 @@ const apis = [
     cost: 1,
     instructions: {
       request: `{
-        "imageUrl": "https://images.unsplash.com/photo-1677496891133-f81cc7a4e56e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+  "imageUrl": "https://images.unsplash.com/photo-1677496891133-f81cc7a4e56e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
 }`,
       response: `{
-        "prediction": "seashore, coast, seacoast, sea-coast"
+  "prediction": "seashore, coast, seacoast, sea-coast"
+}`,
+      curl: `curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"url":"bit.ly/3BeQtgL"}'`,
+      docsUrl: "https://cargoship.sh/collections/image-recognition/image-classification",
+    },
+  },
+  {
+    id: "text-generation",
+    name: "Text Generation",
+    description: "Automatically generates text by completing a given input text (GTP-2).",
+    endpointUrl: "https://text-generation-en.models.cargoship.sh",
+    cost: 1,
+    instructions: {
+      request: `{
+  Person A: Hi, where are you from?
+  Person B: Gemany and you?
+  Person A:
+}`,
+      response: `{
+  "prediction": "seashore, coast, seacoast, sea-coast"
 }`,
       curl: `curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"url":"bit.ly/3BeQtgL"}'`,
       docsUrl: "https://cargoship.sh/collections/image-recognition/image-classification",
