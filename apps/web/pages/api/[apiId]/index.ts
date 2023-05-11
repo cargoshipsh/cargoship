@@ -12,8 +12,13 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 
   const apiId = req.query.apiId as string;
 
+  // CORS
+  if (req.method === "OPTIONS") {
+    res.status(200).end();
+  }
+
   // POST
-  if (req.method === "POST") {
+  else if (req.method === "POST") {
     const api = await prisma.api.findUnique({
       where: {
         id: apiId,
