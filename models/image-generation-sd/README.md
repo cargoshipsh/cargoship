@@ -59,13 +59,13 @@ curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --dat
 ## How to build & run the Docker Image
 
 ```bash
-docker build -t image-generation-api .
+docker build -t image-generation-sd-api .
 ```
 
 Run the Docker Image with:
 
 ```bash
-docker run -d --rm -p 8000:80 --env API_KEY=CHANGE_ME --name image-generation-api image-generation-api
+docker run -d --rm -p 8000:80 --env API_KEY=CHANGE_ME --name image-generation-sd-api image-generation-sd-api
 ```
 
 You can now access the api at [http://localhost:8000](http://127.0.0.1:8000/). Swagger documentation are available at [http://localhost:8000/docs](http://127.0.0.1:8000/docs).
@@ -75,13 +75,13 @@ You can now access the api at [http://localhost:8000](http://127.0.0.1:8000/). S
 To view the logs of the container run:
 
 ```bash
-docker logs image-generation-api
+docker logs image-generation-sd-api
 ```
 
 To stop the container run:
 
 ```bash
-docker stop image-generation-api
+docker stop image-generation-sd-api
 ```
 
 ---
