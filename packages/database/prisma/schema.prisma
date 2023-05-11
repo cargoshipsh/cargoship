@@ -11,13 +11,14 @@ generator client {
 }
 
 model Api {
-  id          String    @id
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime? @updatedAt @map(name: "updated_at")
-  name        String
-  description String?
-  endpointUrl String
-  cost        Int       @default(1)
+  id           String    @id
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime? @updatedAt @map(name: "updated_at")
+  name         String
+  description  String?
+  endpointUrl  String
+  cost         Int       @default(1)
+  instructions Json?     @default("{}")
 }
 
 model Team {

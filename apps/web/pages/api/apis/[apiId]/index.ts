@@ -23,6 +23,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
         name: true,
         description: true,
         cost: true,
+        instructions: true,
       },
     });
 

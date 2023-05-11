@@ -17,7 +17,7 @@ export default async function ApiOverviewPage({ params }) {
             <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-slate-800">
               {api.name}
             </h3>
-            <p className="text-sm leading-6 text-slate-500">{api.description}</p>
+            <p className="h-20 overflow-hidden text-sm leading-6 text-slate-500">{api.description}</p>
             <Button className="mt-3 w-full justify-center" href={`/teams/${params.teamId}/apis/${api.id}`}>
               View
             </Button>

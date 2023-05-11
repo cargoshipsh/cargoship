@@ -1,3 +1,4 @@
+import ToasterClient from "@/components/ToasterClient";
 import { PosthogClientWrapper } from "./PosthogClient";
 import "./globals.css";
 
@@ -11,6 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="flex h-screen flex-col bg-slate-50">
         <PosthogClientWrapper>{children}</PosthogClientWrapper>
+        <ToasterClient />
       </body>
     </html>
   );

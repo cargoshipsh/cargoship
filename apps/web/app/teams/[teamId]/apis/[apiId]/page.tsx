@@ -5,6 +5,7 @@ import { getApi } from "@/lib/apis";
 import { convertDateString } from "@/lib/utils";
 import { CalendarIcon, CurrencyDollarIcon } from "@heroicons/react/20/solid";
 import { WEBAPP_URL } from "@cargoship/lib/constants";
+import Button from "@/components/ui/Button";
 
 export default async function SingleApiPage({ params }) {
   const api = await getApi(params.apiId);
@@ -28,29 +29,27 @@ export default async function SingleApiPage({ params }) {
           </div>
         </div>
       </div>
+      <hr className="my-5 text-slate-200" />
+      <p className="my-4 text-base text-slate-800">{api.description}</p>
       <div className="mt-8">
+        <h3 className="mb-3 text-lg font-bold leading-7 text-gray-900 sm:truncate sm:text-xl sm:tracking-tight">
+          API Endpoint
+        </h3>
         <Code code={publicApiEndpoint} />
-        <Tabs defaultValue="general" className="mt-8 w-[400px]">
+        <hr className="my-5 text-slate-200" />
+        <h3 className="text-lg font-bold leading-7 text-gray-900 sm:truncate sm:text-xl sm:tracking-tight">
+          Usage
+        </h3>
+        <Tabs defaultValue="general" className="mt-8 w-full">
           <TabsList>
             <TabsTrigger value="general">General</TabsTrigger>
             <TabsTrigger value="curl">curl</TabsTrigger>
           </TabsList>
           <TabsContent value="general">
             <h2 className="font-semibold">Request</h2>
-
-            <p className="mt-2 whitespace-pre-wrap rounded bg-slate-100 p-2 text-sm text-slate-500 dark:text-slate-400">
-              <Code
-                code={`{
-    "text": "Hello World!"
-}`}
-              />
-            </p>
+            <Code code={api.instructions?.request} />
             <h2 className="mt-8 font-semibold">Response</h2>
-            <Code
-              code={`{
-    "language": "en"
-}`}
-            />
+            <Code code={api.instructions?.response} />
           </TabsContent>
           <TabsContent value="curl">
             <Code
@@ -58,6 +57,20 @@ export default async function SingleApiPage({ params }) {
             />
           </TabsContent>
         </Tabs>
+        <p className="mt-4 text-sm text-slate-800">
+          You need a personal API key to use this API. You can find your API key on the{" "}
+          <a href={`/teams/${params.teamId}/settings`} className="underline">
+            settings
+          </a>{" "}
+          page.
+        </p>
+        <hr className="my-5 text-slate-200" />
+        <p className="text-sm text-slate-800">
+          You can find more information about this model on the cargoship website:
+        </p>
+        <Button href={api.instructions.docsUrl} target="_blank" variant="secondary" className="mt-4">
+          More Information
+        </Button>
       </div>
     </ContentWrapper>
   );
