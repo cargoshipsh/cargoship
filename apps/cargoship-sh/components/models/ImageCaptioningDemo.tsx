@@ -80,7 +80,7 @@ export function ImageCaptioningDemo() {
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center bg-slate-900/20">
             <div className="flex flex-col items-center space-y-2">
-              <div className="h-10 w-10 animate-spin rounded-full border-t-2 border-b-2 border-white"></div>
+              <div className="h-10 w-10 animate-spin rounded-full border-b-2 border-t-2 border-white"></div>
             </div>
           </div>
         )}

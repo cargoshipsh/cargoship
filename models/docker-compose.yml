@@ -1,0 +1,131 @@
+version: "3.3"
+services:
+  image-captioning:
+    restart: unless-stopped
+    image: cargoshipsh/image-captioning
+    networks:
+      - web
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.image-captioning.rule=Host(`image-captioning.api.cargoship.sh`)"
+      - "traefik.http.routers.image-captioning.tls.certresolver=default"
+      - "traefik.http.routers.image-captioning.entrypoints=websecure"
+      - "traefik.http.services.image-captioning.loadbalancer.server.port=80"
+
+  image-classification:
+    restart: unless-stopped
+    image: cargoshipsh/image-classification
+    networks:
+      - web
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.image-classification.rule=Host(`image-classification.api.cargoship.sh`)"
+      - "traefik.http.routers.image-classification.tls.certresolver=default"
+      - "traefik.http.routers.image-classification.entrypoints=websecure"
+      - "traefik.http.services.image-classification.loadbalancer.server.port=80"
+
+  language-detection:
+    restart: unless-stopped
+    image: cargoshipsh/language-detection
+    networks:
+      - web
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.language-detection.rule=Host(`language-detection.api.cargoship.sh`)"
+      - "traefik.http.routers.language-detection.tls.certresolver=default"
+      - "traefik.http.routers.language-detection.entrypoints=websecure"
+      - "traefik.http.services.language-detection.loadbalancer.server.port=80"
+
+  ocr-base-handwritten:
+    restart: unless-stopped
+    image: cargoshipsh/ocr-base-handwritten
+    networks:
+      - web
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ocr-base-handwritten.rule=Host(`ocr-base-handwritten.api.cargoship.sh`)"
+      - "traefik.http.routers.ocr-base-handwritten.tls.certresolver=default"
+      - "traefik.http.routers.ocr-base-handwritten.entrypoints=websecure"
+      - "traefik.http.services.ocr-base-handwritten.loadbalancer.server.port=80"
+
+  sentiment-de:
+    restart: unless-stopped
+    image: cargoshipsh/sentiment-de
+    networks:
+      - web
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sentiment-de.rule=Host(`sentiment-de.api.cargoship.sh`)"
+      - "traefik.http.routers.sentiment-de.tls.certresolver=default"
+      - "traefik.http.routers.sentiment-de.entrypoints=websecure"
+      - "traefik.http.services.sentiment-de.loadbalancer.server.port=80"
+
+  sentiment-en:
+    restart: unless-stopped
+    image: cargoshipsh/sentiment-en
+    networks:
+      - web
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sentiment-en.rule=Host(`sentiment-en.api.cargoship.sh`)"
+      - "traefik.http.routers.sentiment-en.tls.certresolver=default"
+      - "traefik.http.routers.sentiment-en.entrypoints=websecure"
+      - "traefik.http.services.sentiment-en.loadbalancer.server.port=80"
+
+  summarization-en:
+    restart: unless-stopped
+    image: cargoshipsh/summarization-en
+    networks:
+      - web
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.summarization-en.rule=Host(`summarization-en.api.cargoship.sh`)"
+      - "traefik.http.routers.summarization-en.tls.certresolver=default"
+      - "traefik.http.routers.summarization-en.entrypoints=websecure"
+      - "traefik.http.services.summarization-en.loadbalancer.server.port=80"
+
+  whisper-tiny-en:
+    restart: unless-stopped
+    image: cargoshipsh/whisper-tiny-en
+    networks:
+      - web
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whisper-tiny-en.rule=Host(`whisper-tiny-en.api.cargoship.sh`)"
+      - "traefik.http.routers.whisper-tiny-en.tls.certresolver=default"
+      - "traefik.http.routers.whisper-tiny-en.entrypoints=websecure"
+      - "traefik.http.services.whisper-tiny-en.loadbalancer.server.port=80"
+
+  text-generation-en-sm:
+    restart: unless-stopped
+    image: cargoshipsh/text-generation-en-sm
+    networks:
+      - web
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.text-generation-en-sm.rule=Host(`text-generation-en-sm.api.cargoship.sh`)"
+      - "traefik.http.routers.text-generation-en-sm.tls.certresolver=default"
+      - "traefik.http.routers.text-generation-en-sm.entrypoints=websecure"
+      - "traefik.http.services.text-generation-en-sm.loadbalancer.server.port=80"
+
+networks:
+  web:
+    external: true
