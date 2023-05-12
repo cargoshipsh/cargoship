@@ -37,6 +37,7 @@ export default async function SingleApiPage({ params }) {
           API Endpoint
         </h3>
         <Code code={publicApiEndpoint} />
+<<<<<<< HEAD
         <hr className="my-5 text-slate-200" />
         <h3 className="text-lg font-bold leading-7 text-gray-900 sm:truncate sm:text-xl sm:tracking-tight">
           Models
@@ -73,9 +74,14 @@ export default async function SingleApiPage({ params }) {
           Usage
         </h3>
         <Tabs defaultValue="general" className="mt-8 w-full">
+=======
+        <Tabs defaultValue="general" className="mt-8">
+>>>>>>> changes from last week
           <TabsList>
             <TabsTrigger value="general">General</TabsTrigger>
             <TabsTrigger value="curl">curl</TabsTrigger>
+            <TabsTrigger value="axios">axios</TabsTrigger>
+            <TabsTrigger value="python">Python</TabsTrigger>
           </TabsList>
           <TabsContent value="general">
             <h2 className="font-semibold">Request</h2>
@@ -85,7 +91,27 @@ export default async function SingleApiPage({ params }) {
           </TabsContent>
           <TabsContent value="curl">
             <Code
-              code={`curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"text":"Hello, World!"}' ${publicApiEndpoint}`}
+              code={`curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: ***Your API Key***' --data '{"text":"Hello, World!"}' ${publicApiEndpoint}`}
+            />
+          </TabsContent>
+          <TabsContent value="axios">
+            <Code
+              code={`axios.post('${publicApiEndpoint}, {
+    text: 'Hello World',
+},
+{headers: 
+    {X-API-Key: ***Your Api Key***}
+})
+.then((response) => {
+    console.log(response);
+}, (error) => {
+    console.log(error);
+}); `}
+            />
+          </TabsContent>
+          <TabsContent value="python">
+            <Code
+              code={`requests.post("${publicApiEndpoint}", data = {"text": "Hello World"}, headers = {"X-API-Key": "***Your Api Key***"})`}
             />
           </TabsContent>
         </Tabs>

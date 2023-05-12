@@ -1,0 +1,12 @@
+Log created: 2023-05-09T10:11:12.735533000Z
+Process ID:  5912 (0x1718)
+Parent PID:  1 (0x1)
+Executable:  /usr/lib/virtualbox/VBoxHeadless
+Arg[0]: /usr/lib/virtualbox/VBoxHeadless
+Arg[1]: --comment
+Arg[2]: default
+Arg[3]: --startvm
+Arg[4]: 0da86bbc-0186-4593-9963-fb34841f4e7f
+Arg[5]: --vrde
+Arg[6]: config
+AddRef: illegal refcnt=3221225469 state=2
