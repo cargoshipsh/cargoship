@@ -28,7 +28,7 @@ const sections = [
       { name: 'Language Detection', tiers: { Free: true, Premium: true } },
       { name: 'Sentiment Detection', tiers: { Free: true, Premium: true } },
       { name: 'Text Summarization', tiers: { Free: true, Premium: true } },
-      { name: 'Text Generation', tiers: { Free: false, Premium: 'coming soon' } },
+      { name: 'Text Generation', tiers: { Free: true, Premium: 'coming soon' } },
       { name: 'Image Generation', tiers: { Free: false, Premium: 'coming soon' } },
       { name: 'Audio Transcription', tiers: { Free: false, Premium: 'coming soon' } },
       { name: 'General Data Processing', tiers: { Free: 'coming soon', Premium: 'coming soon' } },
