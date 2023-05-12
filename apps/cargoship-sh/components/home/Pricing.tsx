@@ -23,15 +23,27 @@ const sections = [
   {
     name: 'APIs',
     features: [
-      { name: 'Image Captioning', tiers: { Free: '200 calls / month', Premium: true } },
-      { name: 'Image Classification', tiers: { Free: '200 calls / month', Premium: true } },
-      { name: 'Language Detection', tiers: { Free: '200 calls / month', Premium: true } },
-      { name: 'Sentiment Detection', tiers: { Free: '200 calls / month', Premium: true } },
-      { name: 'Text Summarization', tiers: { Free: '200 calls / month', Premium: true } },
-      { name: 'Text Generation', tiers: { Free: false, Premium: 'comming soon' } },
-      { name: 'Image Generation', tiers: { Free: false, Premium: 'comming soon' } },
-      { name: 'Audio Transcription', tiers: { Free: false, Premium: 'comming soon' } },
-      { name: 'General Data Processing', tiers: { Free: 'comming soon', Premium: 'comming soon' } },
+      { name: 'Image Captioning', tiers: { Free: true, Premium: true } },
+      { name: 'Image Classification', tiers: { Free: true, Premium: true } },
+      { name: 'Language Detection', tiers: { Free: true, Premium: true } },
+      { name: 'Sentiment Detection', tiers: { Free: true, Premium: true } },
+      { name: 'Text Summarization', tiers: { Free: true, Premium: true } },
+      { name: 'Text Generation', tiers: { Free: false, Premium: 'coming soon' } },
+      { name: 'Image Generation', tiers: { Free: false, Premium: 'coming soon' } },
+      { name: 'Audio Transcription', tiers: { Free: false, Premium: 'coming soon' } },
+      { name: 'General Data Processing', tiers: { Free: 'coming soon', Premium: 'coming soon' } },
+    ],
+  },
+  {
+    name: 'Includet Calls',
+    features: [
+      { name: 'Calls per month', tiers: { Free: '2000 Calls', Premium: 'unlimited' } },
+    ],
+  },
+  {
+    name: 'Fair usage',
+    features: [
+      { name: '', tiers: { Free: "If you exceed the included calls once or twice, it's not a big deal.", Premium: "Even unlimited has it's limits. For skyrocking usage we'll call you for an enterprice solution." } },
     ],
   },
   
@@ -191,7 +203,7 @@ export default function Example() {
                       <tr key={feature.name}>
                         <th scope="row" className="py-4 text-sm font-normal leading-6 text-white">
                           {feature.name}
-                          <div className="absolute inset-x-8 mt-4 h-px bg-white/5" />
+                          
                         </th>
                         {tiers.map((tier) => (
                           <td key={tier.id} className="px-6 py-4 xl:px-8">
