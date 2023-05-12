@@ -1,57 +1,72 @@
-import { Fragment } from 'react'
-import { CheckIcon, MinusIcon } from '@heroicons/react/20/solid'
+import { Fragment } from "react";
+import { CheckIcon, MinusIcon } from "@heroicons/react/20/solid";
+import clsx from "clsx";
+
+type TierType = {
+  [key: string]: boolean | string;
+};
+
+type FeatureType = {
+  name: string;
+  tiers: TierType;
+};
+
+type SectionType = {
+  name: string;
+  features: FeatureType[];
+};
 
 const tiers = [
   {
-    name: 'Free',
-    id: 'tier-free',
-    href: 'https://app.cargoship.sh/auth/signup',
-    priceMonthly: '0€',
-    description: 'Start testing the API or use in production for smaller usecases.',
+    name: "Free",
+    id: "tier-free",
+    href: "https://app.cargoship.sh/auth/signup",
+    priceMonthly: "0€",
+    description: "Start testing the API or use in production for smaller usecases.",
     mostPopular: true,
   },
   {
-    name: 'Premium',
-    id: 'tier-premium',
-    href: 'https://app.cargoship.sh/auth/signup',
-    priceMonthly: '59€',
-    description: 'Join the open beta till 30.06.2023 and get all premium features for free.',
+    name: "Premium",
+    id: "tier-premium",
+    href: "https://app.cargoship.sh/auth/signup",
+    priceMonthly: "59€",
+    description: "Join the open beta till 30.06.2023 and get all premium features for free.",
     mostPopular: false,
   },
-]
-const sections = [
+];
+const sections: SectionType[] = [
   {
-    name: 'APIs',
+    name: "APIs",
     features: [
-      { name: 'Image Captioning', tiers: { Free: true, Premium: true } },
-      { name: 'Image Classification', tiers: { Free: true, Premium: true } },
-      { name: 'Language Detection', tiers: { Free: true, Premium: true } },
-      { name: 'Sentiment Detection', tiers: { Free: true, Premium: true } },
-      { name: 'Text Summarization', tiers: { Free: true, Premium: true } },
-      { name: 'Text Generation', tiers: { Free: true, Premium: 'coming soon' } },
-      { name: 'Image Generation', tiers: { Free: false, Premium: 'coming soon' } },
-      { name: 'Audio Transcription', tiers: { Free: false, Premium: 'coming soon' } },
-      { name: 'General Data Processing', tiers: { Free: 'coming soon', Premium: 'coming soon' } },
+      { name: "Image Captioning", tiers: { Free: true, Premium: true } },
+      { name: "Image Classification", tiers: { Free: true, Premium: true } },
+      { name: "Language Detection", tiers: { Free: true, Premium: true } },
+      { name: "Sentiment Detection", tiers: { Free: true, Premium: true } },
+      { name: "Text Summarization", tiers: { Free: true, Premium: true } },
+      { name: "Text Generation", tiers: { Free: true, Premium: "coming soon" } },
+      { name: "Image Generation", tiers: { Free: false, Premium: "coming soon" } },
+      { name: "Audio Transcription", tiers: { Free: false, Premium: "coming soon" } },
+      { name: "General Data Processing", tiers: { Free: "coming soon", Premium: "coming soon" } },
     ],
   },
   {
-    name: 'Includet Calls',
-    features: [
-      { name: 'Calls per month', tiers: { Free: '2000 Calls', Premium: 'unlimited' } },
-    ],
+    name: "Includet Calls",
+    features: [{ name: "Calls per month", tiers: { Free: "2000 Calls", Premium: "unlimited" } }],
   },
   {
-    name: 'Fair usage',
+    name: "Fair usage",
     features: [
-      { name: '', tiers: { Free: "If you exceed the included calls once or twice, it's not a big deal.", Premium: "Even unlimited has it's limits. For skyrocking usage we'll call you for an enterprice solution." } },
+      {
+        name: "",
+        tiers: {
+          Free: "If you exceed the included calls once or twice, it's not a big deal.",
+          Premium:
+            "Even unlimited has it's limits. For skyrocking usage we'll call you for an enterprice solution.",
+        },
+      },
     ],
   },
-  
-]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+];
 
 export default function Example() {
   return (
@@ -60,7 +75,7 @@ export default function Example() {
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-base font-semibold leading-7 text-indigo-400">API Pricing</h2>
           <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-          The right price for you, whoever you are
+            The right price for you, whoever you are
           </p>
         </div>
         <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-300">
@@ -72,11 +87,10 @@ export default function Example() {
           {tiers.map((tier) => (
             <section
               key={tier.id}
-              className={classNames(
-                tier.mostPopular ? 'rounded-xl bg-white/5 ring-1 ring-inset ring-white/10' : '',
-                'p-8'
-              )}
-            >
+              className={clsx(
+                tier.mostPopular ? "rounded-xl bg-white/5 ring-1 ring-inset ring-white/10" : "",
+                "p-8"
+              )}>
               <h3 id={tier.id} className="text-sm font-semibold leading-6 text-white">
                 {tier.name}
               </h3>
@@ -90,13 +104,12 @@ export default function Example() {
               <a
                 href={tier.href}
                 aria-describedby={tier.id}
-                className={classNames(
+                className={clsx(
                   tier.mostPopular
-                    ? 'bg-indigo-500 text-white hover:bg-indigo-400 focus-visible:outline-indigo-500'
-                    : 'bg-white/10 text-white hover:bg-white/20 focus-visible:outline-white',
-                  'mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2'
-                )}
-              >
+                    ? "bg-indigo-500 text-white hover:bg-indigo-400 focus-visible:outline-indigo-500"
+                    : "bg-white/10 text-white hover:bg-white/20 focus-visible:outline-white",
+                  "mt-8 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                )}>
                 Get Started
               </a>
               <ul role="list" className="mt-10 space-y-4 text-sm leading-6 text-white">
@@ -108,9 +121,11 @@ export default function Example() {
                           <li key={feature.name} className="flex gap-x-3">
                             <CheckIcon className="h-6 w-5 flex-none text-indigo-400" aria-hidden="true" />
                             <span>
-                              {feature.name}{' '}
-                              {typeof feature.tiers[tier.name] === 'string' ? (
-                                <span className="text-sm leading-6 text-gray-400">({feature.tiers[tier.name]})</span>
+                              {feature.name}
+                              {typeof feature.tiers[tier.name] === "string" ? (
+                                <span className="text-sm leading-6 text-gray-400">
+                                  ({feature.tiers[tier.name]})
+                                </span>
                               ) : null}
                             </span>
                           </li>
@@ -132,8 +147,7 @@ export default function Example() {
                 <div
                   className="flex w-1/4 px-4"
                   aria-hidden="true"
-                  style={{ marginLeft: `${(tiers.findIndex((tier) => tier.mostPopular) + 1) * 25}%` }}
-                >
+                  style={{ marginLeft: `${(tiers.findIndex((tier) => tier.mostPopular) + 1) * 25}%` }}>
                   <div className="w-full rounded-t-xl border-x border-t border-white/10 bg-white/5" />
                 </div>
               </div>
@@ -172,13 +186,12 @@ export default function Example() {
                       </div>
                       <a
                         href={tier.href}
-                        className={classNames(
+                        className={clsx(
                           tier.mostPopular
-                            ? 'bg-indigo-500 hover:bg-indigo-400 focus-visible:outline-indigo-600'
-                            : 'bg-white/10 hover:bg-white/20 focus-visible:outline-white',
-                          'mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2'
-                        )}
-                      >
+                            ? "bg-indigo-500 hover:bg-indigo-400 focus-visible:outline-indigo-600"
+                            : "bg-white/10 hover:bg-white/20 focus-visible:outline-white",
+                          "mt-8 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                        )}>
                         Get Started
                       </a>
                     </td>
@@ -190,11 +203,10 @@ export default function Example() {
                       <th
                         scope="colgroup"
                         colSpan={4}
-                        className={classNames(
-                          sectionIdx === 0 ? 'pt-8' : 'pt-16',
-                          'pb-4 text-sm font-semibold leading-6 text-white'
-                        )}
-                      >
+                        className={clsx(
+                          sectionIdx === 0 ? "pt-8" : "pt-16",
+                          "pb-4 text-sm font-semibold leading-6 text-white"
+                        )}>
                         {section.name}
                         <div className="absolute inset-x-8 mt-4 h-px bg-white/10" />
                       </th>
@@ -203,11 +215,10 @@ export default function Example() {
                       <tr key={feature.name}>
                         <th scope="row" className="py-4 text-sm font-normal leading-6 text-white">
                           {feature.name}
-                          
                         </th>
                         {tiers.map((tier) => (
                           <td key={tier.id} className="px-6 py-4 xl:px-8">
-                            {typeof feature.tiers[tier.name] === 'string' ? (
+                            {typeof feature.tiers[tier.name] === "string" ? (
                               <div className="text-center text-sm leading-6 text-gray-300">
                                 {feature.tiers[tier.name]}
                               </div>
@@ -220,7 +231,8 @@ export default function Example() {
                                 )}
 
                                 <span className="sr-only">
-                                  {feature.tiers[tier.name] === true ? 'Included' : 'Not included'} in {tier.name}
+                                  {feature.tiers[tier.name] === true ? "Included" : "Not included"} in{" "}
+                                  {tier.name}
                                 </span>
                               </>
                             )}
@@ -236,5 +248,5 @@ export default function Example() {
         </div>
       </div>
     </div>
-  )
+  );
 }
