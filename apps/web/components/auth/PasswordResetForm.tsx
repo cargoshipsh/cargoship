@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { XCircleIcon } from "@heroicons/react/20/solid";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Link from "next/dist/client/link";
 
 export const PasswordResetForm = ({}) => {
   const router = useRouter();
@@ -58,11 +59,13 @@ export const PasswordResetForm = ({}) => {
           <Button type="submit" className="w-full justify-center">
             Send password reset email
           </Button>
-          <div className="mt-3 text-center">
-            <Button variant="secondary" href="/auth/login" className="w-full justify-center">
-              Back to login
-            </Button>
-          </div>
+        </div>
+        <div>
+          <Link
+            href="/auth/login"
+            className="hover:text-brand-dark mt-3 grid grid-cols-1 space-y-2 text-center text-xs text-slate-700">
+            Back to Login
+          </Link>
         </div>
       </form>
     </>
