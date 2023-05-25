@@ -33,6 +33,7 @@
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.8.0",
+    "react-images-uploading": "^3.1.7",
     "react-loader-spinner": "^5.3.4",
     "react-toastify": "^9.1.2",
     "swr": "^2.1.5",

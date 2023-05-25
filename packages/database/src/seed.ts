@@ -25,6 +25,14 @@ const apis = [
 }`,
       curl: `curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"text":"Hello, World!"}'`,
       docsUrl: "https://cargoship.sh/collections/text-processing/language-detection",
+      playground: {
+        type: "text",
+        defaults: {
+          input: "Hello, what's up?",
+          output: "en",
+        },
+        outputKey: "language",
+      },
     },
   },
   {
@@ -56,6 +64,14 @@ const apis = [
 }`,
       curl: `curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"text":"I like you!"}'`,
       docsUrl: "https://cargoship.sh/collections/text-processing/sentiment-analysis-en",
+      playground: {
+        type: "text",
+        defaults: {
+          input: "I like you",
+          output: "positive",
+        },
+        outputKey: "sentiment",
+      },
     },
   },
   {
@@ -81,6 +97,16 @@ const apis = [
 }`,
       curl: `curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"text":"A very long text..."}'`,
       docsUrl: "https://cargoship.sh/collections/text-processing/summarization-en",
+      playground: {
+        type: "text",
+        defaults: {
+          input:
+            "When it comes to machine learning, everyone says it's going to make our lives easier - and it's true! But that's not true for most developers out there. ML has the potential to automate and revolutionise the way we work and live. However, developing machine learning models can be time consuming and resource intensive, requiring a significant amount of domain knowledge, data processing skills and technical expertise.",
+          output:
+            "Developing machine learning models can be time consuming and resource intensive. It requires domain knowledge, data processing skills and technical expertise for most developers.",
+        },
+        outputKey: "text",
+      },
     },
   },
   {
@@ -93,7 +119,7 @@ const apis = [
         id: "en",
         name: "English",
         description: "Image Captioning Model for English",
-        endpointUrl: "https://image-captioning-en.models.cargoship.sh",
+        endpointUrl: "https://image-captioning.models.cargoship.sh",
         default: true,
       },
     ],
@@ -106,6 +132,13 @@ const apis = [
 }`,
       curl: `curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"url":"bit.ly/3BeQtgL"}'`,
       docsUrl: "https://cargoship.sh/collections/image-recognition/image-captioning",
+      playground: {
+        type: "image",
+        defaults: {
+          output: `a person riding a surfboard on top of a wave in the ocean`,
+        },
+        outputKey: "caption",
+      },
     },
   },
   {
@@ -131,6 +164,13 @@ const apis = [
 }`,
       curl: `curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"url":"bit.ly/3BeQtgL"}'`,
       docsUrl: "https://cargoship.sh/collections/image-recognition/image-classification",
+      playground: {
+        type: "image",
+        defaults: {
+          output: `seashore, coast, seacoast, sea-coast`,
+        },
+        outputKey: "prediction",
+      },
     },
   },
   {
@@ -149,15 +189,25 @@ const apis = [
     ],
     instructions: {
       request: `{
-  Person A: Hi, where are you from?
-  Person B: Gemany and you?
-  Person A:
+  "text": "Person A: Hi, where are you from? Person B: Gemany and you? Person A:"
 }`,
       response: `{
-  "prediction": "seashore, coast, seacoast, sea-coast"
+  "text": "Person A: Hi, where are you from? Person B: Gemany and you? Person A: Well, my father and mother, and the lady that goes by Miss Rose. I'm glad I stayed to be more honest.
 }`,
       curl: `curl -X POST -H 'Content-type: application/json' -H 'X-API-Key: CHANGE_ME' --data '{"url":"bit.ly/3BeQtgL"}'`,
       docsUrl: "https://cargoship.sh/collections/image-recognition/image-classification",
+      playground: {
+        type: "text",
+        defaults: {
+          input: `Person A: Hi, where are you from?
+            Person B: Gemany and you?
+            Person A:`,
+          output: `Person A: Hi, where are you from?
+            Person B: Gemany and you?
+            Person A: Well, my father and mother, and the lady that goes by Miss Rose. I'm glad I stayed to be more honest.`,
+        },
+        outputKey: "text",
+      },
     },
   },
 ];
