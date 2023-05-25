@@ -14,6 +14,13 @@ const navigation = [
       { title: "Deployment", href: "/docs/basics/deployment" },
     ],
   },
+  {
+    title: "Cloud",
+    links: [
+      { title: "Introduction", href: "/docs/cloud/introduction" },
+      { title: "API Keys", href: "/docs/cloud/api-keys" },
+    ],
+  },
 ];
 
 export default navigation;

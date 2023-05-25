@@ -147,7 +147,7 @@ export default function ProfileSettingsPage({ apiKeys }: ProfileSettingsPageProp
             }}>
             <div>
               <label htmlFor="label" className="block text-sm font-medium text-gray-700">
-                Email
+                Label
               </label>
               <div className="mt-1">
                 <input

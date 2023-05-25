@@ -1,0 +1,42 @@
+import { Layout } from "@/components/docs/Layout";
+import Image from "next/image";
+import { Callout } from "@/components/shared/Callout";
+
+export const meta = {
+  title: "All About API Keys in Cargoship Cloud 🔑",
+};
+
+Anchors aweigh! It's time to dive into the details of API keys in Cargoship Cloud. This page will serve as your compass, guiding you through the why, what, and how of API keys.
+
+## What's an API Key and Why Do I Need One? 🤔
+
+An API Key is like your personal access ticket to the Cargoship Cloud. It's a unique identifier that gives you access to our API. Think of it as your own secret handshake with our system. 🤝
+
+By using an API Key, we can ensure that our cloud is secure and that all access is authenticated. We can also keep track of your usage so we can help you stay within your quota.
+
+## Generating an API Key 💡
+
+Generating an API Key is as simple as steering a ship on a calm sea. Here's how to do it:
+
+1. Log in to your [Cargoship Cloud](https://app.cargoship.sh) account. 💻
+2. Navigate to the 'Settings' page. ⚙️
+3. Click on 'Add API Key'. ➕
+4. Enter a label for the new API Key. This could be anything that helps you identify the key later - 'My First API Key', 'Backend Automation', etc.
+
+Voila! Your new API Key is ready to set sail!
+
+## Managing Your API Keys 🛠️
+
+You can generate multiple API keys to manage different projects or use cases. Don't forget to label them so you can easily identify which key belongs to which project.
+
+Should you ever lose an API Key or fear it might have fallen into the wrong hands, you can delete it just as easily:
+
+1. Go to the 'Settings' page. ⚙️
+2. Locate the API Key in the list.
+3. Click on 'Delete'. 🗑️
+
+The API Key will be deleted immediately. Once deleted, it cannot be recovered, but you can always generate a new one.
+
+Remember, your API keys are like your crewmates on this AI journey. Keep them safe and they'll keep your journey smooth!
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
