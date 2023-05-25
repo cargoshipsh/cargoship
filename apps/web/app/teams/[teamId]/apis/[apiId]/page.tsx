@@ -7,6 +7,7 @@ import { CalendarIcon, CurrencyDollarIcon } from "@heroicons/react/20/solid";
 import { WEBAPP_URL } from "@cargoship/lib/constants";
 import Button from "@/components/ui/Button";
 import clsx from "clsx";
+import Playground from "./Playground";
 
 export default async function SingleApiPage({ params }) {
   const api = await getApi(params.apiId);
@@ -55,6 +56,9 @@ export default async function SingleApiPage({ params }) {
                   <div className="flex-1 truncate px-4 py-2 text-sm">
                     <p className="font-medium text-gray-900 hover:text-gray-600">{model.name}</p>
                     <p className="text-gray-500">{model.description}</p>
+                    <p className="mt-1 text-gray-500">
+                      <span className="rounded bg-slate-200 p-1 text-xs">model={model.id}</span>
+                    </p>
                   </div>
                 </div>
               </li>
@@ -72,11 +76,15 @@ export default async function SingleApiPage({ params }) {
         <h3 className="text-lg font-bold leading-7 text-gray-900 sm:truncate sm:text-xl sm:tracking-tight">
           Usage
         </h3>
-        <Tabs defaultValue="general" className="mt-8 w-full">
+        <Tabs defaultValue={api.instructions?.playground ? "playground" : "general"} className="mt-8 w-full">
           <TabsList>
+            {api.instructions?.playground && <TabsTrigger value="playground">Playground</TabsTrigger>}
             <TabsTrigger value="general">General</TabsTrigger>
             <TabsTrigger value="curl">curl</TabsTrigger>
           </TabsList>
+          <TabsContent value="playground">
+            <Playground api={api} />
+          </TabsContent>
           <TabsContent value="general">
             <h2 className="font-semibold">Request</h2>
             <Code code={api.instructions?.request} />
