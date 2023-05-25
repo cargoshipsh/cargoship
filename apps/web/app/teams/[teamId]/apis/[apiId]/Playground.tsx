@@ -51,6 +51,7 @@ export default function Playground({ api }) {
               e.preventDefault();
               makePrediction(
                 {
+                  // @ts-ignore
                   text: e.target.text.value,
                 },
                 api.instructions.playground.outputKey
