@@ -1,0 +1,80 @@
+import { Layout } from "@/components/docs/Layout";
+import Image from "next/image";
+import { Callout } from "@/components/shared/Callout";
+
+export const meta = {
+  title: "Using the Cargoship Cloud API 🛰️",
+};
+
+Welcome to the bridge, captain! It's time to learn how to control the helm and steer your way through the Cargoship Cloud API.
+
+Our API is simple and consistent. We have different machine learning models, but the API always follows the pattern: `https://app.cargoship.sh/api/[task]`
+
+For example, if you want to use sentiment analysis, the URL would be: `https://app.cargoship.sh/api/sentiment`
+
+## Selecting a Model 🧙‍♀️
+
+For some tasks, we have multiple models (for different languages, different sized models, etc.). You can specify the model you want to use with the `?model=[name]` parameter.
+
+For example, to use the German sentiment model, the URL would be: `https://app.cargoship.sh/api/sentiment?model=de`
+
+## Input and Output Definitions 📥 📤
+
+The specific definitions of the input and output for each task can be found on the task's overview page in the Cargoship Cloud.
+
+For instance, for sentiment detection, you might have:
+
+**Input:**
+
+```json
+{
+  "text": "I like you"
+}
+```
+
+**Output:**
+
+```json
+{
+  "sentiment": "positive"
+}
+```
+
+## Example: Using the API with JavaScript 💻
+
+Now that you understand the basics, let's take a look at a code example. Here's how you might call the sentiment analysis API using JavaScript:
+
+```javascript
+// Required Node.js module
+const axios = require("axios");
+
+// Define the API endpoint
+let url = "https://app.cargoship.sh/api/sentiment?model=en";
+
+// Define the data to send
+let data = {
+  text: "I like you",
+};
+
+// Define the headers for the HTTP request
+let headers = {
+  "Content-Type": "application/json",
+  "X-API-Key": "YOUR_API_KEY", // replace 'YOUR_API_KEY' with your actual API Key
+};
+
+// Use Axios to send a POST request
+axios
+  .post(url, data, { headers: headers })
+  .then((response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+Remember to replace `YOUR_API_KEY` with your actual API key. Also, make sure you have the axios library installed in your Node.js project (you can install it with npm install axios).
+
+With the Cargoship Cloud API at your command, your software will be powered by AI in no time!
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

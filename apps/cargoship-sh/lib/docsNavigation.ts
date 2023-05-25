@@ -19,6 +19,7 @@ const navigation = [
     links: [
       { title: "Introduction", href: "/docs/cloud/introduction" },
       { title: "API Keys", href: "/docs/cloud/api-keys" },
+      { title: "How to use", href: "/docs/cloud/how-to-use" },
     ],
   },
 ];
