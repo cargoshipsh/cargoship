@@ -67,7 +67,11 @@ export default async function SingleApiPage({ params }) {
         </div>
         <p className="mt-4 text-sm text-slate-500">
           You can more about how to switch between different models in our{" "}
-          <a href="https://cargoship.sh/docs" target="_blank" className="underline" rel="noreferrer">
+          <a
+            href="https://cargoship.sh/docs/cloud/how-to-use"
+            target="_blank"
+            className="underline"
+            rel="noreferrer">
             docs
           </a>
           .
