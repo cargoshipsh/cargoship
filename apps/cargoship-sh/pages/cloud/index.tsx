@@ -1,13 +1,13 @@
-import Features from "@/components/home/Features";
-import Hero from "@/components/home/Hero";
-import ModelCollection from "@/components/home/ModelCollection";
+import Hero from "@/components/cloud/Hero";
+import Cloud from "@/components/cloud/Features";
+import CTA from "@/components/cloud/CTA";
+import Pricing from "@/components/cloud/Pricing";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/shared/Footer";
-import GithubInfo from "@/components/shared/GithubInfo";
 import MetaInformation from "@/components/shared/MetaInformation";
 import { UniversalCTA } from "@/components/shared/UniversalCTA";
 
-export default function HomePage() {
+export default function CloudLanding() {
   return (
     <div className="isolate bg-gray-900">
       <MetaInformation
@@ -16,11 +16,12 @@ export default function HomePage() {
           "Choose a model from our collection and use it with zero machine learning knowledge to build amazing products."
         }
       />
-      <GithubInfo />
       <Navbar />
       <main>
         <Hero />
-        <Features />
+        <Cloud />
+        <Pricing /> 
+        <CTA />
         <UniversalCTA
           teaser="Cargoship is still evolving"
           headline="Join the discussion"
@@ -29,7 +30,6 @@ export default function HomePage() {
           href="/discord"
           inverted
         />
-        <ModelCollection />
         <div className="my-10"></div>
         <Footer />
       </main>
