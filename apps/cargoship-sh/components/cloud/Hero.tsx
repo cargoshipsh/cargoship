@@ -30,7 +30,7 @@ export default function Hero() {
               Get started for free
             </Link>
             <Link href="/docs/cloud/introduction" className="text-base font-semibold leading-7 text-white">
-              Learn more <span aria-hidden="true">→</span>
+              Read the docs <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
